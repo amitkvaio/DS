@@ -42,8 +42,8 @@ public class CircularLinkedList implements NodeInterface {
 			tail.next=newNode;
 			tail = newNode;
 			tail.next=temp;
+			length++;
 		}
-		length++;
 	}
 
 	@Override

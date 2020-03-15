@@ -24,6 +24,7 @@ public class DLLDriverClass {
 			System.out.println("13 Exit.");
 			System.out.println("14 Get Middle Node.");
 			System.out.println("15 Create the loop.");
+			System.out.println("16 Detect the loop status.");
 			System.out.println("Enter you Choice.");
 			int choice = sc.nextInt();
 			int positition,val;
@@ -85,6 +86,10 @@ public class DLLDriverClass {
 			case 15:
 				list.createLoop();
 				System.out.println("Loop has been created!!");
+				break;
+			case 16:
+				boolean flag=list.detectLoop();
+				System.out.println("Loop status is :"+flag);
 				break;
 			default:
 				System.out.println("Envalid Entry!!");

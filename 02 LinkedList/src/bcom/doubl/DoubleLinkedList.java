@@ -47,6 +47,7 @@ public class DoubleLinkedList implements NodeInterface {
 			tail.next=newNode;
 		}
 		tail = newNode;
+		lenth++;
 	}
 
 	@Override
@@ -55,11 +56,13 @@ public class DoubleLinkedList implements NodeInterface {
 		if (position == 1) {
 			addFirst(val);
 			return;
-		} else if (position < 1 || position > getSize()) {
+		}else if(position==getSize()) {
+			addLast(val);
+		}else if (position < 1 || position > getSize()) {
 			throw new ArrayIndexOutOfBoundsException("Insertion of new Node not possible!!");
 		} else {
 			Node temp = head;
-			for (int i = 1; i <= getSize(); i++) {
+			for (int i = 2; i <= getSize(); i++) {
 				if (i == position) {
 					Node current = temp.next;
 					newNode.previous = temp;
@@ -69,8 +72,9 @@ public class DoubleLinkedList implements NodeInterface {
 				}
 				temp = temp.next;
 			}
+			lenth++;
 		}
-		lenth++;
+		
 	}
 
 	@Override
@@ -78,6 +82,7 @@ public class DoubleLinkedList implements NodeInterface {
 		if(isEmpty()) {
 			throw new NoSuchElementException("Deletion is not possible!!");
 		}else if (head==tail){
+			head=null;
 			tail =null;
 		}else {
 			Node temp = head;
@@ -93,9 +98,8 @@ public class DoubleLinkedList implements NodeInterface {
 	public void deleteLast() {
 		if(isEmpty()) {
 			throw new NoSuchElementException("Deletion is not possible!!");
-		}else if(getSize()==1) {
-			deleteFirst();
 		}else if(tail==head) {
+			tail = null;
 			head=null;
 		}else {
 			Node temp = tail;
@@ -163,6 +167,7 @@ public class DoubleLinkedList implements NodeInterface {
 		first.next=second;
 		second.previous=first;
 		tail = second;
+		
 		second.next=third;
 		third.previous=second;
 		tail=third;
@@ -212,7 +217,7 @@ public class DoubleLinkedList implements NodeInterface {
 	@Override
 	public Node getMiddleNode() {
 		int size = getSize();
-		int requiredPos = (size % 2 == 0 ? size / 2 : size / 2 + 1);
+		int requiredPos = size % 2;
 		System.out.println("Required Position : "+requiredPos);
 		Node temp = head;
 		for (int i = 1; i <= size ; i++) {
@@ -261,10 +266,21 @@ public class DoubleLinkedList implements NodeInterface {
 
 	@Override
 	public boolean detectLoop() {
-		// TODO Auto-generated method stub
+		// If list is empty or has only one node without loop
+		if (head == null || head.next == null) {
+			return false;
+		}
+		Node slowPtr = head;
+		Node fastPtr = head;
+		while (fastPtr != null && fastPtr.next != null) {
+			fastPtr = fastPtr.next.next;
+			slowPtr = slowPtr.next;
+			if (slowPtr == fastPtr)
+				return true;
+		}
 		return false;
-	}
 
+	}
 }
 
 //https://www.codesdope.com/course/data-structures-doubly-linked-lists/
