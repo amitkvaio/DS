@@ -14,7 +14,8 @@ public class StackDriver {
 			System.out.println("3 Push the Element into the Stack");
 			System.out.println("4 Pop the top Elements!");
 			System.out.println("5 Peek the top Element of the Stack");
-			System.out.println("6 Exit");
+			System.out.println("6 Display");
+			System.out.println("7 Exit");
 			System.out.println("Enter the Choice:");
 			switch (sc.nextInt()) {
 			case 1:
@@ -36,6 +37,9 @@ public class StackDriver {
 				System.out.println("Top Element :" + stack.peek());
 				break;
 			case 6:
+				stack.display();
+				break;
+			case 7:
 				status = false;
 				break;
 			default:
