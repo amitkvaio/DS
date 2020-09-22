@@ -1,6 +1,6 @@
 package acom.single;
 
-public class SingleLinkedList {
+public class SingleLinkedList implements NodeInterface {
 	public Node head;
 	public int size;
 	
@@ -148,15 +148,14 @@ public class SingleLinkedList {
 			return;
 		}
 		
-		
-		Node temp = head;
+		Node current = head;
 		Node previous = null;
 		Node next = null;
-		while (temp != null) {
-			next = temp.next;
-			temp.next = previous;
-			previous = temp;
-			temp = next;
+		while (current != null) {
+			next = current.next;
+			current.next = previous;
+			previous = current;
+			current = next;
 		}
 		// Print reverse element
 		if (isEmpty()) {
@@ -168,5 +167,10 @@ public class SingleLinkedList {
 			temp1 = temp1.next;
 		}
 		System.out.print("Null\n");
+	}
+
+	@Override
+	public void displayList() {
+		Util.displayList(head);
 	}
 }
