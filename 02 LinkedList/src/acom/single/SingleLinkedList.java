@@ -10,7 +10,7 @@ public class SingleLinkedList {
 	}
 	 
 	public boolean isEmpty() {
-		return (size==0);
+		return (size==0 ||head ==null);
 	}
 	 
 	public int getSize() {
@@ -19,12 +19,12 @@ public class SingleLinkedList {
 	 
 	public void addFirst(int val) {
 		Node newNode = new Node(val);
-		Node temp;
+	//	Node temp;
 		if(head == null) {
 			head = newNode;
 		}else {
-			temp = head;
-			newNode.next=temp;
+			//temp = head;
+			newNode.next=head;
 			head =newNode;
 		}
 		size++;
@@ -46,23 +46,21 @@ public class SingleLinkedList {
 	}
 	 
 	public void addGivenPosition(int val, int position) {
-		if(isEmpty() || position == 1) {
+		if (isEmpty() || position == 1) {
 			addFirst(val);
-		}else if(position <  1 || position > size+1) {
+		} else if (position < 1 || position > size + 1) {
 			System.out.println("Ivalide Position Insertion is not possible!!");
-		}else {
+		} else {
 			Node newNode = new Node(val);
-			Node temp, current;
-			temp = head;
+			Node temp = head;
 			int count = 1;
-			 while(count < position-1) {
-				 temp = temp.next;
-				 count++;
-			 }
-			 current = temp.next;
-			 newNode.next = current;
-			 temp.next=newNode;
-			 size++;
+			while (count < position - 1) {
+				temp = temp.next;
+				count++;
+			}
+			newNode.next = temp.next;
+			temp.next = newNode;
+			size++;
 		}
 	}
 	 
@@ -70,9 +68,9 @@ public class SingleLinkedList {
 		if(head ==null) {
 			return;
 		}
-		Node first = head;
-		head = head.next;
-		first.next=null;
+		Node temp = head;
+		head = temp.next;
+		temp.next=null;
 		size--;
 	}
 	 
@@ -82,13 +80,13 @@ public class SingleLinkedList {
 		} else if (size == 1) {
 			deleteFirst();
 		} else {
-			Node last = head;
-			Node temp = null;
-			while (last.next != null) {
-				temp = last;
-				last = last.next;
+			Node temp = head;
+			Node last = null;
+			while (temp.next != null) {
+				last = temp;
+				temp = temp.next;
 			}
-			temp.next = null;
+			last.next = null;
 			size--;
 		}
 	}
@@ -149,23 +147,25 @@ public class SingleLinkedList {
 		if (head == null) {
 			return;
 		}
-		Node current = head;
+		
+		
+		Node temp = head;
 		Node previous = null;
 		Node next = null;
-		while (current != null) {
-			next = current.next;
-			current.next = previous;
-			previous = current;
-			current = next;
+		while (temp != null) {
+			next = temp.next;
+			temp.next = previous;
+			previous = temp;
+			temp = next;
 		}
 		// Print reverse element
 		if (isEmpty()) {
 			return;
 		}
-		Node temp = previous;
-		while (temp != null) {
-			System.out.print(temp.data + "-->");
-			temp = temp.next;
+		Node temp1 = previous;
+		while (temp1 != null) {
+			System.out.print(temp1.data + "-->");
+			temp1 = temp1.next;
 		}
 		System.out.print("Null\n");
 	}

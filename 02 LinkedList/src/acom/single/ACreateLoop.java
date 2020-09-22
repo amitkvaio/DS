@@ -8,8 +8,13 @@ public class ACreateLoop {
 		boolean loopStatus = detectLoop();
 		System.out.println("Loop Status : "+loopStatus);
 		Util.displayList(head);
-		System.out.println("=================");
+		/*System.out.println("=================");
 		removeLoop();
+		Util.displayList(head);*/
+		System.out.println("**********************");
+		removeLoopUsingIsVisitedNode(head);
+		System.out.println("************Done************");
+		System.out.println("After Removing loop!!");
 		Util.displayList(head);
 	}
 	
@@ -108,5 +113,23 @@ public class ACreateLoop {
 	        /* Set the next node of the loop ending node 
 	         to fix the loop */
 	        ptr2.next = null; 
-	    } 
+	    }
+	   
+	   public static  void removeLoopUsingIsVisitedNode(Node head) {
+		   if(head==null) {
+			   return;
+		   }else{
+			   Node temp = head;
+			   Node previous = null;
+			   while(temp.isVisited !=true ) {
+				   temp.isVisited = true;
+				   previous = temp;
+				   temp = temp.next;
+				  
+			   }
+			   previous.next = null;
+			   System.out.println("Starting of Loop Node::"+temp.data);
+			   System.out.println("Previous of starting of loop Node Data ::"+previous.data);
+		   }
+	   }
 }

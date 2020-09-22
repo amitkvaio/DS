@@ -15,6 +15,5 @@ public interface NodeInterface {
 	public abstract void reverseLinkedList();
 	public abstract Node getMiddleNode();
 	public abstract void createLoop();
-	public abstract boolean detectLoop();
-	
+	public abstract boolean detectLoop();	
 }
