@@ -4,6 +4,7 @@ public class Util {
 	public static void displayList(Node head) {
 		int count = 0;
 		if (head == null) {
+			System.out.println("There is no nodes are present in the given linked list!!!");
 			return;
 		}
 		Node temp = head;

@@ -27,12 +27,13 @@ public class BDeleteMiddleNode {
 		Node first_prt = head;
 		Node prev = null;
 		while (first_prt != null && first_prt.next != null) {
-			first_prt = first_prt.next.next;
 			prev = slow_prt;
 			slow_prt = slow_prt.next;
+			first_prt = first_prt.next.next;
 		}
 		System.out.println("Mid Elements :" + slow_prt.data + " and it is deleted!!");
 		prev.next = slow_prt.next;
+		slow_prt.next =null;
 		return slow_prt;
 	}
 }
