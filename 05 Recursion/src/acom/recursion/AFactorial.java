@@ -2,7 +2,7 @@ package acom.recursion;
 
 public class AFactorial {
 	public static void main(String[] args) {
-		int fact = factorial(10);
+		int fact = factorial(5);
 		System.out.println("Factorial : "+fact);
 	}
 	
@@ -11,9 +11,13 @@ public class AFactorial {
 		if(n==0) {
 			return 1;
 		}else {
-			int result = n * factorial(n-1);
-			System.out.println("N:"+n + " : result : "+result);
+			int fac = factorial(n-1);
+			System.out.println("Fact ::::"+fac);
+			int result = n * fac;
 			return result;
 		}
 	}
 }
+
+
+//Factorial Example
