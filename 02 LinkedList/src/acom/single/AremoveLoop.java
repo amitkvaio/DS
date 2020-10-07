@@ -74,20 +74,14 @@ public static void removeLoop() {
 		
 // Function to remove loop 
 public static void removeLoop(Node slowPtr, Node firstPtr) { 
-        /*  Move both pointers at the same pace, 
-     they will meet at loop starting node */
 	slowPtr = head;
+	Node temp = null;
 	while (slowPtr != firstPtr) {
 		slowPtr = slowPtr.next;
+		temp = firstPtr;
 		firstPtr = firstPtr.next;
 	}
-    // Get pointer to the last node 
-    while (firstPtr.next != slowPtr) { 
-        firstPtr = firstPtr.next; 
-    } 
-    /* Set the next node of the loop ending node 
-     to fix the loop */
-    firstPtr.next = null; 
+	temp.next = null;
 }
 	   
 	public static void removeLoopUsingIsVisitedNode(Node head) {
