@@ -4,31 +4,28 @@ import java.util.Arrays;
 
 public class BSelectionSort {
 	public static void main(String[] args) {
-		int [] arr = new int[] {4, 6, 8, 9, 10, 20};
+		int [] arr = new int[] {64, 34, 25, 12, 22, 11, 90};
+		System.out.println("Before Sorting : " + Arrays.toString(arr));
 		selectionSort(arr);
-		System.out.println("After Sorting : " + Arrays.toString(arr));
+		System.out.println("After  Sorting : " + Arrays.toString(arr));
 	}
 	
-	public static void selectionSort(int[] arr)
-	{
-		if(arr==null || arr.length==0)
+	public static void selectionSort(int[] arr) {
+		int Size = arr.length;
+		if (arr == null || Size == 0)
 			return;
-		int  temp;
 		boolean isWapped = true;
-		for (int i = 0; i < arr.length; i++) {
-			int minimumIndex = i;
-			for (int j = i+1; j < arr.length; j++) {
-				if(arr[minimumIndex] > arr[j]) {
-					minimumIndex=j;
+		for (int i = 0; i < Size - 1; i++) {
+			for (int j = i; j < Size - 1; j++) {
+				if (arr[i] > arr[j + 1]) {
+					int temp = arr[i];
+					arr[i] = arr[j + 1];
+					arr[j + 1] = temp;
 					isWapped = false;
 				}
 			}
-			System.out.println("Minimum : "+arr[minimumIndex]);
-			if(isWapped)
+			if (isWapped)
 				break;
-			temp = arr[i];
-			arr[i]=arr[minimumIndex];
-			arr[minimumIndex]=temp;
 		}
 	}
 }

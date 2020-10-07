@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class FQuickSort {
 	public static void main(String[] args) {
-		int[] arr = new int[] { 10, 16, 8, 12, 15, 6, 3, 9, 5, 7,10};
+		int[] arr = new int[] { 10, 16, 8, 12, 15,7};
 		int length = arr.length;
 		System.out.println("Befor Sorting : " + Arrays.toString(arr));
 		quickSortRecursion(arr, 0, length - 1);
@@ -44,6 +44,7 @@ public class FQuickSort {
 						"Pivot :" + pivot + " Low :" + low + " High :" + high + " After : " + Arrays.toString(A));
 			}
 		}
+		System.out.println("Low::"+low);
 		return low;
 	}
 }

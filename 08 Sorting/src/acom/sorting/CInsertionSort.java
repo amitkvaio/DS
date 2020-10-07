@@ -4,23 +4,23 @@ import java.util.Arrays;
 
 public class CInsertionSort {
 	public static void main(String[] args) {
-		int [] arr = new int[] {5, 1, 6, 2, 4, 3};
+		int [] arr = new int[] {10, 40, 50, 30, 20};
+		//						0    1   2   3   4
 		System.out.println("Befor Sorting : " + Arrays.toString(arr));
 		insertionSort(arr);
 	}
 
 	public static void insertionSort(int arr[]) {
-		int j, temp;
+		int index, value;
 		for (int i = 1; i < arr.length; i++) {
-			j = i;
-			temp = arr[j];
-			while (j > 0 && arr[j - 1] > temp) {
-				arr[j] = arr[j - 1];
-				j = j - 1;
+			index = i;
+			value = arr[index];
+			while (index > 0 && arr[index - 1] > value) {
+				arr[index] = arr[index - 1];
+				index--;
 			}
-			System.out.println("j--> "+j + " temp :"+temp);
-			arr[j] = temp;
-			
+			System.out.println("j--> " + index + " value :" + value);
+			arr[index] = value;
 		}
 		System.out.println("After Sorting : " + Arrays.toString(arr));
 	}

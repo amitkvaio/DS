@@ -10,24 +10,23 @@ public class DdivideGivenArrayIntoTwoSubArrays {
 		divideGivenArrayIntoTwoSubArrays(arr, arr.length);
 	}
 	
-	public static void divideGivenArrayIntoTwoSubArrays(int arr[], int n) {
+	public static void divideGivenArrayIntoTwoSubArrays(int arr[], int size) {
 		// no of element into the left arrays
-		int nLeft = 2;
-		if (n < 2) {
+		int leftArrSize = 3;
+		if (size < 2) {
 			return;
 		}
+		int[] left = new int[leftArrSize];
+		int[] right = new int[size - leftArrSize];
 
-		int mid = nLeft;
-
-		int[] left = new int[mid];
-		int[] right = new int[n - mid];
-		for (int i = 0; i < mid; i++) {
+		for (int i = 0; i < leftArrSize; i++) {
 			left[i] = arr[i];
 		}
-		for (int j = mid; j < n; j++) {
-			right[j - mid] = arr[j];
+		for (int j = leftArrSize; j < size; j++) {
+			right[j - leftArrSize] = arr[j];
 		}
-		System.out.println("Left  Arrays : "+Arrays.toString(left));
-		System.out.println("Right Arrays : "+Arrays.toString(right));
+
+		System.out.println("Left  Arrays : " + Arrays.toString(left));
+		System.out.println("Right Arrays : " + Arrays.toString(right));
 	}
 }
