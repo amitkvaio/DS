@@ -80,11 +80,11 @@ public class SingleLinkedList implements NodeInterface {
 		} else if (size == 1) {
 			deleteFirst();
 		} else {
-			Node temp = head;
+			Node current = head;
 			Node last = null;
-			while (temp.next != null) {
-				last = temp;
-				temp = temp.next;
+			while (current.next != null) {
+				last = current;
+				current = current.next;
 			}
 			last.next = null;
 			size--;
@@ -103,14 +103,14 @@ public class SingleLinkedList implements NodeInterface {
 			System.out.println("Deletetion is not possible !!");
 		} else {
 			Node current = head;
-			Node temp = null;
+			Node previous = null;
 			int count = 0;
 			while (count < position - 1) {
-				temp = current;
+				previous = current;
 				current = current.next;
 				count++;
 			}
-			temp.next = current.next;
+			previous.next = current.next;
 			current.next = null;
 			size--;
 		}
@@ -132,10 +132,10 @@ public class SingleLinkedList implements NodeInterface {
 		size = 5;
 	}
 	
-	public boolean contains(int key) {
+	public boolean contains(int value) {
 		Node temp =head;
 		while(temp!=null) {
-			if(temp.data == key)
+			if(temp.data == value)
 				return true;
 			else
 				temp = temp.next;

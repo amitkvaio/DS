@@ -44,7 +44,15 @@ public static boolean detectLoop() {
 	}
 	Node slowPtr = head;
 	Node fastPtr = head;
+	/*
 	while (fastPtr != null && fastPtr.next != null) {
+		fastPtr = fastPtr.next.next;
+		slowPtr = slowPtr.next;
+		if (slowPtr == fastPtr)
+			return true;
+	}
+	*/
+	while (slowPtr != null && slowPtr.next != null) {
 		fastPtr = fastPtr.next.next;
 		slowPtr = slowPtr.next;
 		if (slowPtr == fastPtr)

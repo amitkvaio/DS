@@ -6,7 +6,7 @@ public class FInsertNodeInSortedList {
 	public static void main(String[] args) {
 		createList();
 		Util.displayList(head);
-		insertNodeUtil(new Node(60));
+		insertNodeUtil(new Node(25));
 		Util.displayList(head);
 	}
 	
@@ -15,7 +15,7 @@ public class FInsertNodeInSortedList {
 		Node second = new Node(20);
 		Node third = new Node(30);
 		Node fourth = new Node(40);
-		Node fifth = new Node(35);
+		Node fifth = new Node(45);
 		head = first;
 		first.next = second;
 		second.next = third;

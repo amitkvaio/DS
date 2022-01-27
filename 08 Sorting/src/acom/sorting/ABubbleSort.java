@@ -7,8 +7,8 @@ public class ABubbleSort {
 		//1, 55, 66, 77, 88, 99
 		int [] arr = new int[] {64, 34, 25, 12, 22, 11, 90};
 		System.out.println("Befor Sorting : "+Arrays.toString(arr));
-		//bubbleSort(arr);
-		bubbleSort_Recursive(arr,arr.length);
+		bubbleSort(arr);
+		//bubbleSort_Recursive(arr,arr.length);
 		System.out.println("After Sorting : " + Arrays.toString(arr));
 	}
 	
