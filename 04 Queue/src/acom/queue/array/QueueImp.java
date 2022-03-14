@@ -44,7 +44,7 @@ public class QueueImp implements Queue {
 		if(front==rear) {
 			result = stArr[front];
 			front=0;
-			rear=0;
+			rear=-1;
 		}else {
 			result = stArr[front];
 			front++;

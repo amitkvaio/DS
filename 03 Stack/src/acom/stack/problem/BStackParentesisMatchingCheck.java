@@ -1,3 +1,4 @@
+//Check Balanced Parentheses in an Expression
 package acom.stack.problem;
 
 public class BStackParentesisMatchingCheck {
@@ -43,7 +44,7 @@ public class BStackParentesisMatchingCheck {
 	public static void main(String[] args) {
 		String str1 = "{()}[]";
 		String str2 ="{[]})";
-		boolean status  = checkParentesis(str1);
+		boolean status  = checkParentesis(str2);
 		if(status) {
 			System.out.println("Parenthesis is balanced!!");
 		}else {

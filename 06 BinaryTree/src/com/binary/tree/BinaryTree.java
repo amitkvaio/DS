@@ -119,4 +119,9 @@ public class BinaryTree {
 			System.out.print(root.data +"-->");
 		}
 	}
+	
+	public void createBinaryTree(int data) {
+		TreeNode newNode = new TreeNode(data);
+		Queue<TreeNode> queue = new LinkedList<TreeNode>();
+	}
 }

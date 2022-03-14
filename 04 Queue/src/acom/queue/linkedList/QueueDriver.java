@@ -8,7 +8,8 @@ public class QueueDriver {
 		queue.enqueue(200);
 		queue.enqueue(300);
 		queue.enqueue(400);
-		//queue.dequeue();
+	//	queue.display();
+	//	queue.dequeue();
 		//queue.dequeue();
 		//queue.dequeue();
 		//queue.dequeue();

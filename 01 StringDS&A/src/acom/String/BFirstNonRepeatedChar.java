@@ -18,6 +18,8 @@ public class BFirstNonRepeatedChar {
 		System.out.println(firstNonRepeatedChar2("amitkumar"));
 		System.out.println("************33*****************");
 		System.out.println(firstNonRepeatedChar3("hello"));
+		System.out.println("************44*****************");
+		System.out.println(firstNonRepeatedChar4("hello"));
 	}
 	
 	
@@ -85,6 +87,21 @@ public class BFirstNonRepeatedChar {
 			}
 		}
 		return list.get(0);
+	}
+	
+	public static char firstNonRepeatedChar4(String str) {
+		int [] chArray = new int[123];
+		for (char c : str.toCharArray()) {
+			chArray[c]++;
+		}
+		char ch = 0;
+		for (char c : str.toCharArray()) {
+			if(chArray[c]==1) {
+				ch = c;
+				break;
+			}
+		}
+		return ch;
 	}
 	 
 ///http://www.java67.com/2018/06/data-structure-and-algorithm-interview-questions-programmers.html

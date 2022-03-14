@@ -13,6 +13,7 @@ public class YouCanDeleteIt {
 		if(str.length()<2) {
 			return str;
 		}
+		System.out.println(str);
 		return reversUsingRecursion(str.substring(1))+str.charAt(0);
 	}
 

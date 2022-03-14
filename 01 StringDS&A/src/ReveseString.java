@@ -9,6 +9,9 @@ public class ReveseString {
 		Pattern pattern = Pattern.compile(".*[^0-9].*");
 		boolean status = pattern.matcher(str).matches();
 		System.out.println(status);
+		
+		sortStirng("amitkumar".toCharArray());
+		
 		System.out.println("done");
 		
 		

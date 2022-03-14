@@ -1,7 +1,7 @@
 
 public class Test {
 	public static void main(String[] args) {
-		String str = "abcabc";
+		String str = "amit";
 		int len =stringSuffix(str);
 		System.out.println("Len : "+len);
 	}

@@ -38,12 +38,12 @@ public class AStack {
 		}
 	}
 
-	public int pop() {
+	public char pop() {
 		if (isEmpty()) {
 			throw new NoSuchElementException("Stack UnderFlow Exception!!");
 		}
 		length--;
-		int x = arr[top--];
+		char x = arr[top--];
 		return x;
 	}
 
