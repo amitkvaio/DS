@@ -53,3 +53,11 @@ public class ABubbleSort {
 		bubbleSort_Recursive(arr, size - 1);
 	}
 }
+
+/*
+Time Complexity:
+Best case: O(n)
+Average case: O(n^2)
+Worst case: O(n^2)
+
+*/

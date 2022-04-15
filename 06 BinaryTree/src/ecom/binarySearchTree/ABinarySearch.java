@@ -2,7 +2,10 @@
 package ecom.binarySearchTree;
 
 import java.util.Arrays;
-
+/*
+Please visit this site. 
+https://java2blog.com/binary-search-tree-in-java/
+*/
 public class ABinarySearch {
 	public static void main(String[] args) {
 		int arr[] = {10,20,30,40,50,60,70,80,90,100};
@@ -35,3 +38,6 @@ public class ABinarySearch {
 		return -1;
 	}
 }
+/*
+complexity of binary search is log(n)
+*/

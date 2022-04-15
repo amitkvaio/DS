@@ -2,6 +2,9 @@ package acom.single;
 
 import java.util.Stack;
 
+import acom.single.imp.Node;
+import acom.single.imp.SingleLinkedList;
+
 public class DPalindromCheck {
 	public static void main(String[] args) {
 		SingleLinkedList list = new SingleLinkedList();

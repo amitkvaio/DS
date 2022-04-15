@@ -1,7 +1,7 @@
 package acom.queue.array;
 
 public interface Queue {
-	public static final int MAX_SIZE=10;
+	public static final int MAX_SIZE=2;
 	public static final int ZERO=0;
 	public abstract boolean isEmpty();
 	public abstract int getSize();

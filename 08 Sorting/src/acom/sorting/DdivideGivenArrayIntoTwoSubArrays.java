@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class DdivideGivenArrayIntoTwoSubArrays {
 	public static void main(String[] args) {
-		int [] arr = new int[] {10,8,2,4,3,1};
+		int [] arr = new int[] {10,8,2,4,3,1,9};
 		System.out.println("Original : "+Arrays.toString(arr));
 		divideGivenArrayIntoTwoSubArrays(arr, arr.length);
 	}

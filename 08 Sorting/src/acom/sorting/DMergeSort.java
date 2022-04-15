@@ -58,4 +58,10 @@ public class DMergeSort {
 	}
 }
 
+/*
+Best case: O(nlogn)
+Average case: O(nlogn)
+Worst case: O(nlogn)
+
+*/
 

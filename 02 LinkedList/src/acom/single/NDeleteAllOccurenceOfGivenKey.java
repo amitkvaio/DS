@@ -1,5 +1,7 @@
 package acom.single;
 
+import acom.single.imp.Node;
+
 public class NDeleteAllOccurenceOfGivenKey {
 	static Node head = null;
 

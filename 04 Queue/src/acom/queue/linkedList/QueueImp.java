@@ -33,7 +33,8 @@ public class QueueImp implements Queue {
 	public void enqueue(int data) {
 		Node newNode = new Node(data);
 		if(isEmpty()) {
-			front = newNode;
+			rear = newNode;
+			front =newNode;
 		}else {
 			rear.next = newNode;
 		}

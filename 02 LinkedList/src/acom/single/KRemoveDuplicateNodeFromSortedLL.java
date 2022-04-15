@@ -1,4 +1,7 @@
+
 package acom.single;
+
+import acom.single.imp.Node;
 
 public class KRemoveDuplicateNodeFromSortedLL {
 	

@@ -8,8 +8,8 @@ public class Test {
 		} catch (NullPointerException e) {
 			System.out.println("Cough in main");
 		}
-		//System.out.println(1.0 / 0.0);
-		//System.out.println(System.getProperty("sun.arch.data.model"));
+		System.out.println(1.0 / 0.0);
+		System.out.println(System.getProperty("sun.arch.data.model"));
 	}
 	
 	public static void sum() {

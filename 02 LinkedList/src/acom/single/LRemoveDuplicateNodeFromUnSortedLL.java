@@ -2,6 +2,8 @@ package acom.single;
 
 import java.util.HashSet;
 
+import acom.single.imp.Node;
+
 public class LRemoveDuplicateNodeFromUnSortedLL {
 	static Node head = null;
 

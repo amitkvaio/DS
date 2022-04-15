@@ -1,4 +1,7 @@
 package acom.single;
+
+import acom.single.imp.Node;
+
 //https://algorithms.tutorialhorizon.com/insert-a-node-in-the-given-sorted-linked-list/
 public class FInsertNodeInSortedList {
 	static Node head = null;

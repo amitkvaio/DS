@@ -1,5 +1,7 @@
 package acom.single;
 
+import acom.single.imp.Node;
+
 public class AremoveLoop {
 static Node head=null;
 

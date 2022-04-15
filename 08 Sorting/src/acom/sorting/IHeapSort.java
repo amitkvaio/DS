@@ -52,3 +52,9 @@ public class IHeapSort {
 		arr[secondIdx] = temp;
 	}
 }
+/*
+Time Complexity:
+Best case : O(nlogn)
+Average case : O(nlogn)
+Worst case : O(nlogn)
+*/

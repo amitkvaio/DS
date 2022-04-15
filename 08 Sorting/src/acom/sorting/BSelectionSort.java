@@ -17,7 +17,7 @@ public class BSelectionSort {
 		boolean isWapped = true;
 		for (int i = 0; i < Size - 1; i++) {
 			for (int j = i; j < Size - 1; j++) {
-				if (arr[i] > arr[j + 1]) {
+				if ( arr[j + 1] < arr[i] ) {
 					int temp = arr[i];
 					arr[i] = arr[j + 1];
 					arr[j + 1] = temp;
@@ -29,3 +29,12 @@ public class BSelectionSort {
 		}
 	}
 }
+
+/*
+Best case : O(N^2)
+Average case : O(N^2)
+Worst case : O(N^2)
+
+*/
+
+

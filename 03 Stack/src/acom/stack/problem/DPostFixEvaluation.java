@@ -18,10 +18,10 @@ public class DPostFixEvaluation {
 		for (i = 0; i < postArr.length; i++) {
 			//If it is operand then push into the stack else pop up and do its operation
 			if (isOperand(postArr[i])) {
-				stack.push(postArr[i]-'0');
-				//int val=Character.getNumericValue(postArr[i]);
+				///stack.push(postArr[i]-'0');
+				int val=Character.getNumericValue(postArr[i]);
 				//System.out.println("val::"+val);
-				//stack.push(val);
+				stack.push(val);
 			} else {
 				x1 = stack.pop();
 				x2 = stack.pop();

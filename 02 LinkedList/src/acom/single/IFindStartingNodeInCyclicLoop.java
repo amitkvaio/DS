@@ -1,5 +1,7 @@
 package acom.single;
 
+import acom.single.imp.Node;
+
 public class IFindStartingNodeInCyclicLoop {
 	static Node head=null;
 	public static void main(String[] args) {

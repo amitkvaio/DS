@@ -1,4 +1,6 @@
-package acom.single;
+package acom.single.imp;
+
+import acom.single.Util;
 
 public class SingleLinkedList implements NodeInterface {
 	public Node head;

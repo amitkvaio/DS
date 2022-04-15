@@ -1,5 +1,8 @@
 package acom.single;
 
+import acom.single.imp.Node;
+import acom.single.imp.SingleLinkedList;
+
 public class HPrintKthfromidNode {
 	public static void main(String[] args) {
 		SingleLinkedList list = new SingleLinkedList();

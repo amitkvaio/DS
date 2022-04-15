@@ -44,7 +44,14 @@ public class FQuickSort {
 						"Pivot :" + pivot + " Low :" + low + " High :" + high + " After : " + Arrays.toString(A));
 			}
 		}
-		System.out.println("Low::"+low);
+		System.out.println("Low::::::::::::::::>>>>>>>>"+low);
 		return low;
 	}
 }
+/*
+
+Best Case : O(n log n)
+Average Case : O(n log n)
+Worst Case : O(n^2)
+
+*/

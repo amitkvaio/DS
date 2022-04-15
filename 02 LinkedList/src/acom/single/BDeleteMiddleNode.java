@@ -1,5 +1,8 @@
 package acom.single;
 
+import acom.single.imp.Node;
+import acom.single.imp.SingleLinkedList;
+
 public class BDeleteMiddleNode {
 	public static void main(String[] args) {
 		SingleLinkedList singleLinkedList = new SingleLinkedList();

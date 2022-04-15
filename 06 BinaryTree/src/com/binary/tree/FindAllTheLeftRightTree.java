@@ -16,8 +16,8 @@ public class FindAllTheLeftRightTree {
 		binaryTree.insert(38);
 		binaryTree.insert(48);
 		System.out.println("In Order Traversal");
-		//inOrderPrintLeftNode(binaryTree.root);
-		inOrderPrintRightNode(binaryTree.root);
+		inOrderPrintLeftNode(binaryTree.root);
+		//inOrderPrintRightNode(binaryTree.root);
 		System.out.println();
 	}
 	

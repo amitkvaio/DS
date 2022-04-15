@@ -2,6 +2,9 @@ package acom.single;
 
 import java.util.Random;
 
+import acom.single.imp.Node;
+import acom.single.imp.SingleLinkedList;
+
 public class BGetMiddleNode {
 	
 	public static void main(String[] args) {

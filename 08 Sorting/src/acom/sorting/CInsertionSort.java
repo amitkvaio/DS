@@ -25,3 +25,10 @@ public class CInsertionSort {
 		System.out.println("After Sorting : " + Arrays.toString(arr));
 	}
 }
+
+/*
+Time Complexity
+Best case: O(n)
+Average case: O(n^2)
+Worst case: O(n^2)
+*/
