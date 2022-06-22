@@ -38,7 +38,7 @@ public class LRemoveDuplicateNodeFromUnSortedLL {
 	// Used to create the loop in linked List
 	public static void createLoop() {
 		Node first = new Node(10);
-		Node second = new Node(20);
+		Node second = new Node(10);
 		Node third = new Node(15);
 		Node fourth = new Node(5);
 		Node fifth = new Node(10);

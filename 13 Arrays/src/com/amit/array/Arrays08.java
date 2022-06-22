@@ -8,6 +8,7 @@ public class Arrays08 {
 	
 	public static void main(String[] args) {
 		int[] nums = new int[] { 1, 1, 1, 3, 5, 5, 7 };
+		//int[] nums = new int[] { 2,2,2,2,2 };
 		int newLength = removeDuplicates(nums);
 		System.out.println(Arrays.toString(nums));
 		System.out.println("Length of array after removing duplicates = " + newLength);

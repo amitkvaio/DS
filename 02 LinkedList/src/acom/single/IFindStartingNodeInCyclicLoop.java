@@ -30,6 +30,7 @@ public class IFindStartingNodeInCyclicLoop {
 		sixth.next = seven;
 		seven.next = eight;
 		eight.next = nine;
+		
 		nine.next = fourth;
 	}
 
@@ -51,6 +52,7 @@ public class IFindStartingNodeInCyclicLoop {
 					fastPtr = fastPtr.next;
 				}
 				System.out.println("Starting node of the cyclic loop is::" + slowPtr.data);
+				System.out.println("Starting node of the cyclic loop is::" + fastPtr.data);
 				return;
 			}
 		}

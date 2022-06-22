@@ -5,12 +5,15 @@ import java.util.Arrays;
 public class Array04 {
 	public static void main(String[] args) {
 		int[] arr = {1, 2, 3, 4, 5, 6, 7};
+		int[] arr1 = {1, 2, 3, 4, 5, 6, 7};
 		System.out.println(Arrays.toString(arr));
 		int rotateCount = 3;
 		for (int i = 0; i < rotateCount; i++) {
 			leftRotate(arr);
 		}
 		System.out.println(Arrays.toString(arr));
+		System.out.println("*******Using temp Arrays****");
+		rotateUsingTempAarry(arr1, rotateCount);
 	}
 
 	private static void leftRotate(int[] arr) {
@@ -25,21 +28,29 @@ public class Array04 {
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>"+Arrays.toString(arr));
 	}
 	
-	private static void leftRotate(int[] arr,int rotateCount) {
-		int temp = arr[0];
-		for (int i = 1; i < rotateCount; i++) {
-			arr[i-1]=arr[i];
-		}
-		arr[arr.length-1]=temp;
-	}
-	
-	//TO-do
-	public static void rotateUsingTempAarry(int[]arr,int rotateCount){
-		int tempArr[] = new int[rotateCount];
-		for (int i = 0; i < tempArr.length; i++) {
-			tempArr[i]=arr[i];
-			
-		}
+	public static void rotateUsingTempAarry(int[]arr,int rotCount){
+		
+		// Creating temp array of size d
+        int temp[] = new int[rotCount];
+ 
+        // Copying first rotateCount element in array temp
+        for (int i = 0; i < rotCount; i++)
+            temp[i] = arr[i];
+ 
+        // Moving the rest element to index
+        // zero to N-rotateCount
+        for (int i = rotCount; i <arr.length; i++) {
+            arr[i - rotCount] = arr[i];
+        }
+ 
+        // Copying the temp array element
+        // in original array
+        for (int i = 0; i < rotCount; i++) {
+            arr[i + arr.length - rotCount] = temp[i];
+        }
+        
+        System.out.println(Arrays.toString(arr));
+		
 	}
 	
 }

@@ -8,7 +8,7 @@ public class BMultiplication {
 	
 	public static void multiple(int n) {
 		if(n <10000) {
-			System.out.println(n);
+			//System.out.println(n);
 			multiple(n*5);
 			System.out.println("********************");
 			System.out.println(n);

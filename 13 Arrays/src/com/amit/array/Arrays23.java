@@ -28,6 +28,10 @@ public class Arrays23 {
 		int platform_needed = 0, maxPlatforms = 0;
 		Arrays.sort(arr);
 		Arrays.sort(dep);
+		//After sort arrival and dep array looks like below
+		// arr[] = {1:00, 1:40, 1:50, 2:00, 2:15, 4:00}
+		// dep[] = {1:10, 2:20, 2:30, 3:00, 3:15, 6:00}
+		
 		int i = 0, j = 0;
 
 		// Similar to merge in merge sort

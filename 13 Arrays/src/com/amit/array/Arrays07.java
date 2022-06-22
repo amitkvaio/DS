@@ -5,7 +5,8 @@ import java.util.HashMap;
 
 /*
 Find duplicates in a given array when elements are not limited to a range
-Given an array of n integers. The task is to print the duplicates in the given array. If there are no duplicates then print -1. 
+Given an array of n integers. The task is to print the duplicates in the given array. 
+	If there are no duplicates then print -1. 
 
 Input: {2, 10,10, 100, 2, 10, 11,2,11,2}
 Output: 2 10 11
@@ -17,11 +18,11 @@ Note: The duplicate elements can be printed in any order.
 */
 public class Arrays07 {
 	public static void main(String[] args) {
-		 int arr[] = { 12, 11, 40, 12, 5, 6, 5, 12, 11 };
-	        int n = arr.length;
-	        findDuplicates(arr, n);
-	        System.out.println("\n***********Using HashMap*************");
-	        findDuplicateUsingHashMap(arr,n);
+		int arr[] = { 12, 11, 40, 12, 5, 6, 5, 12, 11 };
+        int n = arr.length;
+        findDuplicates(arr, n);
+        System.out.println("\n***********Using HashMap*************");
+        findDuplicateUsingHashMap(arr,n);
 	}
 	
 	//TC : O(n*n)

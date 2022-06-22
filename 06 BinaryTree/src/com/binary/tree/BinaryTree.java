@@ -16,15 +16,15 @@ public class BinaryTree {
 		if (root == null) { // no node in root
 			root = newNode;
 		}else{ // root occupied
-			TreeNode current = root; // start at root
+			TreeNode temp = root; // start at root, used for traversing the tree
 			TreeNode parent;
 			while (true) // (exits internally)
 			{
-				parent = current;
-				if (id < current.data) // go left?
+				parent = temp;
+				if (id < temp.data) // go left?
 				{
-					current = current.left;
-					if (current == null) // if end of the line,
+					temp = temp.left;
+					if (temp == null) // if end of the line,
 					{ // insert on left
 						parent.left = newNode;
 						return;
@@ -32,8 +32,8 @@ public class BinaryTree {
 				} // end if go left
 				else // or go right?
 				{
-					current = current.right;
-					if (current == null) // if end of the line
+					temp = temp.right;
+					if (temp == null) // if end of the line
 					{ // insert on right
 						parent.right = newNode;
 						return;

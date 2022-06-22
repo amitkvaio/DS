@@ -24,24 +24,48 @@ public class GetNodeBetweenTwoLevel {
 	}
 
 	
-	//TO DO
-	private static void printNodesBetweenGivenLevels(TreeNode root,int startLevel,int endLevel) {
+	//Based on level order traversal
+	private static void printNodesBetweenGivenLevels(TreeNode root, int startLevel, int endLevel) {
+		if (root == null) {
+			return;
+		}
+
+		// create an empty queue and enqueue root node
 		Queue<TreeNode> queue = new LinkedList<TreeNode>();
-		queue.offer(root);
-		int level=0;
-		while(!queue.isEmpty()) {
-			TreeNode treeNode = queue.poll();
-			
-			if (level >= startLevel && level <= endLevel) { 
-                System.out.print(treeNode.data + " "); 
-			}
-			if(treeNode.left!=null) {
-				queue.offer(treeNode.left);
-			}
-			if(treeNode.right!=null) {
-				queue.offer(treeNode.right);
-			}
+		queue.add(root);
+
+		// pointer to store current node used for traversal of tree
+		TreeNode temp = null;
+
+		// maintains level of current node
+		int level = 0;
+
+		// run till queue is not empty
+		while (!queue.isEmpty()) {
+			// increment level by 1
 			level++;
+
+			// calculate number of nodes in current level
+			int size = queue.size();
+
+			// process every node of current level and add their non-empty left and right child to queue
+			while (size != 0) {
+				temp = queue.poll();
+
+				// print the node if its level is between given levels
+				if (level >= startLevel && level <= endLevel) {
+					System.out.print(temp.data + " ");
+				}
+				if (temp.left != null) {
+					queue.add(temp.left);
+				}
+
+				if (temp.right != null) {
+					queue.add(temp.right);
+				}
+				size--;
+			}
+			System.out.println("");
 		}
 	}
 }

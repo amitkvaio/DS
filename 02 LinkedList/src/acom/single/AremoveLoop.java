@@ -100,7 +100,7 @@ public static void removeLoop(Node slowPtr, Node firstPtr) {
 		} else {
 			Node temp = head;
 			Node previous = null;
-			while (temp.isVisited != true) {
+			while (temp.isVisited != true && temp!=null) {
 				temp.isVisited = true;
 				previous = temp;
 				temp = temp.next;

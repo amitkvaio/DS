@@ -43,7 +43,7 @@ public class Arrays15 {
 		if (arr.length < 2)
 			return;
 		System.out.println("The pair whose sum is closest to 15 using brute force method: ");
-		for (int i = 0; i < arr.length; i++) {
+		for (int i = 0; i < arr.length-1; i++) {
 			for (int j = i + 1; j < arr.length; j++) {
 				int tempSum = arr[i] + arr[j];
 

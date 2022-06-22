@@ -9,7 +9,7 @@ public class Array03 {
 		int maximum, secondMaximum;
 		int len = arr.length;
 		
-		//if only one elements are present then then that becomes maximum and 2nd highest
+		//if only one elements are present then that becomes maximum and 2nd highest
 		if(len==1) {
 			maximum=arr[0];
 			return;
@@ -28,7 +28,6 @@ public class Array03 {
 				secondMaximum=maximum;
 				maximum=arr[i];
 			}
-			
 			i++;
 		}
 		System.out.println(Arrays.toString(arr));

@@ -1,4 +1,4 @@
-//Java Program to find first duplicate, non-repeated character in a String.
+//Java Program to find first non-repeated character in a String.
 package acom.String;
 
 import java.util.ArrayList;

@@ -48,6 +48,7 @@ public class StackUsingArray implements Stack{
 		if (!isEmpty()) {
             int returnedTop = top;
             top--;
+            length--;
             System.out.println("Popped element :" + arr[returnedTop]);
             return arr[returnedTop];
         } else {

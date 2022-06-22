@@ -15,7 +15,7 @@ public class Arrays24 {
 	public static void main(String[] args) {
 		int arr[] = { 14, 12, 70, 15, 99, 65, 21, 90 };
 		findLeadersInAnArrayBruteForce(arr);
-		System.out.println("n==================");
+		System.out.println("\n==================");
 		findLeadersInAnArray(arr);
 	}
 

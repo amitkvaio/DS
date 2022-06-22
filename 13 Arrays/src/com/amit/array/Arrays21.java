@@ -21,7 +21,9 @@ public class Arrays21 {
 		for (int i = 0; i < strArr.length; i++) {
 			int j;
 			for (j = 0; j < minPrefixStrLength; j++) {
-				if (minStr.charAt(j) != strArr[i].charAt(j))
+				if (minStr.charAt(j) == strArr[i].charAt(j))
+					continue;
+				else
 					break;
 			}
 			if (j < minPrefixStrLength)

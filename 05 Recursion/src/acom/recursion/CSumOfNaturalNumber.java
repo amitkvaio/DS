@@ -20,4 +20,4 @@ public class CSumOfNaturalNumber {
 	}
 }
 
-// Sum of n given nuatural number using recursion.
+// Sum of n given natural number using recursion.

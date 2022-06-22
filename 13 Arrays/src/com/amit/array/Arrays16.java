@@ -91,7 +91,7 @@ public class Arrays16 {
 		System.out.println("Array triplets whose sum is " + sum + " are :");
 		// Method 3 : Using Sorting
 		Arrays.sort(arr);
-		for (int i = 0; i < arr.length - 2; i++) {
+		for (int i = 0; i < arr.length - 1; i++) {
 			int left = i + 1;
 			int right = arr.length - 1;
 			while (left < right) {

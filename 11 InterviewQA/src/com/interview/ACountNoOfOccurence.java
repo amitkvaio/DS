@@ -28,7 +28,7 @@ public class ACountNoOfOccurence {
 	}
 	public static void countString(String str,String strFind) {
 		int count = 0, startIndex = 0;
-		Pattern p = Pattern.compile("Java", Pattern.LITERAL);
+		Pattern p = Pattern.compile("Java");
 		Matcher m = p.matcher(str);
 		while(m.find(startIndex)){
 		    count++;

@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class JCheckNumberInString {
 	public static void main(String[] args) {
-		String [] numbers = {"123", "1234" , "123.12", "abcd123", "123456"};
+		String [] numbers = {"123", "1234" , "123.12", "abcd123", "123456","abcdeff"};
 		firstApproach(numbers);
 		System.out.println("***Second Approach***");
 		SecondApproach(numbers);

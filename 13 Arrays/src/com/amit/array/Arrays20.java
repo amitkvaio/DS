@@ -12,21 +12,22 @@ Frequency of 5 is : 2
 Frequency of 6 is : 2 
 */
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class Arrays20 {
 	public static void main(String[] args) {
 
 		int[] arr = { 2, 2, 2, 3, 3, 4, 5, 5, 6, 6 };
-		HashMap<Integer, Integer> freqMap = solveIterative(arr);
+		Map<Integer, Integer> freqMap = solveIterative(arr);
 		for (int val : freqMap.keySet()) {
 			System.out.println("Frequency of " + val + " is : " + freqMap.get(val));
 		}
 
 	}
 
-	public static HashMap<Integer, Integer> solveIterative(int[] arr) {
-		HashMap<Integer, Integer> freqMap = new HashMap<>();
+	public static Map<Integer, Integer> solveIterative(int[] arr) {
+		LinkedHashMap<Integer, Integer> freqMap = new LinkedHashMap<>();
 		for (int val : arr) {
 			if (freqMap.containsKey(val)) {
 				freqMap.put(val, freqMap.get(val) + 1);

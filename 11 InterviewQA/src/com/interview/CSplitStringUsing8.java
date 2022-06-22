@@ -8,7 +8,7 @@ public class CSplitStringUsing8 {
 		String str="this,is,super,computer";
 		Pattern.compile(",").splitAsStream(str).forEach(s->System.out.print(s +" "));
 		System.out.println();
-		//spliStringUsing8(str);
+		spliStringUsing8(str);
 	}
 	
 	public static void spliStringUsing8(String str) {

@@ -2,7 +2,7 @@ package acom.recursion;
 //program to calculate the nth number of the fibonacci series
 public class BFibonacciNumber {
 	public static void main(String[] args) {
-		int n = 7;
+		int n = 6;
 		int fibo = fib(n);
 		System.out.println("Fibonacci Number is::" + fibo);
 	}
@@ -13,6 +13,15 @@ public class BFibonacciNumber {
 		} else if (n == 1) {
 			return 1;
 		}
+		/*
+		if(n==0||n==1) 
+			return n;
+		*/
+		/*
+		if(n<=1) {
+			return n;
+		}
+		*/
 
 		int out1 = fib(n - 1);
 		int out2 = fib(n - 2);
