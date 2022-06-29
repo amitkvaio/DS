@@ -1,6 +1,7 @@
-package leet.code.problem;
-// https://leetcode.com/problems/fizz-buzz/
-public class D {
+package leet.code.general;
+
+//https://leetcode.com/problems/fizz-buzz/
+public class E {
 	public static void main(String[] args) {
 		fizzBuzz(15);
 	}

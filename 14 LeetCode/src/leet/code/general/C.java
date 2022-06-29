@@ -1,4 +1,4 @@
-package leet.code.problem;
+package leet.code.general;
 
 // https://leetcode.com/problems/longest-common-prefix/
 public class C {
@@ -6,6 +6,9 @@ public class C {
 		String[] strArr = { "java2blog", "javaworld", "javabean", "javatemp" };
 		String longestPrefix = getLongestCommonPrefix(strArr);
 		System.out.println("Longest Prefix : " + longestPrefix);
+		System.out.println("\n****************************");
+		String longPre = longestCommonPrefix_(strArr);
+		System.out.println(longPre);
 	}
 
 	public static String getLongestCommonPrefix(String[] strArr) {
@@ -37,42 +40,26 @@ public class C {
 	}
 	
 	
-	 public static String longestCommonPrefix(String[] strs) {
-	        
-			String ans = "";
-			if (strs.length == 0)
-				return "";
-
-			int endIndex = 0;
-	        
+	 public static String longestCommonPrefix_(String[] strs) {
 			String s = getMinString(strs); /// return min string
+			char [] output = new char[s.length()];
+			int k=0;
+			boolean flag = false;
 			for (int i = 0; i < s.length(); i++) {
 				for (int j = 0; j < strs.length; j++) {
-					if (s.charAt(i) != strs[j].charAt(i)) {
-						return ans;
+					if (s.charAt(i) == strs[j].charAt(i)) {
+						flag = true;
+					}else {
+						flag = false;
+						break;
 					}
 				}
-				endIndex = i;
+				if(flag) {
+					output[k++]=s.charAt(i);
+				}
+				
 			}
-			return s.substring(0, endIndex);
-	        
-	        /*
-		 string ans = "";
-	        if(strs.size()==0) return "";
-	        
-	        string s = strs[0]; 
-	        
-	        for(int i=0;i<s.size();i++){
-	            for(int j=1;j<strs.size();j++){
-	                if(i>=strs[j].size() || s[i] != strs[j][i]){
-	                    return ans;
-	                }
-	            }
-	            ans.push_back(s[i]);
-	        }
-	        return ans;
-	        */
-	        
+			return new String(output);
 	    }
 	
 }
