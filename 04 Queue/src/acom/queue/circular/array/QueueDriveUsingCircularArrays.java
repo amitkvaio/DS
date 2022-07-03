@@ -1,8 +1,8 @@
-package acom.queue.array;
+package acom.queue.circular.array;
 
-public class QueueDriver01 {
+public class QueueDriveUsingCircularArrays {
 	public static void main(String[] args) {
-		QueueImp queue = new QueueImp(4);
+		QueueImpUsingCircularArray queue = new QueueImpUsingCircularArray(4);
 		queue.enqueue(100);
 		queue.enqueue(200);
 		queue.enqueue(300);
@@ -22,7 +22,7 @@ public class QueueDriver01 {
 		System.out.println("After dequeu :"+queue.dequeue());
 		print(queue);
 	}
-	public static void print(QueueImp queue) {
+	public static void print(QueueImpUsingCircularArray queue) {
 		System.out.println("isQueEmpty :"+queue.isEmpty());
 		System.out.println("Get Queue Size : "+queue.getSize());
 		System.out.println("Is Queue Full : "+queue.isQueueFull());

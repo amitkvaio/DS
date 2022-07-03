@@ -21,6 +21,7 @@ public class StackUsingLinkedList implements Stack{
 		return length;
 	}
 
+	//Its similar to adding a new node at first of the Linked List
 	@Override
 	public void push(int data) {
 		Node newNode = new Node(data);

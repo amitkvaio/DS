@@ -1,8 +1,10 @@
-package acom.queue.array;
+package acom.queue.stack;
 
-public class QueueDriver01 {
+import acom.queue.array.Queue;
+
+public class QueueDriver {
 	public static void main(String[] args) {
-		QueueImp queue = new QueueImp(4);
+		Queue queue = new QueueImplUsingTwoStack();
 		queue.enqueue(100);
 		queue.enqueue(200);
 		queue.enqueue(300);
@@ -22,7 +24,7 @@ public class QueueDriver01 {
 		System.out.println("After dequeu :"+queue.dequeue());
 		print(queue);
 	}
-	public static void print(QueueImp queue) {
+	public static void print(Queue queue) {
 		System.out.println("isQueEmpty :"+queue.isEmpty());
 		System.out.println("Get Queue Size : "+queue.getSize());
 		System.out.println("Is Queue Full : "+queue.isQueueFull());

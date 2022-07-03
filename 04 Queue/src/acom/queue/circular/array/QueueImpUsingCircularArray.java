@@ -1,14 +1,18 @@
-package acom.queue.array;
+package acom.queue.circular.array;
 
-public class QueueImp implements Queue {
+import acom.queue.array.Queue;
+
+public class QueueImpUsingCircularArray implements Queue {
 	private int[] A;
 	private int front;
 	private int rear;
 	private int size;
+	private static int CAPACITY;
 
-	public QueueImp(int n) {
-		A = new int[n];
-		front = 0;
+	public QueueImpUsingCircularArray(int n) {
+		this.CAPACITY =n;
+		A = new int[CAPACITY];
+		front = -1;
 		rear = -1;
 		size = 0;
 	}
@@ -19,8 +23,10 @@ public class QueueImp implements Queue {
 		if (isQueueFull()) {
 			throw new StackOverflowError("Queue is full!!");
 		}
+		if (front == -1)
+			front = 0;
 		rear = rear + 1;
-		A[rear] = data;
+		A[rear % CAPACITY] = data;
 		size++;
 	}
 
@@ -29,11 +35,15 @@ public class QueueImp implements Queue {
 	public int dequeue() {
 		if (isEmpty())
 			return -1;
-		int data = A[front];
-		for (int i = 0; i < rear; i++) {
-			A[i] = A[i + 1];
+		
+		int data = A[front % CAPACITY];
+		
+		// if both are pointing to the same location
+		if (front == rear) {
+			front = -1;
+			rear = -1;
 		}
-		rear = rear - 1;
+		front = front + 1;
 		size = size - 1;
 		return data;
 	}
@@ -44,7 +54,7 @@ public class QueueImp implements Queue {
 			System.out.println("Queue is Empty!!");
 			return;
 		} else {
-			for (int i = 0; i < size; i++) {
+			for (int i = front; i <= rear; i++) {
 				System.out.print(A[i] + "-->");
 			}
 			System.out.println("Null");
@@ -63,7 +73,7 @@ public class QueueImp implements Queue {
 
 	@Override
 	public boolean isQueueFull() {
-		return rear == A.length - 1;
+		return rear == CAPACITY - 1;
 	}
 
 	@Override
