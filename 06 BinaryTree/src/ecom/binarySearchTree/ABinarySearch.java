@@ -28,12 +28,11 @@ public class ABinarySearch {
 			mid = (low + high) / 2;
 			if (arr[mid] == searchValue) {
 				return mid;
-			}
-			else if (arr[mid] < searchValue) {
+			} else if (arr[mid] < searchValue) {
 				low = mid + 1;
-			} else if (arr[mid]>searchValue){
+			} else if (arr[mid] > searchValue) {
 				high = mid - 1;
-			} 
+			}
 		}
 		return -1;
 	}

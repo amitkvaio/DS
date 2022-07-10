@@ -81,7 +81,8 @@ public class BinaryTree00 {
 
 
 /*
-Binary Tree PreOrder traversal in java 	
+Binary Tree PreOrder traversal in java 
+*************************************	
 Steps for PreOrder traversal are:
 
 Visit the node.
@@ -96,11 +97,12 @@ Iterative
 
 
 Iterative solution:
+*******************
 For recursion, we use implicit stack. So here to convert recursive solution to iterative, 
 	we will use explicit stack.
 Steps for iterative solution:
 
-    Create empty stack and pust root node to it.
+    Create empty stack and push root node to it.
     Do the following when stack is not empty
         Pop a node from stack and print it
         Push right child of popped node to stack

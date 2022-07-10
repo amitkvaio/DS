@@ -8,9 +8,10 @@ public class TwoDArray01 {
 		            {-4, -5, 6, 9}, 
 		            {7}, 
         };
-      
+      //outer loop for row
         for (int i = 0; i < a.length; ++i) {
-            for(int j = 0; j < a[i].length; ++j) {
+            //for columns
+        	for(int j = 0; j < a[i].length; ++j) {
                 System.out.print(a[i][j]+" ");
             }
             System.out.println();

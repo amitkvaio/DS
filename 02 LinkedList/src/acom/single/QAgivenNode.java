@@ -1,5 +1,5 @@
 package acom.single;
-// Delete a given node.
+// Delete a given node.-- VVI
 
 import acom.single.imp.Node;
 

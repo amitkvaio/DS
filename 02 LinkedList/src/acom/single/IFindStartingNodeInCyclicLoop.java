@@ -1,12 +1,17 @@
 package acom.single;
 
 import acom.single.imp.Node;
-
+/*
+Given the head of a linked list, return the node where the cycle begins. 
+	If there is no cycle, return null.
+	https://leetcode.com/problems/linked-list-cycle-ii/
+*/
 public class IFindStartingNodeInCyclicLoop {
 	static Node head=null;
 	public static void main(String[] args) {
 		createLoop();
-		findStartingNodeInCyclicLoop();
+		Node startNode = findStartingNodeInCyclicLoop();
+		System.out.println(startNode.data);
 	}
 
 	// Used to create the loop in linked List
@@ -34,11 +39,11 @@ public class IFindStartingNodeInCyclicLoop {
 		nine.next = fourth;
 	}
 
-	public static void findStartingNodeInCyclicLoop() {
+	public static Node findStartingNodeInCyclicLoop() {
 		// If list is empty or has only one node without loop
 		if (head == null || head.next == null) {
 			System.out.println("list is either empty or has only one node!!");
-			return;
+			return null;
 		}
 		Node slowPtr = head;
 		Node fastPtr = head;
@@ -53,8 +58,9 @@ public class IFindStartingNodeInCyclicLoop {
 				}
 				System.out.println("Starting node of the cyclic loop is::" + slowPtr.data);
 				System.out.println("Starting node of the cyclic loop is::" + fastPtr.data);
-				return;
+				return slowPtr;
 			}
 		}
+		return null;
 	}
 }

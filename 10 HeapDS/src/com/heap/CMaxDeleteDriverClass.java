@@ -9,6 +9,7 @@ public class CMaxDeleteDriverClass {
 		for (int i = 0; i < 10; i++) {
 			//ran.nextInt(max - min) + min; Print the random number in the given range.
 			int value = ran.nextInt(100 - 10) + 10;
+			System.out.print(value +" ");
 			maxHeap.insertHeap(value);
 		}
 		maxHeap.printHeap();
@@ -21,9 +22,9 @@ public class CMaxDeleteDriverClass {
 		System.out.println("Size::" + maxHeap.getSize());
 		System.out.println("*************************************");
 		
-		for (int index2delete = 0; index2delete < maxHeap.getSize();) {
+		for (int i = 0; i < maxHeap.getSize();) {
 			System.out.println("--After deletion--");
-			int val = maxHeap.delete(index2delete);
+			int val = maxHeap.delete(i);
 			System.out.println("Delete element :" + val);
 			maxHeap.printHeap();
 			System.out.println("Size::" + maxHeap.getSize());
@@ -32,5 +33,7 @@ public class CMaxDeleteDriverClass {
 				break;
 			}
 		}
+		System.out.println("*********last**************");
+		maxHeap.printHeap();
 	}
 }

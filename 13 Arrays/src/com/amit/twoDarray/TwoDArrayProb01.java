@@ -39,51 +39,51 @@ public class TwoDArrayProb01 {
 		//Gives numbers of column
 		int col = arr[0].length;
 
-		int rowStart = 0, rowEnd = row - 1;
-		int colStart = 0, colEnd = col - 1;
+		int sr = 0, er = row - 1;
+		int sc = 0, ec = col - 1;
 		
 		int[] outArr = new int[row * col];
 		int k=0;
 		int count =0;
-		while (rowStart <= rowEnd && colStart <= colEnd) {
+		while (sr <= er && sc <= ec) {
 			
 			//Printing first row                <startRow:0>...................<colEnd>
-			for (int i = colStart; i <= colEnd; i++) {
-				outArr[k++]=arr[rowStart][i];
+			for (int i = sc; i <= ec; i++) {
+				outArr[k++]=arr[sr][i];
 				count++;
 			}
 			//increasing the row
-			rowStart++;
+			sr++;
 			if(count==row*col) {
 				return outArr;
 			}
 			
 			//printing the last column from top to bottom
-			for (int i = rowStart ; i <=rowEnd ; i++) {
-				outArr[k++]=arr[i][colEnd];
+			for (int i = sr ; i <=er ; i++) {
+				outArr[k++]=arr[i][ec];
 				count++;
 			}
-			colEnd--;
+			ec--;
 			if(count==row*col) {
 				return outArr;
 			}
 			
 			//Printing the end row from right to left
-			for (int i = colEnd ; i >=colStart ; i--) {
-				outArr[k++]=arr[rowEnd][i];
+			for (int i = ec ; i >=sc ; i--) {
+				outArr[k++]=arr[er][i];
 				count++;
 			}
-			rowEnd--;
+			er--;
 			if(count==row*col) {
 				return outArr;
 			}
 			
 			//Printing the first column values from bottom to top
-			for (int i = rowEnd ; i >=rowStart ; i--) {
-				outArr[k++]=arr[i][colStart];
+			for (int i = er ; i >=sr ; i--) {
+				outArr[k++]=arr[i][sc];
 				count++;
 			}
-			colStart++;
+			sc++;
 			if(count==row*col) {
 				return outArr;
 			}

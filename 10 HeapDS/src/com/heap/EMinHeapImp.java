@@ -34,8 +34,17 @@ public class EMinHeapImp {
 
 	// return the parent node
 	private int parent(int i) {
-		int par = (i - 1) / 2;
-		return par;
+		return (i - 1) / 2;
+	}
+	
+	//return the left node of the given parent node index
+	public static int left(int i) {
+		return (2 * i) + 1;
+	}
+
+	//return the right node of the given parent node index
+	public static int right(int i) {
+		return (2 * i) + 2;
 	}
 
 	// This method returns the min element of the heap. complexity: O(1)
@@ -47,7 +56,7 @@ public class EMinHeapImp {
 
 	// This method used to print all element of the heap
 	public void printHeap() {
-		System.out.print("Min Heap = ");
+		System.out.print("\nMin Heap = ");
 		for (int i = 0; i < heapSize; i++) {
 			System.out.print(A[i] + " ");
 		}
@@ -108,12 +117,22 @@ public class EMinHeapImp {
 		return value;
 	}
 
+
+	//TC: O(N)
+	/*
+	For the given array need to convert into heap.
+	*/
 	public void buildHeap(int arr[], int size) {
-		for (int i = size / 2; i >= 0; i--) {
+		for (int i = parent(size) - 1; i >= 0; i--) {
 			heapify(arr, i, size);
 		}
 	}
 
+	/*
+	Given Binary Heap with one possible violation
+	While deletion of any element in the heap need to rearrange the elements in order
+	to follow the heap max/min property. 
+	*/
 	public void heapify(int arr[], int index, int size) {
 		int left = 2 * index + 1;
 		int right = left + 1;
