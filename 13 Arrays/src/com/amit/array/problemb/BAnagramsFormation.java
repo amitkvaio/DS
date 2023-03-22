@@ -53,7 +53,7 @@ public class BAnagramsFormation {
 
 			strAnaMap.get(key).add(s);
 		}
-		System.out.println(strAnaMap);
+		System.out.println(">>"+strAnaMap);
 		
 		List<List<String>> resultList = new ArrayList<>();
 		Set<String> key = strAnaMap.keySet();

@@ -3,20 +3,23 @@ package leet.code.general;
 //Excel sheet column number
 public class FExcelSheetColumnNumber {
 	public static void main(String[] args) {
-		String column = "ABC";
+		String column = "AB";
 		method1(column);
-		method2(column);
+		//method2(column);
 	}
 
 	private static void method1(String column) {
 		int sum = 0;
 		int pow = 1;
-
+		//Reverse direction
 		for (int i = column.length() - 1; i >= 0; i--) {
-			System.out.println(column.charAt(i) - 64);
 			int pos = (column.charAt(i) - 64);
+			System.out.println("Pos::"+pos);
 			sum = sum + pos * pow;
+			System.out.println("Sum::"+sum);
 			pow = pow * 26;
+			System.out.println("pow:"+pow);
+			System.out.println(">>>>>>>>>>>>>");
 		}
 		System.out.println("Expected Column is::" + sum);
 	}

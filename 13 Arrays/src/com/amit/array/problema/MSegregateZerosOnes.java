@@ -53,13 +53,13 @@ public class MSegregateZerosOnes {
 		/* Initialize left and right indexes */
 		int left = 0, right = size - 1;
 
-		while (left <= right) {
+		while (left < right) {
 			/* Increment left index while we see 0 at left */
-			while (arr[left] == 0 && left < right)
+			while (arr[left] == 0)
 				left++;
 
 			/* Decrement right index while we see 1 at right */
-			while (arr[right] == 1 && left < right)
+			while (arr[right] == 1)
 				right--;
 
 			/*

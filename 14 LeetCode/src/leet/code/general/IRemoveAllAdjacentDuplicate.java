@@ -61,7 +61,7 @@ public class IRemoveAllAdjacentDuplicate {
 		}
 		return new String(builder.reverse());
 	}
-//TC: O(n) SC: O(n)
+	//TC: O(n) SC: O(n)
 	
 	// simulate inplace stack
 	public static String inPlaceRemoveAdjacentDuplicate(String input) {

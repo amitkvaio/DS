@@ -11,7 +11,7 @@ public class IDecimal2BinaryConverstion {
 		System.out.println("-----------------");
 		decimal2Binary(dec);
 		System.out.println("------------------");
-		decimal2Binary2(dec);
+		decimal2Binary1(dec);
 	}
 	
 	//Using predefined method

@@ -26,6 +26,8 @@ public class GAnagramString1 {
 			for (int i = 0; i < str2.length; i++) {
 				if (str1[i] == str2[i])
 					++count;
+				else 
+					break;
 			}
 			if (count == str1.length)
 				System.out.println("Anagram Number");

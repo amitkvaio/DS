@@ -8,32 +8,17 @@ Maximum and minimum of an array using minimum number of comparisons
 public class BFindMaxAndMinFromArray {
 	public static void main(String[] args) {
 		int arr[] = { 11, 1000, 445, 1, 330, 3000 };
-		int maximum, minimum;
-		int len = arr.length;
-		int i = 2;
-
-		// if there is only one elements
-		if (len == 1) {
-			maximum = arr[0];
-			minimum = arr[0];
-		}
-		// more than one
-		if (arr[0] > arr[1]) {
-			maximum = arr[0];
-			minimum = arr[1];
-		} else {
-			maximum = arr[1];
-			minimum = arr[0];
-		}
-
-		while (i < len) {
-			if (arr[i] > maximum) {
-				maximum = arr[i];
-			} else if (arr[i] < minimum) {
-				minimum = arr[i];
+		int maximum = Integer.MIN_VALUE;
+		int minimum = Integer.MAX_VALUE;
+		 
+		for (int num : arr) {
+			if(num > maximum) {
+				maximum = num;
+			}else if(num < minimum) {
+				minimum = num;
 			}
-			i++;
 		}
+
 		System.out.println("Given Arrays Elements are::"+Arrays.toString(arr));
 		System.out.println("Maximum number::"+maximum);
 		System.out.println("Minimum number::"+minimum);

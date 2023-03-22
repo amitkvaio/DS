@@ -12,7 +12,7 @@ Frequency of 5 is : 2
 Frequency of 6 is : 2 
 */
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 
 public class TFrequencyOfEachElements {
@@ -27,7 +27,7 @@ public class TFrequencyOfEachElements {
 	}
 
 	public static Map<Integer, Integer> solveIterative(int[] arr) {
-		LinkedHashMap<Integer, Integer> freqMap = new LinkedHashMap<>();
+		 HashMap<Integer, Integer> freqMap = new  HashMap<>();
 		for (int val : arr) {
 			if (freqMap.containsKey(val)) {
 				freqMap.put(val, freqMap.get(val) + 1);

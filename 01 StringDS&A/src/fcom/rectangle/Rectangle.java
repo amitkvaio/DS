@@ -29,9 +29,9 @@ public class Rectangle {
 	}
 
 	public boolean isOverlapping(Rectangle first, Rectangle second) {
-		if (first.bottomLeft.x > second.topRight.x || second.bottomLeft.x > first.topRight.x)
+		if (first.bottomLeft.x > second.topRight.x || first.topRight.x < second.bottomLeft.x)
 			return false;
-		if (first.bottomLeft.y > second.topRight.y || second.bottomLeft.y > first.topRight.y)
+		if (first.bottomLeft.y > second.topRight.y || first.topRight.y < second.bottomLeft.y)
 			return false;
 		return true;
 	}

@@ -114,6 +114,27 @@ public class AMaxHeapImp {
 		heapify(A, x, size);
 		return value;
 	}
+	
+	// This will delete root node: O(log N)
+	public int deleteRootNode(int [] arr, int n) {
+		if (isEmpty())
+			throw new NoSuchElementException("Heap is empty, No element to delete");
+		
+		// Get the last element
+        int lastElement = arr[n - 1];
+
+        // Replace root with first element
+        arr[0] = lastElement;
+
+        // Decrease size of heap by 1
+        n = n - 1;
+
+        // heapify the root node
+        heapify(arr, 0, n);
+
+        // return new size of Heap
+        return n;
+	}
 
 	//TC: O(N)
 	/*
@@ -130,24 +151,36 @@ public class AMaxHeapImp {
 	Given Binary Heap with one possible violation
 	While deletion of any element in the heap need to rearrange the elements in order
 	to follow the heap max/min property. 
+	
+	To heapify a subtree rooted with node i which is
+    an index in arr[] and n is size of heap
+	
 	*/
-	public void heapify(int arr[], int index, int size) {
-		int left = left(index);
-		int right = right(index);
+	public void heapify(int arr[], int index, int n) {
+		int left = left(index); //left
+		int right = right(index); //right
 
+		// Initialize largest as root
 		int max = index;
 
-		if (left <= size && arr[left] > arr[max]) {
+		// If left child is larger than root
+		if (left <= n && arr[left] > arr[max]) {
 			max = left;
 		}
-		if (right <= size && arr[right] > arr[max]) {
+		
+		// If right child is larger than largest so far
+		if (right <= n && arr[right] > arr[max]) {
 			max = right;
 		}
+		
+		 // If largest is not root
 		if (index != max) {
 			int temp = arr[index];
 			arr[index] = arr[max];
 			arr[max] = temp;
-			heapify(arr, max, size);
+			
+			 // Recursively heapify the affected sub-tree
+			heapify(arr, max, n);
 		}
 	}
 	

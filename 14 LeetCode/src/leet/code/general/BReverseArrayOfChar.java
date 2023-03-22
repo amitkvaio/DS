@@ -33,7 +33,7 @@ public class BReverseArrayOfChar {
 		int last = str.length()-1;
 		char [] charAr = str.toCharArray();
 		char temp;
-		while(first <=last) {
+		while(first < last) {
 			temp = charAr[first];
 			charAr[first] = charAr[last];
 			charAr[last]=temp;

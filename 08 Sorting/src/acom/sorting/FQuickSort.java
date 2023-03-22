@@ -24,7 +24,7 @@ public class FQuickSort {
 	public static int partition(int[] A, int low, int high) {
 		int midIndex = (low + high) / 2;
 		int pivot = A[midIndex];
-		while (low <= high) {
+		while (low < high) {
 
 			while (A[low] < pivot) {
 				low++;

@@ -1,7 +1,14 @@
 package com.amit.array.problema;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /*
 Find duplicates in a given array when elements are not limited to a range
@@ -23,7 +30,15 @@ public class GfindDuplicate {
         findDuplicates(arr, n);
         System.out.println("\n***********Using HashMap*************");
         findDuplicateUsingHashMap(arr,n);
+        System.out.println("\n***********Using HashSet**************");
+        findDuplicateUsingHashSet(arr, n);
+        System.out.println(">>>>>>>>>>>Get Duplicate>>>>>>>>>>>>>");
+        Integer arr1[] = { 12, 11, 40, 12, 5, 6, 5, 12, 11 };
+        getDuplicates(arr1);
+        System.out.println(">>>>>>>>>>>Get_____>>>>>>>>>>>>>");
+        getDuplicates_(arr);
 	}
+	
 	
 	//TC : O(n*n)
 	static void findDuplicates( int arr[], int len) {
@@ -78,6 +93,60 @@ public class GfindDuplicate {
 		if (dup) {
 			System.out.println("-1");
 		}
+		
+		System.out.println(">>> Using Java 8 >>>>");
+		List<Integer> list = Arrays.stream(arr).boxed().collect(Collectors.toList());
+		
+		Arrays.stream(arr).boxed().filter(x->Collections.frequency(list, x)>1)
+		.collect(Collectors.toSet())
+		.forEach(System.out::println);
+		
+		System.out.println(">>>>>>>>>>>>");
+		
+		list.stream()
+			.filter(x->Collections.frequency(list, x)>1)
+			.collect(Collectors.toSet())
+			.forEach(System.out::println);
 
 	}
+	
+	private static void findDuplicateUsingHashSet(int[] arr, int n) {
+		HashSet<Integer> set = new HashSet<Integer>();
+		set.add(arr[0]);
+		boolean status = false;
+		for (int i = 1; i < arr.length; i++) {
+			if (set.contains(arr[i])) {
+				status = true;
+				if(!set.add(arr[i])) {
+					System.out.print(arr[i] + " ");
+				}
+			}else {
+				set.add(arr[i]);
+			}
+		}
+		
+		if(!status)
+			System.out.println(-1);
+	}
+	
+	public static <T extends Comparable<T>> void getDuplicates(T[] array) {
+		Set<T> dupes = new HashSet<T>();
+		for (T i : array) {
+			if (!dupes.add(i)) {
+				System.out.println("Duplicate element in array is : " + i);
+			}
+		}
+	}
+	
+	public static void getDuplicates_(int [] array) {
+		Set<Integer> dupes = new HashSet<Integer>();
+		for (Integer i : array) {
+			if (!dupes.add(i)) {
+				System.out.println("Duplicate element in array is : " + i);
+			}
+		}
+	}
+
+
+
 }

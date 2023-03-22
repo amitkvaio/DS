@@ -22,7 +22,9 @@ public class EReverseWords {
 				reverse(str, start, i);
 			}
 		}
+		System.out.println(Arrays.toString(str));
 		reverse(str, 0, n - 1);
+		
 	}
 
 	private static void reverse(char[] str, int start, int end) {

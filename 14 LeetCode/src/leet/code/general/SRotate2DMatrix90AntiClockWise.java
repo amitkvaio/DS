@@ -20,6 +20,8 @@ public class SRotate2DMatrix90AntiClockWise {
 						{4,5,6},
 						{7,8,9 }
 					   };
+		print(arr);
+		System.out.println("After Rotation of 90 degree Anti Clock Wise!!");
 		rotateBy90AntiClockWise(arr);
 		print(arr);
 	}

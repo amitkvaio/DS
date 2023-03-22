@@ -3,7 +3,7 @@ package com.interview;
 
 public class ElongestSubstringWithConsecutiveCharacters {
 	public static void main(String[] args) {
-		String str = "zabcdabcabdefghijklmn";
+		String str = "zabcdabcabdefghiijklmn";
 		int len = str.length();
 		longestSubString(str,len);
 	}
