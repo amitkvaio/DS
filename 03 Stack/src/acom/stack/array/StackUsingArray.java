@@ -53,8 +53,8 @@ public class StackUsingArray implements Stack{
             return arr[returnedTop];
         } else {
             System.out.println("Stack is empty !");
+            return -1;
         }
-		return -1;
 	}
 
 	@Override
