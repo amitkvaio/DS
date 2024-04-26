@@ -9,7 +9,7 @@ public class DLargestAndSmallest {
 	}
 	
 	public static void findLargestAndSmallest(Integer[] arr) {
-		int smallest = arr[0], largest = 1;
+		int smallest = arr[0], largest = arr[0];
 		for (int i = 1; i < arr.length; i++) {
 			if (arr[i] > smallest) {
 				largest = arr[i];

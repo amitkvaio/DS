@@ -7,6 +7,7 @@ public class IReveseString {
 		System.out.println(myApproach2(str));
 		System.out.println(myApproach3(str));*/
 		System.out.println(reverseRecursively(str));
+		System.out.println(myApproach4(str));
 		//System.out.println(reverse(str));
 	}
 	
@@ -36,6 +37,21 @@ public class IReveseString {
 		return reverse;
 	}
 	
+	public static String myApproach4(String str) {
+		char strChar[] = str.toCharArray();
+		int start = 0 ; 
+		int end = strChar.length-1;
+		char temp;
+		while(start < end ) {
+			temp = strChar[start];
+			strChar[start] = strChar[end];
+			strChar[end] = temp;
+			start++;
+			end--;
+		}
+		return new String(strChar);
+	}
+	
 	// using Recursion
 	public static String reverseRecursively(String str) {
 		// base case to handle one char string and empty string
@@ -56,5 +72,4 @@ public class IReveseString {
 		}
 		return strBuilder.toString();
 	}
-
 }

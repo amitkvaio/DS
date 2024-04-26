@@ -7,7 +7,7 @@ public class MDeleteFirstOccurenceNode {
 	static Node head = null;
 
 	public static void main(String[] args) {
-		createLoop();
+		createLinkedList();
 		Util.displayList(head);
 		deleteFirstOccurenceNode(15);
 
@@ -40,7 +40,7 @@ public class MDeleteFirstOccurenceNode {
 	}
 
 	// Used to create the loop in linked List
-	public static void createLoop() {
+	public static void createLinkedList() {
 		Node first = new Node(10);
 		Node second = new Node(10);
 		Node third = new Node(15);

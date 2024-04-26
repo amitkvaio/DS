@@ -13,6 +13,7 @@ public class RRemoveGivenCharacter {
 		String result="";
 		for (int i = 0; i < str.length(); i++) {
 			if(str.charAt(i) == ch) {
+				continue;
 			}else {
 				result=result+str.charAt(i);
 			}

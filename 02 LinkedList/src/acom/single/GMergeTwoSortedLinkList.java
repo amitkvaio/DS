@@ -6,7 +6,7 @@ import acom.single.imp.SingleLinkedList;
 public class GMergeTwoSortedLinkList {
 	Node firstLinkedList = null;
 	Node secondLinkedList = null;
-	Node head = null;
+	//Node head = null;
 	
 	public static void main(String[] args) {
 		GMergeTwoSortedLinkList list = new GMergeTwoSortedLinkList();
