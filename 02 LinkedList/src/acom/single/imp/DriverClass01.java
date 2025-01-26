@@ -22,7 +22,8 @@ public class DriverClass01 {
 			System.out.println("8 Get list Size.");
 			System.out.println("9 Value Check Present or not!!");
 			System.out.println("10 Reverse LinkedList!!");
-			System.out.println("11 Exit.");
+			System.out.println("11 Get the node value position!!");
+			System.out.println("12 Exit.");
 			System.out.println("Enter you Choice.");
 			int choice = sc.nextInt();
 			int positition,val;
@@ -70,6 +71,11 @@ public class DriverClass01 {
 				list.reverseLinkedList();
 				break;
 			case 11:
+				int data = sc.nextInt();
+				int pos = list.getPositionOfNodeForAGivenValue(data);
+				System.out.println("Position of data :" + data + " is :" + pos);
+				break;
+			case 12:
 				status=false;
 				break;
 			default:

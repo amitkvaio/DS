@@ -8,40 +8,30 @@ public class NDeleteAllOccurenceOfGivenKey {
 	public static void main(String[] args) {
 		createLoop();
 		Util.displayList(head);
-		int key =20;
-		deleteAllOccurenceOfGivenKey(key);
+		int key =10;
+		deleteAllOccurrences(key);
 
 		System.out.println("After Removal of all the occurence of key: "+key);
 		Util.displayList(head);
 		System.out.println("************Done************");
 	}
 
-	private static void deleteAllOccurenceOfGivenKey(int key) {
-		Node temp = head;
-		Node pre = null;
-		
-		//if the head containing the multiple required key value
-		while (temp != null && temp.data== key) {
-			head = temp.next;
-			temp = head;
+	// Function to delete all occurrences of the given key
+	public static void deleteAllOccurrences(int key) {
+		// Remove all occurrences of key at the head
+		while (head != null && head.data == key) {
+			head = head.next;
+			System.out.println("*******head*********");
 		}
-		
-		while (temp != null) {
-			// if required key value is in between the linked list
-			while (temp != null && temp.data != key) {
-				pre = temp;
-				temp = temp.next;
+
+		// Traverse the rest of the list
+		Node temp = head;
+		while (temp != null && temp.next != null) {
+			if (temp.next.data == key) {
+				temp.next = temp.next.next; // Skip the node with the key
+			} else {
+				temp = temp.next; // Move to the next node
 			}
-	
-			// if the required key is not in the linked list
-			if (temp == null) {
-				return;
-			}
-			// move pre next to next of temp
-			pre.next = temp.next;
-			
-			//for the next iteration of temp
-			temp = pre.next;
 		}
 	}
 

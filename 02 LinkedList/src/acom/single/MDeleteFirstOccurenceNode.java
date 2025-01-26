@@ -16,32 +16,33 @@ public class MDeleteFirstOccurenceNode {
 		System.out.println("************Done************");
 	}
 
-	private static void deleteFirstOccurenceNode(int key) {
-		Node temp = head;
-		Node pre = null;
-		//if the head containing the required key value
-		if (temp != null && temp.data == key) {
-			head = temp.next;
-			return;
-		}
-		
-		//if required key value is in between the linked list
-		while(temp != null && temp.data !=key) {
-			pre = temp ;
+	// Function to delete the first occurrence of the key
+	public static void deleteFirstOccurenceNode(int key) {
+		if (head == null)
+			return; // If list is empty
+
+		Node temp = head, prev = null;
+
+		// Traverse the list to find the key
+		while (temp != null) {
+			if (temp.data == key) {
+				if (prev == null) {
+					// Key is at the head
+					head = head.next;
+				} else {
+					// Key is in the middle or end
+					prev.next = temp.next;
+				}
+				return; // Stop after removing the first occurrence
+			}
+			prev = temp;
 			temp = temp.next;
 		}
-		
-		// if the required key is not in the linked list
-		if (temp == null) {
-			return;
-		}
-		//move pre next to next of temp
-		pre.next = temp.next;
 	}
 
 	// Used to create the loop in linked List
 	public static void createLinkedList() {
-		Node first = new Node(10);
+		Node first = new Node(8);
 		Node second = new Node(10);
 		Node third = new Node(15);
 		Node fourth = new Node(5);

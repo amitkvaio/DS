@@ -21,61 +21,53 @@ public class OAddTwoNumberLinkedList {
 		Util.displayList(first);
 		Util.displayList(second);
 		
+		//Addition of two Linked List
+		Node sum = addTwoNumbers(first, second);
+		System.out.println("After Addition");
+		Util.displayList(sum);
+	}
+	
+	// Function to add two numbers represented by linked lists
+	public static Node addTwoNumbers(Node first, Node second) {
+		
+		Node fst = reverseLinkedList(first);
+		Node scd = reverseLinkedList(second);
 		
 		//Reversing the both the LinkedList
 		System.out.println("After reverse printing the linked list");
-		Node frst = reverseLinkedList(first);
-		Node scnd = reverseLinkedList(second);
-		Util.displayList(frst);       
-		Util.displayList(scnd);
+		Util.displayList(fst);       
+		Util.displayList(scd);
 		
-		//Addition of two Linked List
-		addTwoNumberInLinkedList(frst, scnd);
-	}
-	
-	public static void addTwoNumberInLinkedList(Node first, Node second) {
-		// Addition start
-		int sum = 0;
+		 
 		int carry = 0;
-		int firstIter = 0;
 		Node newHead = null;
-		Node tmp =null;
-		while (first != null || second != null) {
+		Node temp = null;
 
-			firstIter++;
-			sum = carry;
-
-			if (first != null) {
-				sum = sum + first.data;
-				first = first.next;
+		// Add corresponding digits from both lists
+		while (fst != null || scd != null || carry != 0) {
+			int sum = carry;
+			if (fst != null) {
+				sum = sum + fst.data;
+				fst = fst.next;
+			}
+			if (scd != null) {
+				sum = sum + scd.data;
+				scd = scd.next;
 			}
 
-			if (second != null) {
-				sum = sum + second.data;
-				second = second.next;
-			}
-
-			carry = sum / 10;
-			sum = sum % 10;
-
-			// Check if it first node for the result
-			if (firstIter == 1) {
-				Node newNode = new Node(sum);
+			carry = sum / 10; // Update carry
+			Node newNode = new Node(sum % 10);
+			
+			if (newHead == null) {
 				newHead = newNode;
-				//tmp will used for iterating and adding the new Node
-				tmp = newHead;
+				temp = newHead;
 			} else {
-				Node newNode = new Node(sum);
-				tmp.next = newNode;
-				tmp = tmp.next;
+				temp.next = newNode;
+				temp = temp.next;
 			}
 		}
-		System.out.println(">>>>>>Addition in reverse order >>>>>>>>>");
-		Util.displayList(newHead);
-		//Again Reverse the Linked List
-		Node addition = reverseLinkedList(newHead);
-		System.out.println("Sum of two linked list are :");
-		Util.displayList(addition);
+		// Reverse the result list to restore the proper order
+		return reverseLinkedList(newHead);
 	}
 	
 	public static Node createList_1() {
@@ -120,5 +112,4 @@ public class OAddTwoNumberLinkedList {
 		}
 		return previous;
 	}
-	
 }

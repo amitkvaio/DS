@@ -17,18 +17,20 @@ public class EplindropCheck {
 	
 	public static void  palindropCheck(Node head) {
 		//Reverse the current linked list
-		Node current = head;
+		Node temp = head;
+		Node current = null;
 		Node previous = null;
-		Node tmp = null;
-		while(current!=null) {
-			tmp = current;
-			current = current.next;
-			tmp.next=previous;
-			previous=tmp;
+		
+		while (temp != null) {
+			temp = temp.next;
+			current.next = previous;
+			previous = current;
+			current = temp;
 		}
 		Util.displayList(previous);
 		
-		/*will do the check whether it is palindrome or not
+		/*
+		will do the check whether it is palindrome or not
 		will compare the head node of main and reversed linked list if each elements are equal then it 
 		will be palindrome  else not
 		*/

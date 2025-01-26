@@ -9,7 +9,7 @@ public class FInsertNodeInSortedList {
 	public static void main(String[] args) {
 		createList();
 		Util.displayList(head);
-		insertNodeUtil(new Node(25));
+		insertNodeUtilA(new Node(45));
 		Util.displayList(head);
 	}
 	
@@ -47,4 +47,20 @@ public class FInsertNodeInSortedList {
 		}
 	}
 	
+	public static void insertNodeUtilA(Node newNode) {
+		// If the head is null
+		Node temp = head;
+		if (head == null) {
+			head = newNode;
+		} else if (head.data >= newNode.data) {
+			newNode.next = head;
+			head = newNode;
+		} else {
+			while (temp.next != null && newNode.data > temp.next.data) {
+					temp = temp.next;
+			}
+			newNode.next = temp.next;
+			temp.next = newNode;
+		}
+	}
 }

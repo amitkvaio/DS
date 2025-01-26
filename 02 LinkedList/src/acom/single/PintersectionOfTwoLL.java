@@ -32,42 +32,40 @@ public class PintersectionOfTwoLL {
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		Util.displayList(head2);
 
-		findIntersectionPoint(head1, head2);
+		Node intNode = getIntersectionNode(head1, head2);
+		System.out.println("Intersection of Node Would be::" + intNode.data);
 	}
 
-	public static void findIntersectionPoint(Node n1, Node n2) {
-		int sizeN1 = getLength(n1);
-		int sizeN2 = getLength(n2);
-
-		Node larger = null;
-		Node smaller = null;
-		int diff = 0;
-
-		// Calculating the diff and finding the longest LL
-		if (sizeN1 > sizeN2) {
-			diff = sizeN1 - sizeN2;
-			larger = n1;
-			smaller = n2;
-		} else {
-			diff = sizeN2 - sizeN1;
-			larger = n2;
-			smaller = n1;
-		}
-		int count = 0;
-
-		// Moving diff nodes in the larger linked List
-		while (count < diff) {
-			larger = larger.next;
-			count++;
+	// Function to find the intersection point of two linked lists
+	public static Node getIntersectionNode(Node headA, Node headB) {
+		if (headA == null || headB == null) {
+			return null;
 		}
 
-		// Moving forward both the LL until both LL points to the same nodes
-		while (larger != smaller) {
-			larger = larger.next;
-			smaller = smaller.next;
+		// Get the lengths of both lists
+		int lengthA = getLength(headA);
+		int lengthB = getLength(headB);
+
+		// Align the starting points
+		while (lengthA > lengthB) {
+			headA = headA.next;
+			lengthA--;
 		}
-		System.out.println("Intersection of Node Would be::" + larger.data);
-		System.out.println("Intersection of Node Would be::" + smaller.data);
+		while (lengthB > lengthA) {
+			headB = headB.next;
+			lengthB--;
+		}
+
+		// Traverse both lists together to find the intersection
+		while (headA != null && headB != null) {
+			if (headA == headB) {
+				return headA; // Intersection found
+			}
+			headA = headA.next;
+			headB = headB.next;
+		}
+
+		return null; // No intersection
 	}
 
 	public static int getLength(Node head) {
@@ -79,5 +77,4 @@ public class PintersectionOfTwoLL {
 		}
 		return count;
 	}
-
 }

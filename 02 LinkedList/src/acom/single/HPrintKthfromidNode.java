@@ -6,28 +6,45 @@ import acom.single.imp.SingleLinkedList;
 public class HPrintKthfromidNode {
 	public static void main(String[] args) {
 		SingleLinkedList list = new SingleLinkedList();
-		for (int i = 10; i >= 1; i--) {
+		for (int i = 5; i >= 1; i--) {
 			list.addFirst(i);
 		}
 		Util.displayList(list.head);
-		printKthNodefroMiddleNode(2, list.size, list.head);
+		Node node = printKthNodefroMiddleNode(list.head, 1);
+		System.out.println("Required Node ::" + node.data);
 	}
 
-	private static void printKthNodefroMiddleNode(int kthNode, int size, Node head) {
-		System.out.println("Size::"+size);
-		int middleNodePos = (size / 2) + 1;
-		int requiredNode = middleNodePos - kthNode;
-		if(requiredNode < 1) {
-			System.out.println("Invalid " + requiredNode + "th Position from the middle!");
-			return;
+	// Function to find the kth node from the middle towards the head
+	public static Node printKthNodefroMiddleNode(Node head, int k) {
+		if (head == null)
+			return null;
+
+		Node slow = head, fast = head;
+		int position = 0;
+
+		// Step 1: Find the middle using slow and fast pointers
+		while (fast != null && fast.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+			position++;
 		}
-		int count = 1;
-		Node temp = head;
-		while (count < requiredNode) {
-			temp = temp.next;
-			count++;
+
+		// Step 2: Calculate the target position
+		int targetPosition = position - k;
+		System.out.println(
+				"Middle Node ::" + slow.data + " Position::" + position + " Target Position ::" + targetPosition);
+		if (targetPosition < 0) {
+			// If target position is out of bounds, return null
+			return null;
 		}
-		System.out.println("Kth Node from the mid ::"+temp.data);
+
+		// Step 3: Traverse the list to the target position
+		Node current = head;
+		for (int i = 1; i <= targetPosition; i++) {
+			current = current.next;
+		}
+
+		return current; // This is the kth node from the middle towards the head
 	}
 }
 

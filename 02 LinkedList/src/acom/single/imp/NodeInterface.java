@@ -13,4 +13,5 @@ public interface NodeInterface {
 	public abstract void createList();
 	public abstract boolean contains(int key);
 	public abstract void reverseLinkedList();
+	public abstract int getPositionOfNodeForAGivenValue(int data);
 }

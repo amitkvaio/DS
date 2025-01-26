@@ -27,7 +27,7 @@ public class CNthNodeFromEnd {
 		for (int i = 1; i < nThNode; i++) {
 			temp = temp.next;
 		}
-		System.out.println( n+ "th Node from the end is :" + temp.data);
+		System.out.println( n+ "th Node from the end is : " + temp.data);
 	}
 	
 	//vvi

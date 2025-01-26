@@ -5,48 +5,48 @@ import acom.single.Util;
 public class SingleLinkedList implements NodeInterface {
 	public Node head;
 	public int size;
-	
+
 	public SingleLinkedList() {
 		head = null;
-		size =0;
+		size = 0;
 	}
-	 
+
 	public boolean isEmpty() {
-		return (size==0 ||head ==null);
+		return (size == 0 || head == null);
 	}
-	 
+
 	public int getSize() {
 		return size;
 	}
-	 
+
 	public void addFirst(int val) {
 		Node newNode = new Node(val);
-	//	Node temp;
-		if(head == null) {
+		// Node temp;
+		if (head == null) {
 			head = newNode;
-		}else {
-			//temp = head;
-			newNode.next=head;
-			head =newNode;
+		} else {
+			// temp = head;
+			newNode.next = head;
+			head = newNode;
 		}
 		size++;
 	}
-	 
+
 	public void addLast(int val) {
 		Node newNode = new Node(val);
 		Node temp;
-		if(isEmpty()) {
+		if (isEmpty()) {
 			addFirst(val);
-		}else{
+		} else {
 			temp = head;
-			while(temp.next !=null) {
+			while (temp.next != null) {
 				temp = temp.next;
 			}
-			temp.next=newNode;
+			temp.next = newNode;
 			size++;
 		}
 	}
-	 
+
 	public void addGivenPosition(int val, int position) {
 		if (isEmpty() || position == 1) {
 			addFirst(val);
@@ -65,17 +65,17 @@ public class SingleLinkedList implements NodeInterface {
 			size++;
 		}
 	}
-	 
+
 	public void deleteFirst() {
-		if(head ==null) {
+		if (head == null) {
 			return;
 		}
 		Node temp = head;
 		head = temp.next;
-		temp.next=null;
+		temp.next = null;
 		size--;
 	}
-	 
+
 	public void deleteLast() {
 		if (head == null) {
 			return;
@@ -92,8 +92,7 @@ public class SingleLinkedList implements NodeInterface {
 			size--;
 		}
 	}
-	 
-	 
+
 	public void deleteAtGivenPosition(int position) {
 		if (head == null) {
 			return;
@@ -106,7 +105,7 @@ public class SingleLinkedList implements NodeInterface {
 		} else {
 			Node current = head;
 			Node previous = null;
-			int count = 0;
+			int count = 1;
 			while (count < position - 1) {
 				previous = current;
 				current = current.next;
@@ -117,56 +116,56 @@ public class SingleLinkedList implements NodeInterface {
 			size--;
 		}
 	}
-	 
+
 	public void createList() {
 		Node first = new Node(10);
 		Node second = new Node(20);
 		Node third = new Node(30);
 		Node fourth = new Node(40);
 		Node fifth = new Node(50);
-		
+
 		head = first;
 		first.next = second;
 		second.next = third;
 		third.next = fourth;
-		fourth.next = fifth;
+		fourth.next = fifth; 
 		fifth.next = null;
 		size = 5;
 	}
-	
+
 	public boolean contains(int value) {
-		Node temp =head;
-		while(temp!=null) {
-			if(temp.data == value)
+		Node temp = head;
+		while (temp != null) {
+			if (temp.data == value)
 				return true;
 			else
 				temp = temp.next;
 		}
 		return false;
 	}
-	
+
 	public void reverseLinkedList() {
 		if (head == null) {
 			return;
 		}
-		
+
+		Node temp = head;
 		Node current = head;
 		Node previous = null;
-		Node next = null;
-		while (current != null) {
-			next = current.next;
+		while (temp != null) {
+			temp = temp.next;
 			current.next = previous;
 			previous = current;
-			current = next;
+			current = temp;
 		}
 		// Print reverse element
 		if (isEmpty()) {
 			return;
 		}
-		Node temp1 = previous;
-		while (temp1 != null) {
-			System.out.print(temp1.data + "-->");
-			temp1 = temp1.next;
+		temp = previous;
+		while (temp != null) {
+			System.out.print(temp.data + "-->");
+			temp = temp.next;
 		}
 		System.out.print("Null\n");
 	}
@@ -174,5 +173,20 @@ public class SingleLinkedList implements NodeInterface {
 	@Override
 	public void displayList() {
 		Util.displayList(head);
+	}
+	
+	public int getPositionOfNodeForAGivenValue(int data) {
+		int pos = 0;
+		Node temp = head;
+		while (temp != null) {
+			if (data == temp.data) {
+				return pos;
+			} else {
+				temp = temp.next;
+				pos++;
+			}
+		}
+		// If data is not matching then returning invalid value.
+		return Integer.MIN_VALUE;
 	}
 }
