@@ -20,7 +20,7 @@ public class GAnagramString3 {
 		int [] strCount1 = new int [SIZE];
 		int [] strCount2 = new int [SIZE];
 		
-		for (int i = 0; i < str1.length() && i < str2.length(); i++) {
+		for (int i = 0; i < str1.length(); i++) {
 			strCount1[str1.charAt(i)]++;
 			strCount2[str2.charAt(i)]++;
 		}

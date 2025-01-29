@@ -34,6 +34,7 @@ public class StackUsingLinkedList implements Stack{
 		length++;
 	}
 
+	//Its similar to deleting a node at first node in the Linked List
 	@Override
 	public int pop() {
 		if(isEmpty()) {
@@ -56,7 +57,6 @@ public class StackUsingLinkedList implements Stack{
 
 	@Override
 	public void display() {
-		
 		 
 	}
 

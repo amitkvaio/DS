@@ -7,23 +7,42 @@ public class CInsertionSort {
 		int [] arr = new int[] {10, 40, 50, 30, 20};
 		//						0    1   2   3   4
 		System.out.println("Befor Sorting : " + Arrays.toString(arr));
-		insertionSort(arr);
-	}
-
-	public static void insertionSort(int arr[]) {
-		int index, value;
-		for (int i = 1; i < arr.length; i++) {
-			index = i;
-			value = arr[index];
-			while (index > 0 && arr[index - 1] > value) {
-				arr[index] = arr[index - 1];
-				index--;
-			}
-			System.out.println("j--> " + index + " value :" + value);
-			arr[index] = value;
-		}
+		insertionSort1(arr);
 		System.out.println("After Sorting : " + Arrays.toString(arr));
 	}
+
+	public static void insertionSort(int[] arr) {
+
+		for (int i = 1; i < arr.length; i++) {
+			// Current element to be inserted into the sorted portion
+			int key = arr[i];
+			int j = i - 1;
+
+			// Move elements of arr[0..i-1] that are greater than key
+			// to one position ahead of their current position
+			while (j >= 0 && arr[j] > key) {
+				arr[j + 1] = arr[j];
+				j--;
+			}
+
+			// Place the key in its correct position
+			arr[j + 1] = key;
+		}
+	}
+	
+	public static void insertionSort1(int[] arr) {
+		for (int i = 1 ; i < arr.length; i++) {
+			 //lets consider the first index value is already sorted.
+			int key = arr[i];
+			int j = i - 1 ;
+			while(j >=0 && arr[j] > key ) {
+				arr[j+1] = arr[j];
+				j = j - 1;
+			}
+			arr[j+1] = key;
+		}
+	}
+
 }
 
 /*

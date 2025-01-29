@@ -3,6 +3,7 @@ package acom.single.imp;
 public class Node {
 	public int data;
 	public Node next;
+	public Node child;
 	public boolean isVisited;
 	public Node() {
 		data = 0;

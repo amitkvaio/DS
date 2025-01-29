@@ -27,10 +27,12 @@ public class ZCReverseString {
 	
 	//Using Recursion
 	public static String recursiveReverse(String orig) {
+		System.out.println(orig);
 		if (orig.length() == 1)
 			return orig;
 		else
-			return orig.charAt(orig.length() - 1) + recursiveReverse(orig.substring(0, orig.length() - 1));
+			//return orig.charAt(orig.length() - 1) + recursiveReverse(orig.substring(0, orig.length() - 1));
+			return recursiveReverse(orig.substring(1)) + orig.charAt(0);
 	}
 	
 	//using StringBuilder

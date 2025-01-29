@@ -32,7 +32,7 @@ public class XLenghtOfStringMain {
 				str.charAt(i);
 			}
 		} catch (Exception e) {
-
+			//e.printStackTrace();
 		}
 		return i;
 	}

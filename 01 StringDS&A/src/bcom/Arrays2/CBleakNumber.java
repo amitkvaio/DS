@@ -2,28 +2,27 @@
 package bcom.Arrays2;
 
 public class CBleakNumber {
-	
-	// Driver code 
-    public static void main(String args[]) 
-    { 
-        if (checkBleakNumber(1)) 
-            System.out.println("Yes"); 
-        else
-            System.out.println("No"); 
-        if (checkBleakNumber(3)) 
-            System.out.println("Yes"); 
-        else
-            System.out.println("No"); 
-    } 
-	
+
+	// Driver code
+	public static void main(String args[]) {
+		if (checkBleakNumber(19))
+			System.out.println("Yes");
+		else
+			System.out.println("No");
+		if (checkBleakNumber(3))
+			System.out.println("Yes");
+		else
+			System.out.println("No");
+	}
+
 	static boolean checkBleakNumber(int n) {
-		for (int i = 1; i < n ; i++) {
-			if(( i + countOne(n))==n)
+		for (int i = 1; i < n; i++) {
+			if ((i + countOne(n)) == n)
 				return false;
 		}
 		return true;
 	}
-	
+
 	static int countOne(int x) {
 		int count = 0;
 		if (x == 0)
@@ -31,14 +30,14 @@ public class CBleakNumber {
 		while (x != 0) {
 			x &= (x - 1);
 			++count;
-		};
-		System.out.println("Number:"+x +"1's cont : "+count);
+		}
+		System.out.println("Number:" + x + "1's cont : " + count);
 		return count;
 	}
 }
 /*
 
-A number ‘n’ is called Bleak if it cannot be represented as sum of a 
+A number 'n' is called Bleak if it cannot be represented as sum of a 
 	positive number x and set bit count in x, i.e., x + countSetBits(x) is 
 	not equal to n for any non-negative number x.
 

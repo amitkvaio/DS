@@ -60,4 +60,38 @@ Best case: O(n)
 Average case: O(n^2)
 Worst case: O(n^2)
 
+
+
+Input:
+
+arr = [5, 3, 8, 4, 2] (n=5n=5)
+Execution:
+
+    Outer Loop i=0:
+        Inner loop runs n−i−1 = 5−0−1	=4 times:
+            Compare and swap 5 & 3: [3, 5, 8, 4, 2]
+            Compare and swap 5 & 8: [3, 5, 8, 4, 2]
+            Compare and swap 8 & 4: [3, 5, 4, 8, 2]
+            Compare and swap 8 & 2: [3, 5, 4, 2, 8]
+
+    Outer Loop i=1:
+        Inner loop runs n−i−1 = 5−1−1	=3 times:
+            Compare and swap 3 & 5: [3, 5, 4, 2, 8]
+            Compare and swap 5 & 4: [3, 4, 5, 2, 8]
+            Compare and swap 5 & 2: [3, 4, 2, 5, 8]
+
+    Outer Loop i=2:
+        Inner loop runs n−2−1 = 5−2−1	=2 times:
+            Compare and swap 3 & 4: [3, 4, 2, 5, 8]
+            Compare and swap 4 & 2: [3, 2, 4, 5, 8]
+
+    Outer Loop i=3:
+        Inner loop runs n−3−1 = 5−3−1	=1 times:
+            Compare and swap 3 & 2: [2, 3, 4, 5, 8]
+
+
+Summary:
+    The outer loop runs n−1 times because each pass places one element in its correct position.
+    The inner loop runs n−i−1 times because elements at the end of the list are already sorted 
+    
 */

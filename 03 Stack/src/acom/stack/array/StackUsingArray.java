@@ -8,10 +8,10 @@ public class StackUsingArray implements Stack{
 	public int[] arr;
 	private int size;
 	
-	public StackUsingArray(int stackSize) {
+	public StackUsingArray() {
 		top =-1;
 		length=0;
-		size=stackSize;
+		size=10;
 		arr = new int[size];
 	}
 

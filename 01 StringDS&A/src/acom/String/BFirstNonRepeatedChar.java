@@ -22,7 +22,6 @@ public class BFirstNonRepeatedChar {
 		System.out.println(firstNonRepeatedChar4("hello"));
 	}
 	
-	
 	//Using LinkedHashMap
 	public static char firstNonRepeatedChar1(String str) {
 		Map<Character, Integer> map = new LinkedHashMap<Character,Integer>();
@@ -46,27 +45,25 @@ public class BFirstNonRepeatedChar {
 				return key;
 			}
 		}
-		
 		return 0 ;
 	}
 	
-	//Using HashMap
+	// Using HashMap
 	public static char firstNonRepeatedChar2(String str) {
-		 Map<Character, Integer> map = new HashMap<Character,Integer>();
-		 
-		 for (int i = 0; i < str.length(); i++) {
-			 char key = str.charAt(i);
-			 map.put(key, map.containsKey(key) ? map.get(key) + 1 : 1);
-		 }
-		  
-		 // since HashMap doesn't maintain order, going through string again
-		 
-		 for (int i = 0; i < str.length(); i++) {
+		Map<Character, Integer> map = new HashMap<Character, Integer>();
+
+		for (int i = 0; i < str.length(); i++) {
 			char key = str.charAt(i);
-			if(map.get(key)==1)
+			map.put(key, map.containsKey(key) ? map.get(key) + 1 : 1);
+		}
+
+		// since HashMap doesn't maintain order, going through string again
+		for (int i = 0; i < str.length(); i++) {
+			char key = str.charAt(i);
+			if (map.get(key) == 1)
 				return key;
-		 }
-		return 0 ;
+		}
+		return 0;
 	}
 	
 	//Using Set and List interface
@@ -103,6 +100,5 @@ public class BFirstNonRepeatedChar {
 		}
 		return ch;
 	}
-	 
 ///http://www.java67.com/2018/06/data-structure-and-algorithm-interview-questions-programmers.html
 }

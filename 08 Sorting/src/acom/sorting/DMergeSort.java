@@ -47,9 +47,11 @@ public class DMergeSort {
 			}
 		}
 		for (; i < lenLeft; i++) {
+			System.out.println("*****left arr *******:"+left[i]);
 			arr[k++] = left[i];
 		}
 		for (; j < lenRight; j++) {
+			System.out.println("*****right arr *******:"+right[j]);
 			arr[k++] = right[j];
 		}
 		System.out.println("Mergeleft : "+Arrays.toString(left));

@@ -4,17 +4,19 @@ package bcom.Arrays1;
 public class FMultipleDuplicate {
 	public static void main(String[] args) {
 		int arr[] = { 1, 2, 3, 1, 3, 6, 6 };//2,3
+		            //0  1  2  3  4  5  6 
 		findMultipleDuplicate(arr);
 	}
 
 	public static void findMultipleDuplicate(int[] arr) {
 		for (int i = 0; i < arr.length; i++) {
 			int x=Math.abs(arr[i]);
+			//System.out.println("X:::"+ x + " Value array : " + arr[x]);
 			//System.out.println("Before : "+arr[i] + "  After->"+x +" arr[x]:"+ arr[x]);
 			if (arr[x] >= 0)
 				arr[x] = -arr[x];
 			else
-				System.out.print(Math.abs(arr[i]) + " ");
+				System.out.println(Math.abs(arr[i]) + " ");
 		}
 	}
 }

@@ -11,7 +11,7 @@ public class VReverseWithoutEffectingSpecialCharacter {
 	public static String reverseWithoutEffectingSpecialCharacter(String str) {
 		char[] ch = str.toCharArray();
 		int sIndex=0, eIndex=ch.length-1;
-		for (int i = 0; i < ch.length; i++) {
+		//for (int i = 0; i < ch.length; i++) {
 			while(sIndex<eIndex) {
 				//Ignoring special character.
 				if(Character.isAlphabetic(ch[sIndex])==false) // we can use ! also
@@ -27,7 +27,7 @@ public class VReverseWithoutEffectingSpecialCharacter {
 					eIndex--;
 				}
 			}
-		}
+		//}
 
 		System.out.println(new String(ch));
 		return new String(ch);

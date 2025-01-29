@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class StackDriver {
 	public static void main(String[] args) {
-		StackUsingArray stack = new StackUsingArray(10);
+		StackUsingArray stack = new StackUsingArray();
 		Scanner sc = new Scanner(System.in);
 		boolean status = true;
 		while (status) {

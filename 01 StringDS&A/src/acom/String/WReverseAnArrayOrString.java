@@ -26,7 +26,7 @@ public class WReverseAnArrayOrString {
 	
 	//Using Recursion
 	public static void reverseUsingRecurison(int[] arr, int sIndex, int eIndex) {
-		if (sIndex >= eIndex) {
+		if (sIndex > eIndex) {
 			return ;
 		}
 		int temp;

@@ -15,7 +15,7 @@ In the end, tempStack will be sorted stack.
 */
 public class ESortUsingTempStack {
 	public static void main(String[] args) {
-		StackUsingArray stackCustom = new StackUsingArray(10);
+		StackUsingArray stackCustom = new StackUsingArray();
 		System.out.println("=================");
 		stackCustom.push(5);
 		stackCustom.push(1);
@@ -37,7 +37,7 @@ public class ESortUsingTempStack {
 
 	// Sort a stack using another stack
 	public static StackUsingArray sortStack(StackUsingArray stack) {
-		StackUsingArray tempStack = new StackUsingArray(10);
+		StackUsingArray tempStack = new StackUsingArray();
 		while (!stack.isEmpty()) {
 			int currentData = stack.pop();
 			while (!tempStack.isEmpty() && tempStack.peek() > currentData) {

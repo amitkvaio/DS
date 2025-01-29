@@ -38,8 +38,8 @@ Truth table of “Exclusive-OR” or XOR gate is :
 
 X	Y	 Output
 0	0	 0
-0	1	1
+0	1	 1
 1	0	 1
-1	1	0
+1	1	 0
 
 */

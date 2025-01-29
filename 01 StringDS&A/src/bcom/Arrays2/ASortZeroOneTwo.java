@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class ASortZeroOneTwo {
 	public static void main(String[] args) {
-		int [] arr = {0, 1, 2, 0, 1, 2,0,0,0,1,2,2};
+		int[] arr = { 0, 1, 2, 0, 1, 2, 0, 0, 0, 1, 2, 2 };
 		//sortMyLogic1(arr);
 		//sortMyLogic2(arr);
 		//sortArrays(arr);
@@ -77,7 +77,6 @@ public class ASortZeroOneTwo {
 				count++;
 			}
 		}
-		
 	}
 	
 	//Time complexity is : theta n square
@@ -112,3 +111,27 @@ public class ASortZeroOneTwo {
 	}
 	// We traverse the array two times. Time complexity will be O(n).
 }
+
+/*
+The Dutch National Flag Algorithm is an efficient algorithm proposed by Edsger Dijkstra to sort an array containing only three types of elements. 
+This algorithm is commonly used to sort arrays of 0s, 1s, and 2s (for example, sorting an array to represent colors like red, white, and blue in the Dutch flag).
+
+The algorithm works in O(n) time complexity with a single pass through the array, making it optimal for scenarios where you have only three distinct values to sort.
+Algorithm Explanation
+
+Given an array containing only 0s, 1s, and 2s:
+
+    Initialize Three Pointers:
+        low – tracks the boundary for 0s.
+        mid – the current element being evaluated.
+        high – tracks the boundary for 2s.
+    Move Elements Based on Value:
+        If the element at mid is 0, swap it with the element at low, increment both low and mid.
+        If the element at mid is 1, just move to the next element by incrementing mid.
+        If the element at mid is 2, swap it with the element at high and decrement high. 
+        Don’t increment mid here, because the swapped element from high needs to be re-evaluated.
+    End Condition:
+        Stop when mid exceeds high.
+
+This process ensures that 0s, 1s, and 2s are grouped in separate sections with only one traversal of the array.
+*/

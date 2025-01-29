@@ -3,28 +3,32 @@ package bcom.Arrays2;
 
 public class DPowerOfAnotherNumber {
 	public static void main(String[] args) {
-		//checkPowerMyApproach(25,625);
-		usingMultiplication(5,625);
+		boolean ispower = isPower(625, 25);
+		if(ispower) {
+			System.out.println("Given number is power of another number !!");
+		}else {
+			System.out.println("Given number is not power of another number !!");
+		}
+		usingMultiplication(5, 625);
 	}
 
-	public static void checkPowerMyApproach(int x, int y) {
-		int count = 0;
-		while (y >= x) {
-			if ((x == y) && count == 0) {
-				System.out.println("Given number is power of x :" + x + "^" + 1);
-				break;
-			} else {
-				y = y / x;
-				++count;
-			}
+	public static boolean isPower(int x, int y) {
+		if (x < 1 || y <= 1) {
+			return false;
 		}
-		if (y == 1) {
-			System.out.println("Given number is power of x :" + x + "^" + count);
-		} else {
-			System.out.println("Given number is not the power of another number !!");
+
+		while (x % y == 0) {
+			x = x/y;
 		}
+		return x == 1;
 	}
-	
+/*
+Input validation: If x is less than 1 or y is less than or equal to 1, 
+	We return false (e.g., 0 or negative numbers or 1 cannot be a power of another number).
+Division loop: We repeatedly divide x by y as long as x is divisible by y.
+Result check: If x becomes 1 after the divisions, then x is a power of y.
+*/
+
 	public static void usingMultiplication(int x, int y) {
 		if (x > 0 && x == y)
 			System.out.println("Given number is power of 1 of the first number !!");
@@ -35,6 +39,5 @@ public class DPowerOfAnotherNumber {
 			System.out.println("Given number is power of another number !!");
 		else
 			System.out.println("Given number is not power of another number !!");
-
 	}
 }

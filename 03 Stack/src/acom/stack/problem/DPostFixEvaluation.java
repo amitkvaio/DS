@@ -13,7 +13,7 @@ public class DPostFixEvaluation {
 
 	public static int evaluatePostFix(String postfix) {
 		char[] postArr = postfix.toCharArray();
-		StackUsingArray stack = new StackUsingArray(20);
+		StackUsingArray stack = new StackUsingArray();
 		int i, x1, x2, result = 0;
 		for (i = 0; i < postArr.length; i++) {
 			//If it is operand then push into the stack else pop up and do its operation
