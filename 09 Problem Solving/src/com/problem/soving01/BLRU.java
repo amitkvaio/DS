@@ -1,4 +1,4 @@
-////Least Recently Used (LRU) Cache – Using LinkedHashSet and Deque | Set 2
+//Least Recently Used (LRU) Cache – Using LinkedHashSet and Deque | Set 2
 package com.problem.soving01;
 
 import java.util.Deque;

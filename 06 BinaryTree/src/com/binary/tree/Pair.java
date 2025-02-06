@@ -8,5 +8,4 @@ public class Pair {
 		this.treeNode=treeNode;
 		this.level=level;
 	}
-	
 }

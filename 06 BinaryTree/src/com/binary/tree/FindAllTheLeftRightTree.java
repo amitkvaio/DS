@@ -18,10 +18,11 @@ public class FindAllTheLeftRightTree {
 		binaryTree.insert(28);
 		binaryTree.insert(38);
 		binaryTree.insert(48);
-		System.out.println("In Order Traversal");
+		System.out.println("In Order Printing left most Tree Node.");
 		inOrderPrintLeftNode(binaryTree.root);
-		//inOrderPrintRightNode(binaryTree.root);
-		System.out.println();
+		System.out.println("\n In Order Printing Right most Tree Node.");
+		inOrderPrintRightNode(binaryTree.root);
+		System.out.println("\nLevel Oerder Traversal");
 		levelOrderTraversal(binaryTree.root);
 	}
 	

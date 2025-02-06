@@ -22,7 +22,6 @@ public class RBinaryTreePrintAllPaths {
 	public static void printAllPathsToLeaf(TreeNode node, int[] path, int len) {
 		if (node == null)
 			return;
-
 		// storing data in array
 		path[len] = node.data;
 		len++;
@@ -32,7 +31,6 @@ public class RBinaryTreePrintAllPaths {
 			printArray(path, len);
 			return;
 		}
-
 		printAllPathsToLeaf(node.left, path, len);
 		printAllPathsToLeaf(node.right, path, len);
 	}

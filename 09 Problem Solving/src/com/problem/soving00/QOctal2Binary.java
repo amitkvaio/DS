@@ -6,31 +6,32 @@ package com.problem.soving00;
 
 public class QOctal2Binary {
 	public static void main(String[] args) {
-		int octal = 40;
-		int decimal  = octal2Decimal(octal);
-		int binary = decimal2Binary(decimal);
-		System.out.println("Octal :"+octal + " Decimal : "+decimal + " Binary :"+binary);
+		String octal = "40";
+		int decimal  = octalToDecimal(octal);
+		String binary = decimalToBinary(decimal);
+		System.out.println("Octal : " + octal + " Decimal : " + decimal + " Binary : " + binary);
 	}
 	
-	public static int octal2Decimal(int octal) {
-		int decimal = 0 , i = 0;
-		while(octal != 0 ) {
-			int rem = octal % 10;
-			decimal = decimal + (int)(rem * Math.pow(8, i));
-			octal = octal / 10;
-			i++;
+	// Convert Octal to Decimal
+	public static int octalToDecimal(String octal) {
+		int decimal = 0;
+		int power = 0;
+
+		// Read octal from right to left
+		for (int i = octal.length() - 1; i >= 0; i--) {
+			decimal += (octal.charAt(i) - '0') * Math.pow(8, power);
+			power++;
 		}
-		return decimal ;
+		return decimal;
 	}
 	
-	public static int decimal2Binary (int decimal) {
-		int binary = 0, i =1;
+	// Convert Decimal to Binary (without built-in method)
+	public static String decimalToBinary(int decimal) {
+		StringBuilder binary = new StringBuilder();
 		while (decimal > 0) {
-			int rem = decimal % 2 ;
-			binary = binary + rem * i;
-			i = i *10;
-			decimal = decimal / 2;
+			binary.insert(0, decimal % 2); // Get remainder (0 or 1) and insert at the beginning
+			decimal = decimal / 2; // Divide by 2
 		}
-		return binary;
+		return binary.length() > 0 ? binary.toString() : "0"; // Return 0 for input 0
 	}
 }

@@ -27,5 +27,4 @@ public class TMultiplicationOfTwoMatrix {
 
  the number of columns in the first matrix must be equal to the number of 
  	rows in the second matrix. 
-
 */

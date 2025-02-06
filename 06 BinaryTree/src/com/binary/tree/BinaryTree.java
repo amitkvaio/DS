@@ -3,6 +3,7 @@ package com.binary.tree;
 import java.util.LinkedList;
 import java.util.Queue;
 
+//BST (Binary Search Tree)
 public class BinaryTree {
 	public TreeNode root;
 	

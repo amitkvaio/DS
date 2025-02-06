@@ -20,11 +20,6 @@ public class Manger {
 				System.out.println("Inside thired if block");
 				return;
 			}
-
 		}
 	}
-	
-	
-	 
 }
-

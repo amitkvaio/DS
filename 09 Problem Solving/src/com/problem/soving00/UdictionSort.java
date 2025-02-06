@@ -15,6 +15,5 @@ public class UdictionSort {
 		for (int j = 0; j < words.length; j++) {
 				System.out.println(words[j]);
 		}
-		 
 	}
 }

@@ -14,11 +14,12 @@ public class BinaryTreeClient {
 		binaryTree.insert(76);
 		binaryTree.insert(67);
 		
+		
 		TreeNode node=binaryTree.find(50);
-		//System.out.println(node);
+		System.out.println(node);
 		
 		//binaryTree.createBinaryTree();
-		binaryTree.levelOrderTraversal(binaryTree.root);
+		//binaryTree.levelOrderTraversal(binaryTree.root);
 		//binaryTree.inOrder(binaryTree.root);
 		//binaryTree.postOrder(binaryTree.root);
 		//binaryTree.preeOrder(binaryTree.root);

@@ -46,7 +46,6 @@ public class TBinaryTreeGetMaxElement {
 				max = value;
 			}
 		}
-
 		return max;
 	}
 

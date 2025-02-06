@@ -21,11 +21,11 @@ public class BValidParanthesis{
 			}
 			
 			 /* 
-            Else, If the stack is not empty,
-            And current character is a closing bracket
-            and top character of a stack is matching open bracket
-            then pop it.
-          */
+	            Else, If the stack is not empty,
+	            And current character is a closing bracket
+	            and top character of a stack is matching open bracket
+	            then pop it.
+            */
 			
 			if (current == '}' || current == ')' || current == ']') {
 				if (stack.isEmpty())
@@ -51,5 +51,14 @@ public class BValidParanthesis{
 			System.out.println("Parenthesis is not balaced!!");
 		}
 	}
-
 }
+/*
+Use a Stack to track opening brackets: (, {, [.
+When encountering a closing bracket ), }, ], check:
+
+    If the stack is empty → Unbalanced (extra closing bracket).
+    If the top of the stack is the corresponding opening bracket → Pop it.
+    Otherwise → Unbalanced (wrong order).
+
+After processing, if the stack is not empty, it means there are unmatched opening brackets.
+*/

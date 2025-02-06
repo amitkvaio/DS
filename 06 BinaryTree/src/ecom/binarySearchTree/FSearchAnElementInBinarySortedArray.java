@@ -13,30 +13,28 @@ public class FSearchAnElementInBinarySortedArray {
 	}
 	
 	public static int searchAnElementInSortedArray(int[] arr, int size, int target) {
-		int start = 0;
-		int end = size - 1;
+		int startIdx = 0;
+		int endIdx = size - 1;
 		int mid = -1;
-		while (start <= end) {
-			mid = (start + end)/2;
+		while (startIdx <= endIdx) {
+			mid = (startIdx + endIdx)/2;
 			if (arr[mid] == target) {
 				return mid;
 			}  
-			if(arr[start] <=arr[mid]) {
-				if(target >=arr[start]&& target <=arr[mid]) {
-					end = mid-1;
+			if(arr[startIdx] <=arr[mid]) {
+				if(target >=arr[startIdx]&& target <=arr[mid]) {
+					endIdx = mid-1;
 				}else {
-					start = mid+1;
+					startIdx = mid+1;
 				}
 			}else {
-				if(target >=arr[mid] && target <=arr[end]) {
-					start = mid +1;
+				if(target >=arr[mid] && target <=arr[endIdx]) {
+					startIdx = mid +1;
 				}else {
-					end  = mid-1;
+					endIdx  = mid-1;
 				}
 			}
 		} 
 		return mid;
 	}
-	
-	
 }

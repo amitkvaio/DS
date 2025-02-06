@@ -19,19 +19,19 @@ public class ABinarySearch {
 			System.out.println("Sorry!! Given number is not present in the list.");
 		}
 	}
-//[6, 7, 8, 9, 10, 15, 20, 30, 40]
+	//[6, 7, 8, 9, 10, 15, 20, 30, 40]
 	public static int binarySearch(int[] arr, int size, int searchValue) {
-		int low, high, mid;
-		low = 0;
-		high = size - 1;
-		while (low <= high) {
-			mid = (low + high) / 2;
+		int startIdx, endIdx, mid;
+		startIdx = 0;
+		endIdx = size - 1;
+		while (startIdx <= endIdx) {
+			mid = (startIdx + endIdx) / 2;
 			if (arr[mid] == searchValue) {
 				return mid;
 			} else if (arr[mid] < searchValue) {
-				low = mid + 1;
+				startIdx = mid + 1;
 			} else if (arr[mid] > searchValue) {
-				high = mid - 1;
+				endIdx = mid - 1;
 			}
 		}
 		return -1;

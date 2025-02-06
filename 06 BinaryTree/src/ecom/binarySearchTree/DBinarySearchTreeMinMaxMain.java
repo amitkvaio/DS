@@ -97,7 +97,6 @@ public class DBinarySearchTreeMinMaxMain {
 		insert(rootNode, node70);
 		insert(rootNode, node5);
 		insert(rootNode, node55);
-
 		return rootNode;
 	}
 }

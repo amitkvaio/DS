@@ -71,6 +71,4 @@ public class AFindDuplicateCharacters {
 		}
 		return res.toString();
 	}
-
-
 }

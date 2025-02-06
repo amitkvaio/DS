@@ -15,23 +15,23 @@ public class GFindTheSquareRoot {
 	}
 	
 	public static int getSquareRoot(int num) {
-		int start = 1;
-		int end = num;
+		int startIdx = 1;
+		int endIdx = num;
 		int mid;
-		int ans = -1;
-		while (start <= end) {
-			mid = start + (end - start) / 2;
+		int squareRoot = -1;
+		while (startIdx <= endIdx) {
+			mid = startIdx + (endIdx - startIdx) / 2;
 			if (mid * mid == num) {
 				return mid;
 			}
 			if (mid * mid < num) {
-				ans = mid;
-				start = mid + 1;
+				squareRoot = mid;
+				startIdx = mid + 1;
 			} else {
-				end = mid - 1;
+				endIdx = mid - 1;
 			}
 		}
-		return ans;
+		return squareRoot;
 	}
 	
 	public static int getSquareRoot1(int num) {

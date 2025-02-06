@@ -26,7 +26,6 @@ public class SBinaryTreeGetLevelNode {
 		printLevelBtree(binaryTree.root,10);
 		printLevelBtree(binaryTree.root,48);
 		printLevelBtree(binaryTree.root,12);
-		
 	}
 	
 	public static void printLevelBtree(TreeNode root,int target){

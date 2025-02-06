@@ -1,4 +1,8 @@
 package com.binary.tree;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 //Print all leaf nodes of a Binary Tree from left to right
 public class PrintLeafNode {
 	public static void main(String[] args) {
@@ -17,7 +21,9 @@ public class PrintLeafNode {
 		binaryTree.insert(48);
 		System.out.println();
 		
-		System.out.println("Left to right Leaf node");
+		printingLeafNode(binaryTree.root);
+		
+		System.out.println("\n Left to right Leaf node");
 		printLeafNodeFromL2R(binaryTree.root);
 		System.out.println();
 		System.out.println("Right to Left Leaf node");
@@ -41,6 +47,31 @@ public class PrintLeafNode {
 			}
 			printLeafNodeFromR2L(root.right);
 			printLeafNodeFromR2L(root.left);
+		}
+	}
+	
+	public static void printingLeafNode(TreeNode root) {
+		Queue<TreeNode> queue = new LinkedList<TreeNode>();
+		if(root==null) {
+			System.out.println("No tree nodes are available.");
+			return;
+		}else {
+			queue.add(root);
+			while(!queue.isEmpty()) {
+				TreeNode treeNode = queue.poll();
+				
+				if(treeNode.left!=null) {
+					queue.add(treeNode.left);
+				}
+				
+				if(treeNode.left == null && treeNode.right==null) {
+					System.out.print(treeNode.data + ", ");
+				}
+				
+				if(treeNode.right!=null) {
+					queue.add(treeNode.right);
+				}
+			}
 		}
 	}
 }

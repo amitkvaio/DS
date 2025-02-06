@@ -43,6 +43,4 @@ public class AHalfPramid {
 			System.out.println();
 		}
 	}
-	
-	
 }

@@ -65,7 +65,5 @@ public class StackUsingLinkedList implements Stack{
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	
 }
 
