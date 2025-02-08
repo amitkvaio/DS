@@ -37,12 +37,12 @@ public class AReverseAnArray {
 	}
 
 	private static void reverseUsingStringBuilder(String[] arr) {
-		StringBuilder reversed = new StringBuilder();
+		StringBuilder rev = new StringBuilder();
 	      for (int i = arr.length; i > 0; i--) {
-	          reversed.append(arr[i - 1]).append(" ");
+	          rev.append(arr[i - 1]).append(" ");
 	      }
-	      String[] reversedArray = reversed.toString().split(" ");
-	      System.out.println(Arrays.toString(reversedArray));
+	      String[] revArray = rev.toString().split(" ");
+	      System.out.println(Arrays.toString(revArray));
 	}
 
 	private static void reverseUsingCollections(Integer[] arr2) {
@@ -63,14 +63,14 @@ public class AReverseAnArray {
 	}
 
 	public static void reverseArraysUsingSwap(int arr[]) {
-		int stgIndex = 0;
-		int lastIndex = arr.length - 1;
-		while (stgIndex < lastIndex) {
-			int temp = arr[stgIndex];
-			arr[stgIndex] = arr[lastIndex];
-			arr[lastIndex] = temp;
-			stgIndex++;
-			lastIndex--;
+		int sIdx = 0;
+		int eIdx = arr.length - 1;
+		while (sIdx < eIdx) {
+			int temp = arr[sIdx];
+			arr[sIdx] = arr[eIdx];
+			arr[eIdx] = temp;
+			sIdx++;
+			eIdx--;
 		}
 	}
 	

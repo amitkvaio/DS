@@ -89,5 +89,13 @@ public class LTwoStackImplementation {
 			System.out.printf(" %d", twoStacks.pop2());
 		}
 	}
-
 }
+/*
+1. Implementing Two Stacks Using a Single Array
+
+In this approach, we divide a single array into two stacks:
+
+    Stack 1 starts from index 0 and grows forward.
+    Stack 2 starts from the last index and grows backward.
+    If both stacks meet in the middle, the array is full.
+*/

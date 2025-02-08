@@ -19,7 +19,7 @@ public class WfindMinNoOfPlatform {
 		// dep[] = {1:10, 3:00, 2:20, 2:30, 3:15, 6:00}
 
 		int arr[] = { 100, 140, 150, 200, 215, 400 };
-		int dep[] = { 110, 300, 210, 230, 315, 600 };
+		int dep[] = { 110, 300, 220, 230, 315, 600 };
 		int miniPlatform = findPlatformsRequiredForStation(arr, dep, 6);
 		System.out.println("Minimum platforms needed:" + miniPlatform);
 	}
@@ -36,11 +36,12 @@ public class WfindMinNoOfPlatform {
 
 		// Similar to merge in merge sort
 		while (i < n && j < n) {
-			if (arr[i] < dep[j]) {
+			if (arr[i] <= dep[j]) {
 				platform_needed++;
 				i++;
-				if (platform_needed > maxPlatforms)
+				if (platform_needed > maxPlatforms) {
 					maxPlatforms = platform_needed;
+				}
 			} else {
 				platform_needed--;
 				j++;

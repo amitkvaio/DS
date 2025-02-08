@@ -49,7 +49,8 @@ public class AFabonacci {
 		if(dp[n] !=-1) {
 			return dp[n];
 		}
-		return fabonacci_memoization(n-1) + fabonacci_memoization(n-2);
+		dp[n] = fabonacci_memoization(n - 1) + fabonacci_memoization(n - 2);
+		return dp[n];
 	}
 	
 	//TC : O(n) and SC : O(1)
@@ -105,7 +106,4 @@ Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
 Constraints:
 
     0 <= n <= 30
-
-
-
 */

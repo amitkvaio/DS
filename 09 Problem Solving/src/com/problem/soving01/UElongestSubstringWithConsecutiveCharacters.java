@@ -24,18 +24,18 @@ public class UElongestSubstringWithConsecutiveCharacters {
 		System.out.println("Length of the longest subString : " + subLen);
 	}
 
-	public static int getTheEndIndex(int startingIndex, String str, int len) {
+	public static int getTheEndIndex(int sIdx, String str, int len) {
 		// String str1 = "abcab";//[0,1,2,3,4]
-		startingIndex++;
-		while (startingIndex < len) {
-			char current = str.charAt(startingIndex);
-			char prev = str.charAt(startingIndex - 1);
+		sIdx++;
+		while (sIdx < len) {
+			char current = str.charAt(sIdx);
+			char prev = str.charAt(sIdx - 1);
 			if (current - prev == 1) {
-				startingIndex++;
+				sIdx++;
 			} else {
 				break;
 			}
 		}
-		return startingIndex;
+		return sIdx;
 	}
 }

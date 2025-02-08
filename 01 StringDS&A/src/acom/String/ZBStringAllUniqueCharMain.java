@@ -22,7 +22,7 @@ public class ZBStringAllUniqueCharMain {
 
 	public static boolean hasAllUniqueChars(String word) {
 
-		HashSet alphaSet = new HashSet();
+		HashSet<Character> alphaSet = new HashSet<>();
 		for (int index = 0; index < word.length(); index++) {
 			char c = word.charAt(index);
 			// If Hashset's add method return false,that means it is already present in

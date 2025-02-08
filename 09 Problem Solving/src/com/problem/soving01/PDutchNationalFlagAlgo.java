@@ -10,29 +10,29 @@ public class PDutchNationalFlagAlgo {
 		System.out.println("After Sorting  : "+Arrays.toString(arr));
 	}
 	
-	public static void dutchNationalFlagAlgoritham(int[]arr) {
-		int low=0;
-		int mid=0;
-		int high = arr.length-1;
-		
-		while(mid <= high) {
+	public static void dutchNationalFlagAlgoritham(int[] arr) {
+		int sIdx = 0;
+		int mid = 0;
+		int eIdx = arr.length - 1;
+
+		while (mid <= eIdx) {
 			int num = arr[mid];
 			switch (num) {
 			case 0:
-				int temp = arr[low];
-				arr[low] = arr[mid];
-				arr[mid]=temp;
-				low++;
+				int temp = arr[sIdx];
+				arr[sIdx] = arr[mid];
+				arr[mid] = temp;
+				sIdx++;
 				mid++;
 				break;
 			case 1:
 				mid++;
 				break;
 			case 2:
-				int temp1 = arr[high];
-				arr[high] = arr[mid];
-				arr[mid]=temp1;
-				high--;
+				int temp1 = arr[eIdx];
+				arr[eIdx] = arr[mid];
+				arr[mid] = temp1;
+				eIdx--;
 				break;
 			default:
 				break;

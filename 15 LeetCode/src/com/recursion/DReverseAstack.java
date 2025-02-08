@@ -1,6 +1,7 @@
 package com.recursion;
 
 import java.util.Stack;
+
 //Reverse a Stack | O(n) Auxiliary Space | O(1) Auxiliary Space
 public class DReverseAstack {
 	public static void main(String[] args) {
@@ -10,66 +11,34 @@ public class DReverseAstack {
 		stack.add(3);
 		stack.add(4);
 		stack.add(5);
-		reverse(stack);
-		System.out.println("*****************");
-		reverse_(stack);
+		reverseStack(stack);
+		System.out.println(stack);
 	}
-	
-	//Approach-1 (Using O(n) Auxiliary Space (we took extra one temp stack))
-	//Simply write a story like recursion and trust it
-	//Time : O(n^2)
-	//Space : O(n) Auxiliary Space (we took extra one temp stack)
-	
-	public static void reverse(Stack<Integer> stack) {
+
+	// Function to reverse the stack
+	public static void reverseStack(Stack<Integer> stack) {
 		if (stack.isEmpty()) {
 			return;
 		}
-		
-		int top = stack.pop();
-		reverse(stack); // Recursively reverse the remaining stack
 
-		// Move the top element to the bottom of the stack
-		Stack<Integer> temp = new Stack<>();
-		while (!stack.isEmpty()) {
-			temp.push(stack.pop());
-		}
-
-		stack.push(top); // Push the top element at the bottom
-
-		// Push back the remaining elements
-		while (!temp.isEmpty()) {
-			stack.push(temp.pop());
-		}
-		//printing reverse stack
-		System.out.println(stack);
+		int top = stack.pop(); // Remove the top element
+		reverseStack(stack); // Recursively reverse the remaining stack
+		insertAtBottom(stack, top); // Insert the removed element at the bottom
 	}
-	
-	//Approach-2 (Using O(1) Auxiliary Space)
-	//Simply write a story like recursion and trust it
-	//Time : O(n^2)
-	//Space : O(1) Auxiliary Space
-	public static void reverse_(Stack<Integer> St) {
-		if (St.isEmpty()) {
+
+	// Function to insert an element at the bottom of the stack
+	private static void insertAtBottom(Stack<Integer> stack, int value) {
+		if (stack.isEmpty()) {
+			stack.push(value);
 			return;
 		}
 
-		int top = St.pop();
-		reverse(St);
-		insertAtBottom(St, top);
-		System.out.println(St);
-	}
-	
-	public static void insertAtBottom(Stack<Integer> St, int element) {
-		if (St.isEmpty()) {
-			St.push(element);
-			return;
-		}
-		int curTopElement = St.pop();
-		insertAtBottom(St, element);
-		St.push(curTopElement);
+		int top = stack.pop(); // Remove the top element
+		insertAtBottom(stack, value); // Recursively insert at the bottom
+		stack.push(top); // Push the removed element back
 	}
 }
 /*
-https://www.geeksforgeeks.org/problems/reverse-a-stack/1
-
+Time Complexity: O(n*n)(Each element is pushed and popped multiple times)
+Space Complexity: O(n)(Due to recursion call stack)
 */

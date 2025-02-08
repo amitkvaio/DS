@@ -40,7 +40,7 @@ public class GfindDuplicate {
 	}
 	
 	
-	//TC : O(n*n)
+	//TC : O(n*n) brute force
 	static void findDuplicates( int arr[], int len) {
         // initialize ifPresent as false
         boolean ifPresent = false;
@@ -97,7 +97,7 @@ public class GfindDuplicate {
 		System.out.println(">>> Using Java 8 >>>>");
 		List<Integer> list = Arrays.stream(arr).boxed().collect(Collectors.toList());
 		
-		Arrays.stream(arr).boxed().filter(x->Collections.frequency(list, x)>1)
+		Arrays.stream(arr).boxed().filter(x->Collections.frequency(Arrays.asList(arr), x)>1)
 		.collect(Collectors.toSet())
 		.forEach(System.out::println);
 		

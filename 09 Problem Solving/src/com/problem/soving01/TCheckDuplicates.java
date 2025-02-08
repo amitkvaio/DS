@@ -1,5 +1,7 @@
 package com.problem.soving01;
 
+import java.util.Arrays;
+
 public class TCheckDuplicates {
 
 	public static void main(String[] args) {
@@ -21,6 +23,7 @@ public class TCheckDuplicates {
 				arr[absIndex] = -arr[absIndex];
 			}
 		}
+		
 		System.out.println("2. No duplicate element exists in an array");
 		return;
 	}

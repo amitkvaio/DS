@@ -22,7 +22,7 @@ public class DSumOfPosition {
 	public static void main(String[] args) {
 		int arr[] = { 5, 9, 18, 6, 4, 11, 4, 3, 2, 2 };
 		int arr1[] = { 25, 6, 12, 4, 3};
-		int index = findIndex(arr1);
+		int index = findIndex(arr);
 		System.out.println("Index::" + index);
 	}
 

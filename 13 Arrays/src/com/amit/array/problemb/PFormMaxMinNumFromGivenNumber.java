@@ -20,6 +20,9 @@ public class PFormMaxMinNumFromGivenNumber {
 		System.out.println("*********************");
 		int maxNum = getMaxNumer(num);
 		System.out.println("maxNum number::"+maxNum);
+		System.out.println("************************");
+		System.out.println(getMaxNumber(num));
+		System.out.println(getMinNumber(num));
 	}
 
 	public static int getMaxNumer(int num) {
@@ -126,11 +129,24 @@ public class PFormMaxMinNumFromGivenNumber {
 		}
 		
 		*/
-		
-
 		// return the result
 		return result;
 	}
+	
+	static long getMaxNumber(long num) {
+		char[] digits = String.valueOf(num).toCharArray();
+		Arrays.sort(digits);
+		// Reverse the sorted array for max number
+		StringBuilder maxNum = new StringBuilder(new String(digits)).reverse();
+		return Long.parseLong(maxNum.toString());
+	}
+	
+	static long getMinNumber(long num) {
+		char[] digits = String.valueOf(num).toCharArray();
+		Arrays.sort(digits);
+		return Long.parseLong(new String(digits));
+	}
+
 }
 
 //https://www.geeksforgeeks.org/find-maximum-number-can-formed-digits-number-reviewed/

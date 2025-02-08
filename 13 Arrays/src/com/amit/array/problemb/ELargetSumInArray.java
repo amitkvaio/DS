@@ -1,5 +1,6 @@
 package com.amit.array.problemb;
 
+import java.util.Arrays;
 import java.util.Iterator;
 
 /*

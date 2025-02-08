@@ -17,19 +17,20 @@ public class NMoveZerosToEnd {
 	}
 	
 	//Time Complexity  = O(n)
-	private static void moveZeroToEnd(int[] inputArray) {
+	private static void moveZeroToEnd(int[] arr) {
 		int index =0 ;
 		int nonZeroIndex=0;
-		int length = inputArray.length;
+		int length = arr.length;
+		
 		while(index < length) {
-			if(inputArray[index]!=0) {
-				inputArray[nonZeroIndex++]=inputArray[index];
+			if(arr[index]!=0) {
+				arr[nonZeroIndex++]=arr[index];
 			}
 			index++;
 		}
 		while(nonZeroIndex<length) {
-			inputArray[nonZeroIndex++]=0;
+			arr[nonZeroIndex++]=0;
 		}
-		System.out.printf("%s", Arrays.toString(inputArray));
+		System.out.printf("%s", Arrays.toString(arr));
 	}
 }

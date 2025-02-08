@@ -17,28 +17,28 @@ public class FMergeSort {
 		}
 	}
 
-	static void  mergeSort(int arr[], int l, int r) {
+	static void  mergeSort(int arr[], int sIdx, int eIdx) {
 
-		if (l >= r) {
+		if (sIdx >= eIdx) {
 			return;
 		}
 
-		int mid = l + (r - l) / 2;
+		int mid = sIdx + (eIdx - sIdx) / 2;
 
-		mergeSort(arr, l, mid);
-		mergeSort(arr, mid + 1, r);
+		mergeSort(arr, sIdx, mid);
+		mergeSort(arr, mid + 1, eIdx);
 
-		merge(arr, l, mid, r);
+		merge(arr, sIdx, mid, eIdx);
 	}
 
-	static void merge(int arr[], int l, int m, int r) {
-		int n1 = m - l + 1;
-		int n2 = r - m;
+	static void merge(int arr[], int sIdx, int m, int eIdx) {
+		int n1 = m - sIdx + 1;
+		int n2 = eIdx - m;
 
 		// Create temporary arrays to store the two halves
 		int L[] = new int[n1];
 		int R[] = new int[n2];
-		int k = l;
+		int k = sIdx;
 		// Copy data to temporary arrays L[] and R[]
 		for (int i = 0; i < n1; i++)
 			L[i] = arr[k++];
@@ -48,7 +48,7 @@ public class FMergeSort {
 		// Merge the temporary arrays back into arr[l..r]
 		int i = 0; // Initial index of first subarray
 		int j = 0; // Initial index of second subarray
-		k = l; // Initial index of merged subarray
+		k = sIdx; // Initial index of merged subarray
 
 		while (i < n1 && j < n2) {
 			if (L[i] <= R[j]) {

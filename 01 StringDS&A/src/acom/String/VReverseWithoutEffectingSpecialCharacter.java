@@ -5,7 +5,7 @@ public class VReverseWithoutEffectingSpecialCharacter {
 	public static void main(String[] args) {
 		String str = "a$b%cde@f";//"a!!!b.c.d,e'f,ghi"
 		System.out.println(str);
-		reverseWithoutEffectingSpecialCharacter(str);
+		System.out.println(reverseWithoutEffectingSpecialCharacter(str));
 	}
 	// big O of n time complexity
 	public static String reverseWithoutEffectingSpecialCharacter(String str) {
@@ -27,9 +27,6 @@ public class VReverseWithoutEffectingSpecialCharacter {
 					eIndex--;
 				}
 			}
-		//}
-
-		System.out.println(new String(ch));
 		return new String(ch);
 	}
 }

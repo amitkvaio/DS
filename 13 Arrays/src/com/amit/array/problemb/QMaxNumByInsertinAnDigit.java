@@ -14,39 +14,28 @@ public class QMaxNumByInsertinAnDigit {
 	
 	public static void main(String args[]) {
 		int N = 6673, K = 6;
-		maximizeNumber(N, K);
+		System.out.println(maximizeNumber(N, K));
 	}
 	
-	// Function to find the maximum value of N after inserting the digit K
-	public static void maximizeNumber(int N, int K) {
-		 
-		String s = Integer.toString(N);
-		int L = s.length();
+	static String maximizeNumber(int N, int K) {
+		String num = String.valueOf(N);
+		StringBuilder result = new StringBuilder();
+		boolean inserted = false;
 
-		String result = "";
-		int i = 0;
-
-		// Iterate till all digits that
-		// are not less than K
-		while ((i < L) && (K <= ((int) s.charAt(i) - (int) '0'))) {
-
-			// Add the current digit to
-			// the string result
-			result = result + (s.charAt(i));
-			++i;
+		// Traverse each digit and find the best position to insert K
+		for (int i = 0; i < num.length(); i++) {
+			if (!inserted && (num.charAt(i) - '0') < K) {
+				result.append(K); // Insert K before this digit
+				inserted = true;
+			}
+			result.append(num.charAt(i));
 		}
-		System.out.println("Result 1::"+result);
-		// Add digit 'K' to result
-		result = result + ((char) (K + (int) '0'));
-		System.out.println("Result 2::"+result);
-		// Iterate through all remaining
-		// characters
-		while (i < L) {
 
-			// Add current digit to result
-			result = result + (s.charAt(i));
-			++i;
+		// If K is not inserted, append it at the end
+		if (!inserted) {
+			result.append(K);
 		}
-		System.out.println("Result 3::"+result);
+
+		return result.toString();
 	}
 }

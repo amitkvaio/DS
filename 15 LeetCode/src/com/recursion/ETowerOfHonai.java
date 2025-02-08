@@ -16,6 +16,11 @@ public class ETowerOfHonai {
 			System.out.println("move disk " + N + " from rod " + from + " to rod " + to);
 			return 0;
 		}
+		
+		//If Disk is 1 then moves would be 1
+		if(N==1) {
+			return 1;
+		}
 
 		 // Move n-1 disks from 'from' to 'aux' using 'to' as auxiliary
 		long count = towerOfHonai(N - 1, from, aux, to);
@@ -31,6 +36,31 @@ public class ETowerOfHonai {
 }
 
 /*
+1
+2
+3		
+From | to | aux
+
+x = solve ((n-1) disks : from_rod-->aux_rod : with the help of to_rod)
+		
+			1
+3			2
+From | to | aux
+
+1 : nth rod : From_rod --> to_rod
+
+			1
+		3	2
+From | to | aux
+
+y = solve((n-1)disks : aux_rod-->to_rod : with the help of from_rod)
+		1
+		2	
+		3	
+From | to | aux
+
+Total move  = x + 1 + y
+
 https://www.geeksforgeeks.org/problems/tower-of-hanoi-1587115621/1
 
 In the Tower of Hanoi puzzle, you are given n disks stacked in ascending order (smallest at the top) on the first of three rods. The goal is to move all disks to the third rod following two rules: only one disk can be moved at a time, and a disk can only be placed on top of a larger disk. Given the number of disks n and three rods labeled as from, to, and aux (starting rod, target rod, and auxiliary rod, respectively),  returns the total number of moves needed to transfer all disks from the starting rod to the target rod.

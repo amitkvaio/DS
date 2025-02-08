@@ -23,7 +23,6 @@ public class HRatInMaze {
 		}
 		boolean[][] visited = new boolean[n][n];
 		dfs(mat, 0, 0, "", visited, result);
-		Collections.sort(result); // Sort paths lexicographically
 		return result;
 	}
 

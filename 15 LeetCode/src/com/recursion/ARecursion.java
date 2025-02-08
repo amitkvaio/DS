@@ -8,7 +8,6 @@ public class ARecursion {
 	}
 	
 	public static int factorial(int n) {
-		
 		//base case
 		if(n==1)
 			return 1;
@@ -25,5 +24,4 @@ public class ARecursion {
 			return fact;
 		return factorialUsingTailRecursion((n - 1), n * fact);
 	}
-	
 }

@@ -12,33 +12,65 @@ print minimum missing number positive number (n>=1)
 */
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class JMissingNumber {
 	public static void main(String[] args) {
-		System.out.println("********** print minimum missing number positive number ***********");
-		int[] arr = { 1, 2, 3, 4, 5, 8, -1, 0 };// 1
-		getMinimum(arr);
+		int[] arr = { 1, 2, 3, 4, 5, 8, -1, 0 };
+		System.out.println("Minimum missing number :" + findSmallestMissing(arr));
+		System.out.println("Minimum missing number :" + findSmallestMissingUsingCyclicSort(arr));
+		System.out.println(Arrays.toString(arr));
+		
 	}
 
-	public static void getMinimum(int[] arr) {
-		Arrays.sort(arr);
-		int highest = arr[arr.length - 1];
-		int index = 0;
-		int start = 1;
-		boolean flag = false;
-		while (start <= highest) {
-			if (arr[index] >= 1) {
-				if (arr[index] > start) {
-					System.out.println("Mini::" + start);
-					flag = true;
-					break;
-				} else {
-					start++;
-				}
+	static int findSmallestMissing(int[] arr) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int num : arr) {
+            if (num > 0) set.add(num);
+        }
+
+        int i = 1;
+        while (set.contains(i)) {
+            i++;
+        }
+        return i;
+    }
+	
+	static int findSmallestMissingUsingCyclicSort(int[] arr) {
+		int n = arr.length;
+		int i = 0;
+		while (i < n) {
+			// Correct position of arr[i] should be arr[i] - 1
+			int correctIndex = arr[i] - 1;
+
+			// Swap if arr[i] is not at its correct position & it's within range [1, n]
+			if (arr[i] > 0 && arr[i] <= n && arr[i] != arr[correctIndex]) {
+				swap(arr, i, correctIndex);
+			} else {
+				i++; // Move to next element
 			}
-			index++;
 		}
-		if (!flag)
-			System.out.println(start);
+
+		// Step 2: Find the first missing positive number
+		for (int j = 0; j < n; j++) {
+			if (arr[j] != j + 1) {
+				return j + 1;
+			}
+		}
+
+		// If all numbers are in place, return n + 1
+		return n + 1;
 	}
+	
+	// Swap function
+	private static void swap(int[] arr, int i, int j) {
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
+
 }
+/*
+Time Complexity: O(n)
+Space Complexity: O(n) (because of HashSet)
+*/

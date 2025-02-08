@@ -12,7 +12,7 @@ Auxiliary Space: O(1)
 */
 public class OcheckPerfectSquare {
 	public static void main(String[] args) {
-		int x = 2500;
+		int x = 25;
 		// Function Call
 		if (x == 0 || isPerfectSquare(x))
 			System.out.print("Yes");

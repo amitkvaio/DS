@@ -39,7 +39,6 @@ public class BClimbingStairs {
 	}
 	
 	private static int solve(int n, int[] t) {
-
 		if (n < 0)
 			return 0;
 

@@ -12,18 +12,17 @@ public class WLeadersInArray {
 
 	private static void printLeaders(int[] arr) {
 		Stack<Integer> stack = new Stack<Integer>();
-		int lastIndex = arr.length - 1;
-		int maxElement = arr[lastIndex];
-		stack.push(maxElement);
-		lastIndex=lastIndex-1;
-		while (lastIndex >= 0) {
-
-			int current = arr[lastIndex];
-			if (current > maxElement) {
-				maxElement = current;
-				stack.push(maxElement);
+		int eIdx = arr.length - 1;
+		int max = arr[eIdx];
+		stack.push(max);
+		eIdx=eIdx-1;
+		while (eIdx >= 0) {
+			int current = arr[eIdx];
+			if (current > max) {
+				max = current;
+				stack.push(max);
 			}
-			lastIndex--;
+			eIdx--;
 		}
 
 		System.out.printf("\nLeaders in an array : ");

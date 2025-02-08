@@ -8,12 +8,12 @@ public class CountNoOfOccurence {
 
 		String str = "JavaExamplesJavaCodeJavaProgram";
 		String strFind = "Java";
-		countNoOfSubStringInAParentString(str, strFind);
+		countWordOccurrence(str, strFind);
 		countNo(str, strFind);
 		countString(str, strFind);
 	}
 
-	public static void countNoOfSubStringInAParentString(String str, String strFind) {
+	public static void countWordOccurrence(String str, String strFind) {
 		int count = 0, fromIndex = 0;
 		while ((fromIndex = str.indexOf(strFind, fromIndex)) != -1) {
 			count++;

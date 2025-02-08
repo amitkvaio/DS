@@ -33,36 +33,6 @@ public class LlongestSubString {
 		getLongestSubString(str1);
 		getLongestSubString(str2);
 		System.out.println("==========================");
-		getLongestBruteForce("abcc");
-	}
-
-	//TC : O(n*n) SC : O(1)
-	public static void getLongestBruteForce(String str) {
-		if (str == null || str == "")
-			return;
-		int n = str.length();
-		int max = 0 ;
-		int start = 0;
-		int end =0;
-		for (int i=0; i < n; i++) {
-			for (int j = i + 1; j < n + 1; j++) {
-				//Finding the all the substring and checking whether the substring contains the
-				//duplicate character or not.
-				if(checkDuplicate(str.substring(i, j))) {
-					i++;
-					System.out.println("Duplicate::"+str.substring(i, j));
-				}else {
-					String unique = str.substring(i, j);
-					if(max < unique.length()) {
-						max = unique.length();
-						start =i;
-						end = j;
-					}
-					//System.out.println("Unique:"+str.substring(i, j));
-				}
-			}
-		}
-		System.out.println("Unique String ::"+str.substring(start,end) +"---"+str.substring(start, end).length());
 	}
 	
 	public static boolean checkDuplicate(String str) {
