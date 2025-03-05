@@ -35,18 +35,20 @@ public class VSameTree {
 		System.out.println("\n" + isSameTree(bt1.root, bt2.root));
 	}
 	
-	public static boolean isSameTree(TreeNode root1 , TreeNode root2 ) {
-		if(root1==null || root1==null)
-			return true;
-		else if(root1==null && root2!=null)
-			return false;
-		else if(root1!=null && root2==null)
-			return false;
+	public static boolean isSameTree(TreeNode p , TreeNode q ) {
+		// Base Cases
+        if (p == null && q == null) return true; // Both trees are empty
+        if (p == null || q == null) return false; // One tree is empty
+        if (p.data != q.data) return false; // Different values
 		
-		if(root1.data==root2.data && isSameTree(root1.left, root2.left) &&
-				isSameTree(root1.right, root2.right)) {
-			return true;
-		}
-		return false;
+        // Recursively check left and right subtrees
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 	}
 }
+
+/*
+Time & Space Complexity:
+
+Time Complexity: O(N) (Each node is visited once)
+Space Complexity: O(H) (Recursive stack, H = tree height, O(log N) for balanced, O(N) for skewed trees)
+*/

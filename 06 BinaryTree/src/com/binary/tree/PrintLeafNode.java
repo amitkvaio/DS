@@ -19,14 +19,14 @@ public class PrintLeafNode {
 		binaryTree.insert(28);
 		binaryTree.insert(38);
 		binaryTree.insert(48);
-		System.out.println();
 		
+		System.out.println("Printing Left node using level order traversal.");
 		printingLeafNode(binaryTree.root);
 		
-		System.out.println("\n Left to right Leaf node");
+		System.out.println("\n\nLeft to right Leaf node");
 		printLeafNodeFromL2R(binaryTree.root);
-		System.out.println();
-		System.out.println("Right to Left Leaf node");
+		
+		System.out.println("\n\nRight to Left Leaf node");
 		printLeafNodeFromR2L(binaryTree.root);
 	}
 
@@ -63,7 +63,7 @@ public class PrintLeafNode {
 				if(treeNode.left!=null) {
 					queue.add(treeNode.left);
 				}
-				
+				//Can be keep either above if block or below if block
 				if(treeNode.left == null && treeNode.right==null) {
 					System.out.print(treeNode.data + ", ");
 				}
@@ -75,3 +75,13 @@ public class PrintLeafNode {
 		}
 	}
 }
+/*
+         25
+       /    \
+     20      36
+    /  \    /   \
+  10   22  30    40
+ /  \      /    /   \
+5   12   28   38    48
+
+*/

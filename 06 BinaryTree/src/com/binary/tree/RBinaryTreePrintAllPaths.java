@@ -10,13 +10,15 @@ Recursively visit left subtree and right subtree
 
 */
 
+import java.util.Arrays;
+
 public class RBinaryTreePrintAllPaths {
 	
 	public static void main(String[] args) {
 		// Creating a binary tree
 		TreeNode rootNode = createBinaryTree();
 		System.out.println("Printing all paths from root to leaf :");
-		printAllPathsToLeaf(rootNode, new int[1000], 0);
+		printAllPathsToLeaf(rootNode, new int[5], 0);
 	}
 
 	public static void printAllPathsToLeaf(TreeNode node, int[] path, int len) {
@@ -24,6 +26,7 @@ public class RBinaryTreePrintAllPaths {
 			return;
 		// storing data in array
 		path[len] = node.data;
+		System.out.println("Adding::" + node.data + " : " + Arrays.toString(path));
 		len++;
 
 		if (node.left == null && node.right == null) {
@@ -38,13 +41,12 @@ public class RBinaryTreePrintAllPaths {
 	
 	public static void printArray(int[] path, int len) {
 		for (int i = 0; i < len; i++) {
-			System.out.print(" " + path[i]);
+			System.out.print(path[i] + " ");
 		}
 		System.out.println();
 	}
 
 	public static TreeNode createBinaryTree() {
-
 		BinaryTree binaryTree = new BinaryTree();
 		binaryTree.insert(25);
 		binaryTree.insert(20);
@@ -59,7 +61,16 @@ public class RBinaryTreePrintAllPaths {
 		binaryTree.insert(38);
 		binaryTree.insert(48);
 		System.out.println();
-
 		return binaryTree.root;
 	}
 }
+/*
+         25
+       /    \
+     20      36
+    /  \    /   \
+  10   22  30    40
+ /  \      /    /   \
+5   12   28   38    48
+
+*/

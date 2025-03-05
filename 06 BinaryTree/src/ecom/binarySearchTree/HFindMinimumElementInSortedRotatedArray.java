@@ -8,20 +8,19 @@ public class HFindMinimumElementInSortedRotatedArray {
 	}
 
 	public static int findMinimumElement(int[] arr) {
-		int left = 0, right = arr.length - 1;
+		int strIdx = 0, endIdx = arr.length - 1;
 
-		while (left < right) {
-			int mid = left + (right - left) / 2;
+		while (strIdx < endIdx) {
+			int mid = strIdx + (endIdx - strIdx) / 2;
 
-			// If mid element is greater than rightmost element, move right
-			if (arr[mid] > arr[right]) {
-				left = mid + 1;
-			} else {
-				// Otherwise, move left
-				right = mid;
-			}
+			// If mid element is smaller than the last element, search in the left half
+            if (arr[mid] < arr[endIdx]) {
+            	endIdx = mid; // Minimum must be at mid or before mid
+            } else {
+            	strIdx = mid + 1; // Minimum must be in the right half
+            }
 		}
-		return arr[left]; // left or right now points to the minimum element
+		return arr[strIdx]; // left or right now points to the minimum element
 	}
 }
 /*

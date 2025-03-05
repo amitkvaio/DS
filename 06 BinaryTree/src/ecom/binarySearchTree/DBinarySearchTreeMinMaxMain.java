@@ -17,21 +17,7 @@ public class DBinarySearchTreeMinMaxMain {
 		System.out.println("Maximum element in binary search tree: " + maximumElement(rootNode).data);
 
 	}
-
-	public static boolean search(TreeNode root, TreeNode nodeToBeSearched) {
-		if (root == null)
-			return false;
-		if (root.data == nodeToBeSearched.data) {
-			return true;
-		}
-		boolean result = false;
-		if (root.data > nodeToBeSearched.data)
-			result = search(root.left, nodeToBeSearched);
-		else if (root.data < nodeToBeSearched.data)
-			result = search(root.right, nodeToBeSearched);
-		return result;
-	}
-
+	
 	// Get minimum element in binary search tree
 	public static TreeNode minimumElement(TreeNode root) {
 		if (root.left == null)

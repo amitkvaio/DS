@@ -1,4 +1,8 @@
 package com.binary.tree;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 //Function to print all even nodes  
 public class PrintOddEvenNode {
 	public static void main(String[] args) {
@@ -15,12 +19,15 @@ public class PrintOddEvenNode {
 		binaryTree.insert(28);
 		binaryTree.insert(38);
 		binaryTree.insert(48);
-		System.out.println();
+
 		System.out.println("Tree Node which consisting even number :");
 		printEvenNodeUsingInOrder(binaryTree.root);
 		
-		System.out.println("\nTree Node which consisting odd number :");
+		System.out.println("\n\nTree Node which consisting odd number :");
 		printOddNodeUsingInOrder(binaryTree.root);
+		
+		System.out.println("\n\nTree Node which consisting even number using Level Order Traversal :");
+		pritEvenValueNodeUsingLevelOrderTraversal(binaryTree.root);
 	}
 
 	private static void printEvenNodeUsingInOrder(TreeNode root) {
@@ -40,4 +47,38 @@ public class PrintOddEvenNode {
 			printOddNodeUsingInOrder(root.right);
 		}
 	}
+	
+	private static void pritEvenValueNodeUsingLevelOrderTraversal(TreeNode root) {
+		if(root==null) {
+			return;
+		}else {
+			Queue<TreeNode> queue = new LinkedList<TreeNode>();
+			queue.offer(root);
+			while(!queue.isEmpty()) {
+				TreeNode node = queue.poll();
+				if(node.data %2 == 0) {
+					System.out.print(node.data + " ");
+				}
+				
+				if(node.left!=null) {
+					queue.offer(node.left);
+				}
+				
+				if(node.right!=null) {
+					queue.offer(node.right);
+				}
+			}
+		}
+	}
 }
+/*
+
+         25
+       /    \
+     20      36
+    /  \    /   \
+  10   22  30    40
+ /  \      /    /   \
+5   12   28   38    48
+
+*/

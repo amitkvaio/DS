@@ -17,24 +17,25 @@ public class FSearchAnElementInBinarySortedArray {
 		int endIdx = size - 1;
 		int mid = -1;
 		while (startIdx <= endIdx) {
-			mid = (startIdx + endIdx)/2;
+			mid = startIdx + (endIdx - startIdx) / 2;
+			
 			if (arr[mid] == target) {
 				return mid;
-			}  
-			if(arr[startIdx] <=arr[mid]) {
-				if(target >=arr[startIdx]&& target <=arr[mid]) {
-					endIdx = mid-1;
-				}else {
-					startIdx = mid+1;
+			}
+			if (arr[startIdx] <= arr[mid]) {
+				if (target >= arr[startIdx] && target <= arr[mid]) {
+					endIdx = mid - 1;
+				} else {
+					startIdx = mid + 1;
 				}
-			}else {
-				if(target >=arr[mid] && target <=arr[endIdx]) {
-					startIdx = mid +1;
-				}else {
-					endIdx  = mid-1;
+			} else {
+				if (target >= arr[mid] && target <= arr[endIdx]) {
+					startIdx = mid + 1;
+				} else {
+					endIdx = mid - 1;
 				}
 			}
-		} 
+		}
 		return mid;
 	}
 }
