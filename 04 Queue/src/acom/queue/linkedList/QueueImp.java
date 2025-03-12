@@ -31,14 +31,16 @@ public class QueueImp implements Queue {
 
 	@Override
 	public void enqueue(int data) {
-		Node newNode = new Node(data);
+		Node newNode = new Node(data);//Create a new node with the value
+		
+		//if the queue is empty, then the front and rear will both point to the same name
 		if(isEmpty()) {
 			rear = newNode;
 			front =newNode;
 		}else {
-			rear.next = newNode;
+			rear.next = newNode;//Adding the new node at the end of the queue.
 		}
-		rear = newNode;
+		rear = newNode; // Updating the rear pointer to the new ndoe.
 		length++;
 	}
 
@@ -48,8 +50,8 @@ public class QueueImp implements Queue {
 			System.out.println("Queue is empty!! deQueue not possible!!");
 			return -1;
 		} 
-		int result = front.data;
-		front = front.next;
+		int result = front.data; //Getting the front element value.
+		front = front.next; // Moving the front pointer to the next node
 		if(front==null) {
 			rear=null;
 		}

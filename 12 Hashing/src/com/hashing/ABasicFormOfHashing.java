@@ -14,9 +14,9 @@ public class ABasicFormOfHashing {
 	}
 	
 	public static void insertion(int value) {
-		if(arr[value] !=value) {
+		if(arr[value] != value) {
 			arr[value] = value;
-		}else {
+		} else {
 			System.out.println("index :"+value +" is already occupied!! and collision happen!!");
 		}
 	}
@@ -24,7 +24,7 @@ public class ABasicFormOfHashing {
 /*
 Note
 1.  f(x) = x  || x is the integer value where x >=0 
-	so we will store arr[x] =x
+	so we will storz
 2. In this approach, Suppose I want to store  only 99 then 100 size of array required
 	and to place 99 it will occupy 99th index.
 	and rest of the index/array will be unoccupied so its kind of waste of a-lots of byte of 
