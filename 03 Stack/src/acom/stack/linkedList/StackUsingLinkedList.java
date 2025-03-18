@@ -1,7 +1,8 @@
 package acom.stack.linkedList;
 
 import acom.stack.array.Stack;
-
+//Like Adding the first node = push operation
+// delete the first node = pop() 
 public class StackUsingLinkedList implements Stack{
 	private Node top;
 	private int length;
@@ -13,11 +14,11 @@ public class StackUsingLinkedList implements Stack{
 
 	@Override
 	public boolean isEmpty() {
-		return (length==0);
+		return top == null;
 	}
 
 	@Override
-	public int getLength() {
+	public int size() {
 		return length;
 	}
 
@@ -67,3 +68,27 @@ public class StackUsingLinkedList implements Stack{
 	}
 }
 
+/*
+Time Complexity:
+Operation	Time Complexity
+Push		O(1)
+Pop			O(1)
+Peek		O(1)
+IsEmpty		O(1)
+
+Advantages of Stack using Linked List:
+*****************************************
+
+    Dynamic Size: Unlike arrays, linked lists do not require a predefined size.
+    Efficient Memory Utilization: No wasted memory, as memory is allocated dynamically.
+    No Resizing Issues: No overhead of resizing like an array.
+
+Disadvantages of Stack using Linked List:
+*******************************************
+
+    Extra Memory Overhead: Each node requires additional memory for storing pointers.
+    Cache Unfriendliness: Due to non-contiguous memory allocation, performance can be slightly slower than arrays.
+    Complex Implementation: More complex than an array-based stack.
+
+
+*/

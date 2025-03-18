@@ -28,7 +28,7 @@ public class StackDriver {
 				System.out.println(st);
 				break;
 			case 2:
-				System.out.println("Size of the Stack is :" + stack.getLength());
+				System.out.println("Size of the Stack is :" + stack.size());
 				break;
 			case 3:
 				System.out.println("Enter the Element to push into the Stack:");

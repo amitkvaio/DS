@@ -53,7 +53,7 @@ public class ESortUsingTempStack {
 		if (top >= 0) {
 			System.out.println("Elements of stacks are:");
 			for (int i = 0; i <= top; i++) {
-				System.out.println(stack.arr[i]);
+				System.out.println(stack.stack[i]);
 			}
 		}
 	}

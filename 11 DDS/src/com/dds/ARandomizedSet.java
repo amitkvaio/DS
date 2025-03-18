@@ -8,12 +8,12 @@ import java.util.Random;
 
 public class ARandomizedSet {
 	 private Map<Integer, Integer> map;
-	 private List<Integer> list;
+	 private List<Integer> set;
 	 private Random random;
 	 
 	 public ARandomizedSet() {
 		map = new HashMap<Integer, Integer>();
-		list = new ArrayList<Integer>();
+		set = new ArrayList<Integer>();
 		random = new Random();
 	}
 	 
@@ -21,8 +21,8 @@ public class ARandomizedSet {
 		if(map.containsKey(val))
 			return false;
 		
-		list.add(val);
-		map.put(val,list.size()-1);
+		set.add(val);
+		map.put(val,set.size()-1);
 		return true;
 	}
 	
@@ -30,18 +30,18 @@ public class ARandomizedSet {
 		if (!map.containsKey(val))
 			return false;
 		
-		int lastIndex = list.size() - 1;
+		int lastIndex = set.size() - 1;
 		int indexVal = map.get(val); // This may be beginning, middle or last elements in the list.
-		int lastElement = list.get(lastIndex);
+		int lastElement = set.get(lastIndex);
 		
 		//Bringing last element value at indexVal
-		list.set(indexVal, lastElement);
+		set.set(indexVal, lastElement);
 		
 		//Replacing lastIndexValue with IndexVal Not required.
-		list.set(lastIndex, val);
+		set.set(lastIndex, val);
 		 
 		map.put(lastElement, indexVal);
-        list.remove(list.size() - 1);
+        set.remove(set.size() - 1);
         map.remove(val);
 		
 		return true;
@@ -52,18 +52,18 @@ public class ARandomizedSet {
 	            return false;
 	        }
 	        int index = map.get(val);//// This may be beginning, middle or last elements in the list.
-	        int lastElement = list.get(list.size() - 1);
+	        int lastElement = set.get(set.size() - 1);
 	        
 	        // Swap the last element with the one to be removed
-	        list.set(index, lastElement);
+	        set.set(index, lastElement);
 	        map.put(lastElement, index);
 	        
 	        
 	        //Value of indexVal does not required to placed at the last.
-	        list.set(list.size()-1, val);
+	        set.set(set.size()-1, val);
 	        
 	        // Remove last element
-	        list.remove(list.size() - 1);
+	        set.remove(set.size() - 1);
 	        map.remove(val);
 	        return true;
 	    }
@@ -71,7 +71,7 @@ public class ARandomizedSet {
 	
 	
 	public int getRandom() {
-		return list.get(random.nextInt(list.size()));
+		return set.get(random.nextInt(set.size()));
 	}
 	
 	public static void main(String[] args) {
