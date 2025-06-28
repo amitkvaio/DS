@@ -32,15 +32,15 @@ public class CNthNodeFromEnd {
 	
 	//vvi
 	public static Node nthFromLastNode(Node head, int n) {
-		Node firstPtr = head;
+		Node fast = head;
 		Node secPtr = head;
 
 		for (int i = 0; i < n; i++) {
-			firstPtr = firstPtr.next;
+			fast = fast.next;
 		}
-		System.out.println(firstPtr.data);
-		while (firstPtr != null) {
-			firstPtr = firstPtr.next;
+		System.out.println(fast.data);
+		while (fast != null) {
+			fast = fast.next;
 			secPtr = secPtr.next;
 		}
 		System.out.println( n+ "th Node from the end is :" + secPtr.data);
@@ -57,6 +57,4 @@ Use two pointer firstPtr and secondPtr and initialize both to head of linkedlist
 Move firstPtr by n-1 nodes.
 Increment firstPtr and secondPtr until firstPtr.next not equal to null.
 SecondPtr will be at nth from end node.
-
- 
 */ 

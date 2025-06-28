@@ -2,7 +2,7 @@ package acom.single;
 
 import acom.single.imp.Node;
 
-public class VLinkedListSort {
+public class VSortTheGivenLinkedList {
 
 	// Merge Sort Function
 	public static Node mergeSort(Node head) {

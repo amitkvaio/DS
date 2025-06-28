@@ -3,6 +3,10 @@ package com.binary.tree;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/*
+Implement a function to perform level-order traversal of a binary tree, 
+	but print the level of each node as well.
+*/
 public class Print_Level_Btree {
 	public static void main(String[] args) {
 		BinaryTree binaryTree = new BinaryTree();

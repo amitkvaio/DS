@@ -3,7 +3,7 @@ package acom.single;
 import acom.single.imp.Node;
 import acom.single.imp.SingleLinkedList;
 
-public class WOddEvenLinkedList {
+public class WSeperateTheOddEvenNode {
 	public static void main(String[] args) {
 		SingleLinkedList list = new SingleLinkedList();
 		for (int i = 1; i <= 10; i++) {

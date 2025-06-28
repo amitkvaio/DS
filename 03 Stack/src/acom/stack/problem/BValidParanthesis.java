@@ -1,6 +1,8 @@
 //Check Balanced Parentheses in an Expression
 package acom.stack.problem;
 
+import java.util.Stack;
+
 public class BValidParanthesis{
 
 	public static boolean checkParentesis(String str) {
@@ -8,34 +10,22 @@ public class BValidParanthesis{
 			System.out.println("String Expression is empty!! ");
 			return true;
 		}
-
-		AStack stack = new AStack(100);
-
-		for (int i = 0; i < str.length(); i++) {
-			char current = str.charAt(i);
-			
-			 /* If the current character is starting bracket,then push them in a stack  */
-			
-			if (current == '{' || current == '(' || current == '[') {
-				stack.push(current);
-			}
-			
-			 /* 
-	            Else, If the stack is not empty,
-	            And current character is a closing bracket
-	            and top character of a stack is matching open bracket
-	            then pop it.
-            */
-			
-			if (current == '}' || current == ')' || current == ']') {
+		Stack<Character> stack = new Stack<Character>();
+		for (Character currentChar : str.toCharArray()) {
+			if (currentChar == '[' || currentChar == '(' || currentChar == '{') {
+				stack.push(currentChar);
+			} else {
 				if (stack.isEmpty())
 					return false;
-
-				char last = stack.peek();
-				if (current == '}' && last == '{' || current == ')' && last == '(' || current == ']' && last == '[')
+				else if (stack.peek() == '[' && currentChar == ']') {
 					stack.pop();
-				else
+				} else if (stack.peek() == '{' && currentChar == '}') {
+					stack.pop();
+				} else if (stack.peek() == '(' && currentChar == ')') {
+					stack.pop();
+				} else {
 					return false;
+				}
 			}
 		}
 		return stack.isEmpty();
@@ -44,7 +34,7 @@ public class BValidParanthesis{
 	public static void main(String[] args) {
 		String str1 = "{()}[]";
 		String str2 ="{[]})";
-		boolean status  = checkParentesis(str2);
+		boolean status  = checkParentesis(str1);
 		if(status) {
 			System.out.println("Parenthesis is balanced!!");
 		}else {
@@ -53,12 +43,15 @@ public class BValidParanthesis{
 	}
 }
 /*
-Use a Stack to track opening brackets: (, {, [.
-When encountering a closing bracket ), }, ], check:
+TC : O(n)
+SC : O(n)
+Using stack
+-- Declare a character stack
+-- Now traverse the string expression
+	-- if the current character is starting bracket ( or { or [ then push it to the stack
+	-- if we encounter closing bracket, then we will check then pop from the stack and if the
+		popped character is the matching starting bracket then fine.
+	-- Else return false, brackets are not valid.
+-- After complete traversal, if there is some starting bracket left in the stack then not valid else valide.
 
-    If the stack is empty → Unbalanced (extra closing bracket).
-    If the top of the stack is the corresponding opening bracket → Pop it.
-    Otherwise → Unbalanced (wrong order).
-
-After processing, if the stack is not empty, it means there are unmatched opening brackets.
 */

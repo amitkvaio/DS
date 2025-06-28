@@ -1,5 +1,7 @@
 package acom.single;
 
+import java.util.HashSet;
+
 import acom.single.imp.Node;
 
 /*
@@ -15,13 +17,14 @@ Return true if there is a cycle in the linked list. Otherwise, return false.
 public class HCycleDetectionIn {
 	static Node head=null;
 	public static void main(String[] args) {
-		createLoop();
-		boolean isCycle = findStartingNodeInCyclicLoop();
-		System.out.println(isCycle);
+		Node head = createLoop();
+		System.out.println(hasCycle(head));
+		System.out.println("############## Using Hash set ##############3");
+		System.out.println(hasCycleUsingHashSet(head));
 	}
 
 	// Used to create the loop in linked List
-	public static void createLoop() {
+	public static Node createLoop() {
 		Node first = new Node(1);
 		Node second = new Node(2);
 		Node third = new Node(3);
@@ -43,9 +46,11 @@ public class HCycleDetectionIn {
 		eight.next = nine;
 		
 		nine.next = fourth;
+		return head;
 	}
 
-	public static boolean findStartingNodeInCyclicLoop() {
+	//Floy's cycle finding algorithm
+	public static boolean hasCycle(Node head) {
 		// If list is empty or has only one node without loop
 		if (head == null || head.next == null) {
 			System.out.println("list is either empty or has only one node!!");
@@ -58,6 +63,20 @@ public class HCycleDetectionIn {
 			slowPtr = slowPtr.next;
 			if (slowPtr == fastPtr) {
 				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static boolean hasCycleUsingHashSet(Node head) {
+		HashSet<Node> set = new HashSet<Node>();
+		Node temp = head;
+		while(temp!=null) {
+			if(set.contains(temp)) {
+				return true;
+			}else {
+				set.add(temp);
+				temp = temp.next;
 			}
 		}
 		return false;

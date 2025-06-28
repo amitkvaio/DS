@@ -1,65 +1,104 @@
 package acom.stack.problem;
 
+import java.util.Stack;
+
 public class CInFixToPostfixConverstion {
 	
-	// used to check whether character is operand or not
-	public static boolean isOperand(char ch) {
-		if (ch == '+' || ch == '-' || ch == '*' || ch == '/')
-			return false;
-		return true;
+	public static void main(String args[]) {
+		String infix = "3*5+6/2-4";
+		System.out.println(infixToPostfixConversion("A+B*(C-D)")); // Postfix = ABCD-*+
+		System.out.println(infixToPostfixConversion(infix)); //Postfix =35*62/+4-
 	}
-
-	//used to get the precedence of the operator
-	public static int getPredence(char x) {
-		if (x == '+' || x == '-') {
-			return 1;
-		} else if (x == '*' || x == '/') {
-			return 2;
+	
+	public static String infixToPostfixConversion(String str) {
+		if (str == null) {
+			return null;
 		}
-		return 0;
-	}
+		// Stack to hold operator
+		Stack<Character> stack = new Stack<Character>();
+		StringBuilder output = new StringBuilder();
 
-	static String evaluatePostfix(String exp) {
-		int length = exp.length();
-		AStack stack = new AStack(length); // Create post fix stack
-		char[] infix = exp.toCharArray();
-		
-		//post character array is for storing the post fix expression
-		char[] postfix = new char[length];
-		int j = 0, i = 0;
-		
-		while (i < length) {
-			//Step 1 - checking if a character is operand then store into post fix character array
-			if (isOperand(infix[i])) {
-				postfix[j++] = infix[i++];
-			} else {
-				//Step 2 - if not operand and if stack is empty then push into the stack
-				if (stack.isEmpty()) {
-					stack.push(infix[i++]);
-				//Step 3 - if the infix operator precedence is greater than top most operator precedence of the stack
-				//then push into the stack
-				} else if (getPredence(infix[i]) > getPredence(stack.peek())) {
-					stack.push(infix[i++]);
-				//Step 4 - is precedence is less then or equal then pop the stack operator and add into the post fix
-				} else {
-					postfix[j++] = stack.pop();
+		for (int i = 0; i < str.length(); i++) {
+			char ch = str.charAt(i);
+
+			// if operand (A-Z or 0-9), add it to the result
+			if (Character.isLetterOrDigit(ch)) {
+				output.append(ch);
+			}
+
+			// if the character is '(' push into the stack
+			else if (ch == '(') {
+				stack.push(ch);
+			}
+
+			// if ch is ')' then pop from the stack until '(' is encounter
+			else if (ch == ')') {
+				while (!stack.isEmpty() && stack.peek() != '(') {
+					output.append(stack.pop());
 				}
+				// pop '(' from the stack
+				stack.pop();
+			}
+
+			// if the character is an operator, pop it with higher or equal precedence
+			else if (isOperator(ch)) {
+				while (!stack.isEmpty() && precedence(ch) <= precedence(stack.peek())) {
+					output.append(stack.pop());
+				}
+				stack.push(ch);
 			}
 		}
-		//Step 5 - if stack is not empty then pop it up and store into the post fix.
+		// Pop any remaining operators in the stack
 		while (!stack.isEmpty()) {
-			postfix[j++] = stack.pop();
+			output.append(stack.pop());
 		}
-		return String.valueOf(postfix);
+		return output.toString();
 	}
+	
+	// Method to check if a character is an operator
+    public static boolean isOperator(char ch) {
+        return "+-*/%^".indexOf(ch) >= 0;
+    }
 
-	public static void main(String args[]) {
-		String exp = "3*5+6/2-4";
-		//a+b*c-d/e : Equivalent post fix : abc*+de/-
-		//a+b+c-d : Equivalent post fix : ab+c+d-
-		//3*5+6/2-4 : Equivalent post fix : 3 5 * 6 2 / + 4 -
-		System.out.print("The PostFix Evaluation for the Given Expression " + exp + " is: ");
-		String postfix = evaluatePostfix(exp);
-		System.out.println("Postfix ::"+postfix);
+	// Method to return the precedence of operators
+	public static int precedence(char op) {
+		switch (op) {
+		case '+':
+		case '-':
+			return 1;
+		case '*':
+		case '/':
+			return 2;
+		case '%':
+			return 3;
+		case '^':
+			return 4;
+		default:
+			return -1;
+		}
 	}
 }
+/*
+
+Infix to Postfix Logic:
+***********************
+    Operands (letters or digits): Directly append them to the result.
+    
+    Left Parenthesis (: Push it to the stack to signify that we have a sub-expression.
+    
+    Right Parenthesis ): Pop from the stack until we encounter the matching Left Parenthesis (. These popped operators are appended to the result.
+
+    Operators: If the operator on top of the stack has higher or equal precedence than the current operator, pop it from the stack to the result. Then, push the current operator onto the stack.
+
+Precedence of Operators:
+************************
+    Higher precedence operators (like *, /, ^) are popped before lower precedence ones (like +, -).
+
+After the Loop:
+***************** 
+	Any remaining operators in the stack are popped and appended to the result.
+
+TC : O(n)
+SC : O(n)
+
+*/

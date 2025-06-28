@@ -11,10 +11,10 @@ class Pair {
 	}
 }
 
-public class GMinStack {
+public class JMinStack {
 	Stack<Pair> st;
 
-	public GMinStack() {
+	public JMinStack() {
 		st = new Stack<>();
 	}
 
@@ -41,7 +41,7 @@ public class GMinStack {
 	}
 
 	public static void main(String[] args) {
-		GMinStack minStack = new GMinStack();
+		JMinStack minStack = new JMinStack();
 
 		minStack.push(20);
 		System.out.println("Minimum element after push(" + minStack.top() + "): " + minStack.getMin());
@@ -62,17 +62,12 @@ public class GMinStack {
 }
 /*
 How to Implement Min Stack
-
-The Min Stack is a special type of stack that support all the stack operations such as push(), pop(), isEmpty(), and isFull(). 
-	In addition, Min Stack also supports one additional function getMin(), which is used to retrieve the minimum element 
-	from the stack that is why it is also called the minimum stack.
-
-
-
-
-
-
-
-
+**************************
+The Min Stack is a special type of stack that support all the stack operations 
+	such as push(), pop(), isEmpty(), and isFull().
+	 
+	In addition, Min Stack also supports one additional function getMin(), 
+		which is used to retrieve the minimum element from the stack that is 
+		why it is also called the minimum stack.
 
 */

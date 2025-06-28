@@ -2,7 +2,7 @@ package acom.stack.problem;
 
 import java.util.Stack;
 
-public class FReverseStringStack {
+public class HReverseStringStack {
 	public static String reverseString(String str) {
 		Stack<Character> stack = new Stack<>();
 
@@ -25,5 +25,6 @@ public class FReverseStringStack {
 }
 
 /*
-A stack can be used to reverse a string by pushing all characters onto the stack and then popping them one by one.
+A stack can be used to reverse a string by pushing all characters onto the stack 
+	and then popping them one by one.
 */

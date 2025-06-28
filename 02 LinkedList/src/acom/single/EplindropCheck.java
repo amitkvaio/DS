@@ -1,5 +1,7 @@
 package acom.single;
 
+import java.util.ArrayList;
+
 import acom.single.imp.Node;
 import acom.single.imp.SingleLinkedList;
 //Using linkedList Reverse
@@ -12,21 +14,16 @@ public class EplindropCheck {
 		linkedList.displayList();
 		System.out.println("Reverse order");
 		palindropCheck(linkedList.head);
+		System.out.println("###############Using ArrayList###############");
+		System.out.println(isPalindrome(createList()));
+		System.out.println("############### Using Reverse second half ###############");
+		System.out.println(isPalindromeUsingReverseSecondHalf(createList()));
 	}
 
 	
 	public static void  palindropCheck(Node head) {
 		//Reverse the current linked list
-		Node temp = head;
-		Node current = null;
-		Node previous = null;
-		
-		while (temp != null) {
-			temp = temp.next;
-			current.next = previous;
-			previous = current;
-			current = temp;
-		}
+		Node previous = reverseLinkedList(head);
 		Util.displayList(previous);
 		
 		/*
@@ -52,9 +49,24 @@ public class EplindropCheck {
 			System.out.println("Above linked List are not palindrom!!");
 		}
 	}
+
+
+	private static Node reverseLinkedList(Node head) {
+		Node temp = head;
+		Node current = head;
+		Node previous = null;
+		
+		while (temp != null) {
+			temp = temp.next;
+			current.next = previous;
+			previous = current;
+			current = temp;
+		}
+		return previous;
+	}
 	
 	
-	public static void createList() {
+	public static Node createList() {
 		Node first = new Node(10);
 		Node second = new Node(20);
 		Node third = new Node(30);
@@ -68,6 +80,65 @@ public class EplindropCheck {
 		fourth.next = fifth;
 		fifth.next = null;
 		linkedList.size = 5;
+		return linkedList.head;
 	}
+	
+	public static boolean isPalindrome(Node head) {
+		if (head == null) {
+			return true;
+		}
 
+		// Step 1: Copy the linked list into an array
+		ArrayList<Integer> listArray = new ArrayList<>();
+		Node temp = head;
+
+		while (temp != null) {
+			listArray.add(temp.data);
+			temp = temp.next;
+		}
+
+		// Step 2: Check if the array is a palindrome
+		int start = 0;
+		int end = listArray.size() - 1;
+
+		while (start < end) {
+			if (!listArray.get(start).equals(listArray.get(end))) {
+				return false;
+			}
+			start++;
+			end--;
+		}
+		return true;
+	}
+	
+	public static boolean isPalindromeUsingReverseSecondHalf(Node head) {
+		if (head == null) {
+			System.out.println("Linked List is empty!!");
+			return false;
+		}
+		Node slow = head;
+		Node first = head;
+		while (first != null && first.next != null) {
+			first = first.next.next;
+			slow = slow.next;
+		}
+		System.out.println("Got the middle Elements::" + slow.data);
+
+		if (first.next == null) {
+			reverseLinkedList(slow);
+		} else {
+			reverseLinkedList(slow.next);
+		}
+
+		// Comparing
+		first = head;
+		while (slow != null) {
+			if (first.data != slow.data) {
+				return false;
+			}
+			slow = slow.next;
+			first = first.next;
+		}
+		return true;
+	}
 }

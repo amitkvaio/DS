@@ -16,10 +16,10 @@ public class DReverseWord {
 		//i like this program very much
 		//output : much very program this like i
 		String[] word = str.split("\\s");
-		String output = "";
+		StringBuilder sb = new StringBuilder();
 		for (int i = word.length-1; i >= 0; i--) {
-			output+=word[i]+" ";
+			sb.append(word[i] + " ");
 		}
-		System.out.println(output);
+		System.out.println(new String(sb));
 	}
 }

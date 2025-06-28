@@ -19,7 +19,7 @@ public class QueueImp implements Queue {
 	@Override
 	public void enqueue(int data) {
 		if (isQueueFull()) {
-			System.out.println("Queue Overflow");
+			throw new IllegalStateException("Queue is full");
 		}
 		rear = (rear + 1) % capacity; // Circular increment
 		queue[rear] = data;
@@ -30,10 +30,10 @@ public class QueueImp implements Queue {
 	@Override
 	public int dequeue() {
 		if (isEmpty()) {
-			System.out.println("Queue Underflow");
-			return -1;
+			throw new IllegalStateException("Queue is empty");
 		}
 		int data = queue[front];
+		queue[front] = 0;
 		front = (front + 1) % capacity; // Circular increment
 		size--;
 		return data;
@@ -44,12 +44,20 @@ public class QueueImp implements Queue {
 		if (isEmpty()) {
 			System.out.println("Queue is Empty!!");
 			return;
-		} else {
-			for (int i = 0; i < size; i++) {
-				System.out.print(queue[i] + "-->");
-			}
-			System.out.println("Null");
 		}
+		int i = front;
+		
+		// loop until we have processed all elements from front to rear
+		do {
+			System.out.print(queue[i] + " ");
+			
+			// Circular increment
+			i = (i + 1) % capacity; 
+			
+		//ensuring that the last element at rear is included in the printed output.
+		} while (i != (rear + 1) % capacity);
+		
+		System.out.println();
 	}
 
 	@Override

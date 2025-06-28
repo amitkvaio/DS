@@ -26,12 +26,12 @@ public class BGetMiddleNode {
                 System.out.println("Linked List is empty!!");
                 return head;
           }
-          Node slow_prt = head;
-          Node first_prt = head;
-          while(first_prt!=null && first_prt.next!=null){
-                first_prt=first_prt.next.next;
-                slow_prt=slow_prt.next;
+          Node slow = head;
+          Node fast = head;
+          while(fast!=null && fast.next!=null){
+                fast=fast.next.next;
+                slow=slow.next;
           }
-          return slow_prt;
+          return slow;
     }
 }

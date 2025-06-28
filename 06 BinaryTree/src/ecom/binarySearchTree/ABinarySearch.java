@@ -3,8 +3,7 @@ package ecom.binarySearchTree;
 
 import java.util.Arrays;
 /*
-Please visit this site. 
-https://java2blog.com/binary-search-tree-in-java/
+Search an elements in the given array using binary search tree
 */
 public class ABinarySearch {
 	public static void main(String[] args) {

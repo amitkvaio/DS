@@ -20,7 +20,9 @@ public class GMergeTwoSortedLinkList {
 		
 		System.out.println("***********Merging start for two sorted linked list *****************");
 		list.mergeTwoSortedLinkList(first, second);
-		System.out.println("************Done****************");
+		
+		System.out.println("#################### Merge using recursion ############################");
+		Util.displayList(mergeTwoSortedLinkListUsingRecursion(first, second));
 	}
 	
 	public void mergeTwoSortedLinkList(Node first, Node second) {
@@ -78,4 +80,22 @@ public class GMergeTwoSortedLinkList {
 		fifth.next = null;
 		return secondLinkedList;
 	}
+	
+	public static Node mergeTwoSortedLinkListUsingRecursion(Node first, Node second) {
+		Node head = null;
+		if(first ==null) return second;
+		if(second==null) return first;
+		
+		if(first.data < second.data) {
+			head = first;
+			first = first.next;
+		}else {
+			head = second;
+			second = second.next;
+		}
+		head.next = mergeTwoSortedLinkListUsingRecursion(first, second);
+		return head;
+	}
+	//TC : O(n+m)
+	//SC : O(n+m) Recursive stack space
 }

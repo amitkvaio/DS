@@ -26,17 +26,17 @@ public class BDeleteMiddleNode {
 		if (head.next == null) {
 			return null;
 		}
-		Node slow_prt = head;
-		Node first_prt = head;
+		Node slow = head;
+		Node fast = head;
 		Node prev = null;
-		while (first_prt != null && first_prt.next != null) {
-			prev = slow_prt;
-			slow_prt = slow_prt.next;
-			first_prt = first_prt.next.next;
+		while (fast != null && fast.next != null) {
+			prev = slow;
+			slow = slow.next;
+			fast = fast.next.next;
 		}
-		System.out.println("Mid Elements :" + slow_prt.data + " and it is deleted!!");
-		prev.next = slow_prt.next;
-		slow_prt.next =null;
-		return slow_prt;
+		System.out.println("Mid Elements :" + slow.data + " and it is deleted!!");
+		prev.next = slow.next;
+		slow.next =null;
+		return slow;
 	}
 }

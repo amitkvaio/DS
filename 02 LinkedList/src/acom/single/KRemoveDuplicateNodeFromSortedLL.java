@@ -7,16 +7,17 @@ public class KRemoveDuplicateNodeFromSortedLL {
 	
 	static Node head = null;
 	public static void main(String[] args) {
-		createLoop();
+		Node head = createLoop();
 		Util.displayList(head);
-		removeDuplicateNodeFromSortedLL();
+		removeDuplicateNodeFromSortedLL(head);
 		
 		System.out.println("After Removal of duplicate node");
 		Util.displayList(head);
-		System.out.println("************Done************");
+		System.out.println("############################");
+		Util.displayList(removeDuplicateNodeFromSortedLL_(createLoop()));
 	}
 	
-	private static void removeDuplicateNodeFromSortedLL() {
+	private static void removeDuplicateNodeFromSortedLL(Node head) {
 		Node currentNode = head;
 		Node nextNode = head.next;
 		while(nextNode!=null) {
@@ -30,8 +31,21 @@ public class KRemoveDuplicateNodeFromSortedLL {
 			}
 		}
 	}
+	
+	private static Node removeDuplicateNodeFromSortedLL_(Node head) {
+		Node currentNode = head;
+		while(currentNode!=null && currentNode.next!=null) {
+			if(currentNode.next.data == currentNode.data) {
+				currentNode.next = currentNode.next.next;
+				
+			}else {
+				currentNode = currentNode.next;
+			}
+		}
+		return head;
+	}
 	// Used to create the loop in linked List
-	public static void createLoop() {
+	public static Node createLoop() {
 		Node first = new Node(10);
 		Node second = new Node(20);
 		Node third = new Node(20);
@@ -51,5 +65,6 @@ public class KRemoveDuplicateNodeFromSortedLL {
 		sixth.next = seven;
 		seven.next = eight;
 		eight.next = nine;
+		return head;
 	}
 }

@@ -39,7 +39,7 @@ public class StackUsingArray implements Stack{
 
 	@Override
 	public int pop() {
-		if (top == -1) {
+		if (isEmpty()) {
 			System.out.println("Stack Underflow");
 			return -1;
 		}
@@ -48,7 +48,7 @@ public class StackUsingArray implements Stack{
 
 	@Override
 	public int peek() {
-		if (top == -1) {
+		if (isEmpty()) {
 			System.out.println("Stack is Empty");
 			return -1;
 		}
@@ -100,6 +100,11 @@ Pop			O(1)
 Peek		O(1)
 IsEmpty		O(1)
 Size		O(1)
+
+Space complexity
+*****************
+O(n) where n is the maximum size of the stack.
+	This is because we are using an array of fixed size to store the element in the stack.
 
 Advantages of Stack using Array:
 ********************************

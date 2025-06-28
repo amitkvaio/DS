@@ -2,22 +2,10 @@ package com.binary.tree;
 
 public class BinaryTreeClient {
 	public static void main(String[] args) {
-		BinaryTree binaryTree = new BinaryTree();
-		binaryTree.insert(25);
-		binaryTree.insert(20);
-		binaryTree.insert(36);
-		binaryTree.insert(10);
-		binaryTree.insert(22);
-		binaryTree.insert(30);
-		binaryTree.insert(40);
-		binaryTree.insert(5);
-		binaryTree.insert(12);
-		binaryTree.insert(28);
-		binaryTree.insert(38);
-		binaryTree.insert(48);
+		BinaryTree binaryTree = BinaryTree.getBinaryTree();
 		
 		System.out.println("********* Level Order Traversal ****************");
-		binaryTree.levelOrderTraversal(binaryTree.root);
+		FBinaryTreeLevelOrderTraversal.levelOrderTraversal(binaryTree.root);
 		System.out.println("\n\n********** In Order Traversal ***************");
 		binaryTree.inOrder(binaryTree.root);
 		System.out.println("\n\n******** Post Order Traversal *****************");

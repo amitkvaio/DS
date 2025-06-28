@@ -1,8 +1,6 @@
 //Check whether two strings are anagram of each other- Method 2 (Count characters)
 package acom.String;
 
-import java.util.Arrays;
-
 public class GAnagramString3 {
 	static int SIZE = 256;
 

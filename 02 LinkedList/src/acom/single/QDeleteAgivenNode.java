@@ -3,7 +3,7 @@ package acom.single;
 
 import acom.single.imp.Node;
 
-public class QAgivenNode {
+public class QDeleteAgivenNode {
 	static Node head = null;
 	public static Node deleteNode= null;
 	
