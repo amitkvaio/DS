@@ -7,7 +7,7 @@ public class CInsertionSort {
 		int [] arr = new int[] {10, 40, 50, 30, 20};
 		//						0    1   2   3   4
 		System.out.println("Befor Sorting : " + Arrays.toString(arr));
-		insertionSort1(arr);
+		insertionSort(arr);
 		System.out.println("After Sorting : " + Arrays.toString(arr));
 	}
 
@@ -29,25 +29,19 @@ public class CInsertionSort {
 			arr[j + 1] = key;
 		}
 	}
-	
-	public static void insertionSort1(int[] arr) {
-		for (int i = 1 ; i < arr.length; i++) {
-			 //lets consider the first index value is already sorted.
-			int key = arr[i];
-			int j = i - 1 ;
-			while(j >=0 && arr[j] > key ) {
-				arr[j+1] = arr[j];
-				j = j - 1;
-			}
-			arr[j+1] = key;
-		}
-	}
 
 }
 
 /*
+Insertion Sorting
+******************
+Insertion Sort works by virtually dividing the array into a sorted and an unsorted part.
+Elements from the unsorted part are picked one by one and inserted into 
+	their correct position in the sorted part.
+
 Time Complexity
 Best case: O(n)
 Average case: O(n^2)
 Worst case: O(n^2)
+SC : O(1)
 */

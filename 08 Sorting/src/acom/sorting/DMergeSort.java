@@ -65,5 +65,6 @@ Best case: O(nlogn)
 Average case: O(nlogn)
 Worst case: O(nlogn)
 
+SC : O(n)
 */
 

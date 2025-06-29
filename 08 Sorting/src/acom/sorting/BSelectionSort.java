@@ -28,7 +28,7 @@ public class BSelectionSort {
 			int temp = arr[minIndex];
 			arr[minIndex] = arr[i];
 			arr[i] = temp;
-			
+
 			System.out.println("Smallest Number : " + temp + " : " + Arrays.toString(arr));
 		}
 		System.out.println("****************Outer loop end*********************");
@@ -55,6 +55,7 @@ Best case : O(N^2)
 Average case : O(N^2)
 Worst case : O(N^2)
 
+SC : O(1) 
 */
 
 

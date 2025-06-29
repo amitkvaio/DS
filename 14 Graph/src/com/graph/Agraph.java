@@ -3,26 +3,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Agraph {
-	
+
 	private int vertices; // Number of vertices
-    private List<List<Integer>> adjList; // Adjacency list
-	
+	private List<List<Integer>> adjList; // Adjacency list
+
+	// Constructor
 	public Agraph(int vertices) {
 		this.vertices = vertices;
-		adjList = new ArrayList<List<Integer>>();
-		
-		for(int i = 0 ; i < vertices; i++) {
-			adjList.add(new ArrayList<Integer>());
+		adjList = new ArrayList<>();
+
+		// Initialize empty list for each vertex
+		for (int i = 0; i < vertices; i++) {
+			adjList.add(new ArrayList<>());
 		}
 	}
-	
-	// Initialize the adjacency list for each vertex
-	public static void main(String[] args) {
-		Agraph test = new Agraph(5);
-		System.out.println(test.adjList);
-		 for (int i = 0; i < test.adjList.size(); i++) {
-			System.out.println(test.adjList.get(i));
+
+	// Method to print the adjacency list
+	public void printAdjList() {
+		for (int i = 0; i < adjList.size(); i++) {
+			System.out.print("Vertex " + i + ": ");
+			for (int neighbor : adjList.get(i)) {
+				System.out.print(neighbor + " ");
+			}
+			System.out.println();
 		}
+	}
+
+	// Main method to test the graph
+	public static void main(String[] args) {
+		Agraph graph = new Agraph(5);
+		System.out.println("Empty adjacency list structure:");
+
+		// Print each vertex's neighbors (all will be empty initially)
+		graph.printAdjList();
 	}
 }
 

@@ -16,23 +16,24 @@ public class ABubbleSort {
 		int SIZE = arr.length;
 		if (arr == null || SIZE == 0)
 			return;
-		boolean isSwapped = true;
+
 		for (int i = 0; i < SIZE - 1; i++) {
-			for (int j = 0; j < SIZE - 1 - i; j++) {
+			boolean isSwapped = true; // Should be reset at the start of each pass
+
+			for (int j = 0; j < SIZE -1 -i; j++) {
 				if (arr[j] > arr[j + 1]) {
-					// arr[j]< arr[j+1] - it will print in descending order
 					int temp = arr[j];
 					arr[j] = arr[j + 1];
 					arr[j + 1] = temp;
-					isSwapped = false;
+
+					isSwapped = true; // A swap occurred
 				}
-				//System.out.println("*******************");
 			}
-			//System.out.println("##############");
-			if (isSwapped)
+
+			// No swaps in this pass means array is sorted
+			if (!isSwapped)
 				break;
 		}
-		//System.out.println("After Sorting : " + Arrays.toString(arr));
 	}
 	
 	// Bubble sort using with recursive
@@ -93,5 +94,7 @@ Execution:
 Summary:
     The outer loop runs n−1 times because each pass places one element in its correct position.
     The inner loop runs n−i−1 times because elements at the end of the list are already sorted 
-    
+
+In each round, compare each pair of adjacent elements, and swap them if they are in the wrong order. 
+	The largest number "bubbles up" to the end in each round
 */

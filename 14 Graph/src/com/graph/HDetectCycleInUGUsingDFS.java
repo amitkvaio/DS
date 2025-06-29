@@ -1,29 +1,20 @@
 package com.graph;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
-// Detect Cycle in Undirected Graph using BFS
-public class FDetectCycleInUGUsingBFS {
+
+//Java Code: Detecting Cycle in an Undirected Graph Using DFS
+public class HDetectCycleInUGUsingDFS {
+	
 	private int vertices;
 	private List<List<Integer>> adjList ;
 	
-	public FDetectCycleInUGUsingBFS(int vertices) {
+	public HDetectCycleInUGUsingDFS(int vertices) {
 		this.vertices = vertices;
 		adjList = new ArrayList<>();
 		
 		for (int i = 0; i < vertices; i++) {
 			adjList.add(new ArrayList<Integer>());
-		}
-	}
-	
-	static class Pair{
-		int source;
-		int parents;
-		public Pair(int source, int parents) {
-			this.source = source;
-			this.parents = parents;
 		}
 	}
 	
@@ -41,7 +32,7 @@ public class FDetectCycleInUGUsingBFS {
 
         for (int i = 0; i < vertices; i++) {
             if (!visited[i]) { // Check unvisited nodes (for disconnected graphs)
-                if (isCycleBFS(i, visited, -1)) {//Assuming for starting node there is no parents so passing as -1
+                if (isCycleUtil(i, visited, -1)) {//Assuming for starting node there is no parents so passing as -1
                     return true;
                 }
             }
@@ -51,32 +42,25 @@ public class FDetectCycleInUGUsingBFS {
 
 
 	
-	private boolean isCycleBFS(int startingNode, boolean[] visited, int parent) {
-		Queue<Pair> queue = new LinkedList<Pair>();
-		queue.offer(new Pair(startingNode, -1));
-		
-		visited[startingNode] = true;
-		
-		while(!queue.isEmpty()) {
-			Pair pair = queue.poll();
-			int source = pair.source;
-			int prnts = pair.parents;
-			
-			for (Integer src : adjList.get(source)) {
-				if(visited[src] == false) {
-					queue.offer(new Pair(src,source));
-					visited[src] = true;
-				}else if(src !=prnts) {
-					return true;
-				}
-			}
+	private boolean isCycleUtil(int node, boolean[] visited, int parent) {
+		visited[node] = true;
+
+		for (int neighbor : adjList.get(node)) {
+			if (neighbor == parent) // Ignore the parent node
+				continue;
+
+			if (visited[neighbor]) // If visited again, cycle detected
+				return true;
+
+			if (isCycleUtil(neighbor, visited, node)) // Recursive DFS call
+				return true;
 		}
 		return false;
 	}
 
 
 	public static void main(String[] args) {
-		FDetectCycleInUGUsingBFS g = new FDetectCycleInUGUsingBFS(5);
+		HDetectCycleInUGUsingDFS g = new HDetectCycleInUGUsingDFS(5);
 		g.addEdge(0, 1);
 		g.addEdge(1, 2);
 		g.addEdge(2, 3);
@@ -85,3 +69,13 @@ public class FDetectCycleInUGUsingBFS {
 		System.out.println("Does the graph contain a cycle? " + g.isCyclic());
 	}
 }
+
+/*
+0 -- 1 -- 2
+     |    |
+     4 -- 3
+
+Time Complexity
+O(V + E) (where V is vertices and E is edges)
+Each vertex and edge is processed once in DFS.
+*/

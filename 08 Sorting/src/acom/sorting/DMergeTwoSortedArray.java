@@ -33,3 +33,9 @@ public class DMergeTwoSortedArray {
 		System.out.println("Merge Sorted Arrays : "+Arrays.toString(Carr));
 	}
 }
+/*
+Time Complexity = O(n + m)
+Where n = Aarr.length, m = Barr.length.
+Space Complexity = O(n + m)
+
+*/
