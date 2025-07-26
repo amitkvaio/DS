@@ -18,15 +18,16 @@
 *.zip
 *.tar.gz
 *.rar
-*.project
-*.classpath
 *.prefs
 *.gitignore
-*.project
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-/.metadata/
-01 StringDS&A/.classpath
-01 StringDS&A/.project
-01 StringDS&A/.settings/org.eclipse.jdt.core.prefs
+.metadata/
+
+# Ignore Eclipse/IDEA metadata
+.metadata/
+
+**/.project
+**/.classpath
+**/.settings/
