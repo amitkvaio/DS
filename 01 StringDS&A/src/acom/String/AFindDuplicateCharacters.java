@@ -27,6 +27,9 @@ public class AFindDuplicateCharacters {
 			} else {
 				map.put(c, 1);
 			}
+			//Or
+			//Add the current character to the map and increase its frequency
+			map.put(str.charAt(c), map.getOrDefault(str.charAt(c), 0) + 1);
 		}
 		Set<Character> set = map.keySet();
 		Iterator<Character> it = set.iterator();

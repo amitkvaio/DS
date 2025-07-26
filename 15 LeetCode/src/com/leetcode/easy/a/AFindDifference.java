@@ -95,8 +95,6 @@ Example 2:
 Input: s = "", t = "y"
 Output: "y"
 
- 
-
 Constraints:
 
     0 <= s.length <= 1000

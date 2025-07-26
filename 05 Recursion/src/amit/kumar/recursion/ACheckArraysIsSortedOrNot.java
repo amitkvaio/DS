@@ -1,4 +1,4 @@
-package acom.recursion.intermediate;
+package amit.kumar.recursion;
 
 public class ACheckArraysIsSortedOrNot {
 	public static void main(String[] args) {
