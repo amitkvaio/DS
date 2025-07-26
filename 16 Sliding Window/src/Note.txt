@@ -1,0 +1,73 @@
+https://builtin.com/data-science/sliding-window-algorithm
+Summary: The sliding window algorithm is a technique that reduces nested loops into a single loop, 
+	optimizing time complexity from O(n²) to O(n). It’s used on arrays, lists or strings to 
+	find subarrays or substrings that meet conditions like maximum sum or target values. 
+	
+	
+Sliding Window Algorithm Definition
+*************************************
+Sliding window algorithm is a problem solving technique that transforms two nested loops into one loop. 
+It can reduce the time complexity of an algorithm to O(n).
+	
+	
+What Is the Sliding Window Algorithm? 
+*****************************************
+The basic idea behind the sliding window technique is to transform two nested loops into a single loop. Below are some fundamental clues to identify sliding window algorithm problems:
+
+    The problem will be based on an array, list or string type of data structure.
+    It will ask to find subranges in that array to give the longest, shortest or target values of a string.
+    Its concept is mainly based on ideas like the longest sequence or shortest sequence of something that satisfies a given condition perfectly.
+    
+    
+Maximum/Minimum Subarray Sum:
+Longest Substring with K Distinct Characters:
+Longest Subarray with Ones after Replacement:
+Find All Anagrams in a String:
+Smallest Subarray with Sum at Least K:
+Maximum Consecutive Ones after Flipping Zeros:
+Minimum Window Substring:
+Longest Repeating Character Replacement:
+Fruit Into Baskets:
+Subarrays with Product Less than K:
+
+#########################################################33333
+Minimum Window Substring | Variable Size Sliding Window
+
+Explanation of Main Logic:
+Character Frequency Count (Step 1):
+    Store how many times each character in string t is needed using a HashMap.
+    
+Sliding Window Expansion (Step 2):
+    Use two pointers (i and j) to maintain a window over string str.
+    Expand the window by moving j to include characters.
+
+Window Shrinking (Step 3):
+    When all characters from t are matched (count == 0), try to shrink the window from the left (i) to find a smaller valid window.
+    Update the answer if the current window is smaller than previously stored one.
+
+Window Validity Check:
+    A window is valid only if all characters in t with the required frequency are present in the current window.
+ 
+ 
+Time Complexity (TC):
+************************
+    O(n + m), where:
+        n = length of string str
+        m = length of string t
+
+Reason:
+*******
+    We traverse str once with two pointers (i and j) ⇒ O(n)
+    We build frequency map for t once ⇒ O(m)
+    Each character is processed at most twice (once by j, once by i) ⇒ O(n)
+
+✅ Space Complexity (SC):
+*************************
+    O(m)
+
+Reason:
+***********
+    We store character counts of string t in a HashMap.
+    In worst case, all characters of t are unique ⇒ O(m)
+      
+      
