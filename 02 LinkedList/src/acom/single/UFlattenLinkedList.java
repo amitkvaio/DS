@@ -30,7 +30,7 @@ public class UFlattenLinkedList {
 				// Connect the child list to the current node's next
 				temp.next = current.next;
 				current.next = current.child;
-				current.child = null; // Set child to null after flattening
+				//current.child = null; // Set child to null after flattening
 			}
 
 			// Move to the next node
@@ -62,7 +62,7 @@ public class UFlattenLinkedList {
 		Node node4 = new Node(4);
 		Node node5 = new Node(5);
 		Node node6 = new Node(6);
-		Node node7 = new Node(5);
+		Node node7 = new Node(7);
 
 		node1.next = node2;
 		node2.next = node3;

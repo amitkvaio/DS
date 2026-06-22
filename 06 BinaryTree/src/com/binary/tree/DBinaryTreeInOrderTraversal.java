@@ -33,7 +33,7 @@ public class DBinaryTreeInOrderTraversal {
 	*/
 	
 	
-	// We can also sove this problem using stack
+	// We can also solve this problem using stack
 	public static List<Integer> inOrderTraversalUsingStack(TreeNode root) {
 
 		List<Integer> list = new ArrayList<Integer>();

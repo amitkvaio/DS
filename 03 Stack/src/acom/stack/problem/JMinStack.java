@@ -42,7 +42,6 @@ public class JMinStack {
 
 	public static void main(String[] args) {
 		JMinStack minStack = new JMinStack();
-
 		minStack.push(20);
 		System.out.println("Minimum element after push(" + minStack.top() + "): " + minStack.getMin());
 

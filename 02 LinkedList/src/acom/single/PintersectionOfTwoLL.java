@@ -39,7 +39,9 @@ public class PintersectionOfTwoLL {
 		
 		System.out.println("######################## Using Hash set ###########################");	
 		System.out.println(getIntersectionNodeUsingHashSet(head1, head2));
-	
+		
+		System.out.println("######################### Using Two pointer approach ###############");
+		System.out.println(getIntersectionNodeUsingTwoPointers(head1, head2));
 	}
 
 	// Function to find the intersection point of two linked lists
@@ -51,16 +53,20 @@ public class PintersectionOfTwoLL {
 		// Get the lengths of both lists
 		int lengthA = getLength(headA);
 		int lengthB = getLength(headB);
+		System.out.println(lengthA +"-->"+lengthB);
 
 		// Align the starting points
 		while (lengthA > lengthB) {
 			headA = headA.next;
+			System.out.println(headA.data + "-a-=>");
 			lengthA--;
 		}
 		while (lengthB > lengthA) {
 			headB = headB.next;
+			System.out.println(headB.data + "-b-=>");
 			lengthB--;
 		}
+		
 
 		// Traverse both lists together to find the intersection
 		while (headA != null && headB != null) {
@@ -122,8 +128,20 @@ public class PintersectionOfTwoLL {
 		// Traverse both lists until they meet or both pointers reach the end
 		while (pointerA != pointerB) {
 			// Move to the next node, or to the head of the other list if end is reached
-			pointerA = (pointerA == null) ? headB : pointerA.next;
-			pointerB = (pointerB == null) ? headA : pointerB.next;
+			
+			if (pointerA == null)
+				pointerA = headB;
+			else
+				pointerA = pointerA.next;
+			
+			//pointerA = (pointerA == null) ? headB : pointerA.next;
+			
+			if (pointerB == null)
+				pointerB = headA;
+			else
+				pointerB = pointerB.next;
+			
+			//pointerB = (pointerB == null) ? headA : pointerB.next;
 		}
 
 		// If they meet, pointerA or pointerB will be the intersection node, otherwise
@@ -154,5 +172,13 @@ Time Complexity:
 Space Complexity:
     O(1), as no extra space is used other than the two pointers
 
+
+Why This Works
+
+After switching:
+PointerA travels: A + B
+PointerB travels: B + A
+So both travel equal distance total.
+When distances become equal, they meet exactly at the intersection node.
 
 */

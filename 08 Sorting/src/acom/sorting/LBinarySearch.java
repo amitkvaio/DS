@@ -16,7 +16,7 @@ public class LBinarySearch {
 		int low, high, mid;
 		low = 0;
 		high = size - 1;
-		while (low <= high) {
+		while (low < high) {
 			mid = low + (high - low) / 2; // to avoid potential overflow.
 			if (arr[mid] == target) {
 				return mid;

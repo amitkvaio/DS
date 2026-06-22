@@ -36,11 +36,16 @@ public class TLinkedListPartition {
 	}
 	
 	public static Node linkedListPartioned(Node head, int partVal) {
+		
+		if (head == null) return null;
+
 		Node LH =null;
 		Node LT = null;
 		Node RH = null;
 		Node RT = null;
+		
 		Node temp = head;
+		
 		while (temp != null) {
 			if (temp.data < partVal) {
 				if (LH == null) {
@@ -63,9 +68,13 @@ public class TLinkedListPartition {
 		}
 		
 		//if not mentioned below  two lines of code then it will create cycle.
-		LT.next = null;
-		RT.next = null;
-		
+		 // End both lists properly
+        
+		if (LT != null) 
+			LT.next = null;
+        if (RT != null) 
+        	RT.next = null;
+
 		//there is no right linked List and left is there then returning left head
 		if(LH!=null && RH==null)
 			return LH;

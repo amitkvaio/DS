@@ -25,14 +25,18 @@ P     I
 public class KZigZagConversion {
 	public static void main(String[] args) {
 		String str ="PAYPALISHIRING";
-		zigZagConversion(str, 3);
-		zigZagConversion("A", 1);
+		//zigZagConversion(str, 3);
+		//zigZagConversion("A", 1);
 		System.out.println("****************");
-		//zigZagConversion_1(str,3);
-		//zigZagConversion_1("A",1);
 	}
 	
 	public static void zigZagConversion(String str, int numOfRows) {
+		
+		// Edge case
+        if (numOfRows == 1 || str.length() <= numOfRows) {
+            return;
+        }
+		
 		String[] strArr = new String[numOfRows];
 		for (int i = 0; i < strArr.length; i++) {
 			strArr[i]="";
@@ -40,6 +44,23 @@ public class KZigZagConversion {
 		
 		int row = 0;
 		int step = 1;
+		
+		
+		int currentRow = 0;
+        boolean goingDown = false;
+        
+        
+     // Place characters
+        for (char ch : str.toCharArray()) {
+        	strArr[row] = strArr[row] + Character.toString(ch);
+
+            // Change direction at top or bottom
+            if (currentRow == 0 || currentRow == numOfRows - 1) {
+                goingDown = !goingDown;
+            }
+
+            currentRow += goingDown ? 1 : -1;
+        }
 
 		for (int i = 0; i < str.length(); i++) {
 			System.out.println(row);
@@ -53,26 +74,6 @@ public class KZigZagConversion {
 			System.out.println(">>>>>");
 		}
 		System.out.println(Arrays.toString(strArr));
-		String result ="";
-		for (int i = 0; i < strArr.length; i++) {
-			result = result+strArr[i];
-		}
-		//System.out.println(result.replaceAll("null", ""));
-		System.out.println(result);
-	}
-	
-	public static void zigZagConversion_1(String str, int numOfRows) {
-		String[] strArr = new String[numOfRows];
-		for (int i = 0; i < strArr.length; i++) {
-			strArr[i]="";
-		}
-		
-		for (int i = 0; i < str.length(); i++) {
-			System.out.println(i%numOfRows);
-			
-			strArr[i % numOfRows] = strArr[i % numOfRows] + Character.toString(str.charAt(i));
-
-		}
 		String result ="";
 		for (int i = 0; i < strArr.length; i++) {
 			result = result+strArr[i];

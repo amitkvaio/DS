@@ -2,7 +2,8 @@ package acom.logical.maths;
 
 public class ACountOfDigits {
 	public static void main(String[] args) {
-		int nums = 00000;
+		int nums = 100000;
+		System.out.println("Nums::" + nums);
 		System.out.println(getCount(nums));
 		System.out.println(getCount_(nums));
 	}

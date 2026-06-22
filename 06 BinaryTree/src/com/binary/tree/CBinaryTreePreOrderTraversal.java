@@ -33,7 +33,7 @@ public class CBinaryTreePreOrderTraversal {
 	*/
 	
 	
-	// We can also sove this problem using stack
+	// We can also solve this problem using stack
 	public static List<Integer> inOrderTraversalUsingStack(TreeNode root) {
 		List<Integer> list = new ArrayList<Integer>();
 		if(root==null) return list;
@@ -44,10 +44,12 @@ public class CBinaryTreePreOrderTraversal {
 			root = stack.pop();
 			list.add(root.data);
 			
-			// This is because stack is LIFO, meaning after inserting right Node in stack, it will be at the bottom.
+			// This is because stack is LIFO, meaning after inserting right Node in stack. 
+			// It will be at the bottom.
 			if(root.right!=null) stack.push(root.right); 
 			
-			//After inserting left node in the stack,it will be on top, so once we pop it this left subtree will gets processed.
+			//After inserting left node in the stack,it will be on top. 
+			// So once we pop it this left subtree will gets processed.
 			if(root.left!=null) stack.push(root.left); 
 		}
 		return list;
